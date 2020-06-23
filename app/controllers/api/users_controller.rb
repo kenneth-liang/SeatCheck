@@ -1,4 +1,9 @@
 class Api::UsersController < ApplicationController
+
+    def new 
+        @user = User.new
+    end
+
     def create
         @user = User.new(user_params)
         # debugger
@@ -6,6 +11,7 @@ class Api::UsersController < ApplicationController
             login(@user)
             render "api/users/show"
         else
+            debugger
             render json: @user.errors.full_messages, status: 422
         end
     end
