@@ -10,7 +10,7 @@ class SessionForm extends React.Component{
             password: '',
         }
         this.handleSubmit = this.handleSubmit.bind(this)
-        // this.renderErrors = this.renderErrors.bind(this)
+        this.renderErrors = this.renderErrors.bind(this)
     }
 
     componentDidMount(){
@@ -42,7 +42,8 @@ class SessionForm extends React.Component{
     handleSubmit(e){
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.action(user).then(this.props.closeModal)
+        // debugger
+        this.props.action(user).then(this.props.closeModal);
     }
 
     render (){
@@ -51,10 +52,11 @@ class SessionForm extends React.Component{
             password: "password"
         })
 
-        const displayForm = this.props.formType === 'Create Account' ? (
+        const displayForm = (this.props.formType === 'Create Account') ? (
             <div className="form-container">
                 <form onSubmit={this.handleSubmit} className="form-box">
-                    <div onClick={this.props.closeModal} className="close-x">X</div>
+                    <div onClick={(e) => {e.stopPropagation
+                    this.props.closeModal;}} className="close-x">X</div>
                     <h2 className="form-title">Welcome to SeatCheck!</h2>
                     {this.renderErrors()}
                     <input type="text" value={this.state.first_name} placeholder="First Name *" onChange={this.update("first_name")} className="form-input" />
