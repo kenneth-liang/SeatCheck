@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-
+import UserContainer from '../user/user_container'
 
 const Greeting = ({currentUser, logout, openModal}) => {
 
@@ -13,18 +13,22 @@ const Greeting = ({currentUser, logout, openModal}) => {
 
 
     const loggedInMenuDrop = () => (
-      <div className="greeting">
-        <h3>{currentUser.first_name}</h3>
-        <ul class="header-dropdown-menu">
-          <li>My Profile</li>
-          <li>My Dining History</li>
-          <li>My Saved Restaurants</li>
-          <li onClick={logout}>Sign Out</li>
-        </ul>
-      </div>
+        <div className="greeting">
+          <h3>Hi, {currentUser.first_name}</h3>
+          <ul className="header-dropdown-menu">
+            <li>My Profile</li>
+            <li>My Dining History</li>
+            <li>My Saved Restaurants</li>
+            <li onClick={logout}>Sign Out</li>
+          </ul>
+        </div>
     );
 
-    return currentUser ? loggedInMenuDrop() : greetingLinks();
+    return (
+      <div>
+        {currentUser ? loggedInMenuDrop() : greetingLinks()}
+      </div>
+    );
   
 }
 
