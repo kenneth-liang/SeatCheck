@@ -14,10 +14,14 @@ const logoutCurrentUser = () => ({
   type: LOGOUT_CURRENT_USER,
 });
 
-export const receiveErrors = (errors) => ({
-  type: RECEIVE_SESSION_ERRORS,
-  errors,
-});
+export const receiveErrors = (errors) => {
+  // debugger
+  return {
+    type: RECEIVE_SESSION_ERRORS,
+    errors,
+  }
+}
+;
 
 export const clearErrors = () => ({
   type: CLEAR_ERRORS,
@@ -32,7 +36,11 @@ export const login = (user) => (dispatch) =>
 export const logout = () => (dispatch) =>
   ApiUtil.logout().then(() => dispatch(logoutCurrentUser()));
 
-export const signup = (user) => (dispatch) => (
-  ApiUtil.signup(user).then((user) => dispatch(receiveCurrentUser(user))),
-  (err) => dispatch(receiveErrors(err.responseJSON))
-);
+export const signup = (user) => (dispatch) => {
+  // debugger
+  return ApiUtil.signup(user).then(
+    (user) => dispatch(receiveCurrentUser(user)),
+    (err) => dispatch(receiveErrors(err.responseJSON)))
+}
+ 
+
