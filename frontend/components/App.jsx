@@ -16,10 +16,14 @@ import {AuthRoute, ProtectedRoute} from '../util/route_util'
 const App = () => (
   <div>
     <Modal />
-    <NavBar />
-    <div>
-      <RestaurantIndexContainer/>
-    </div>
+    <header>
+      <NavBar />
+    </header>
+    <Switch>
+      <Route exact path="/" component={RestaurantIndexContainer}/>
+    </Switch>
+
+
   </div>
 );
 

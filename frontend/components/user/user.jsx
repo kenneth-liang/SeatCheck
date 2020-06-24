@@ -7,10 +7,14 @@ class UserProfile extends React.Component{
         super(props);
     }
 
+    componentDidiMouth(){
+        this.props.fetchUser(this.props.user.id)
+    }
+
     render () {
         return(
             <div>
-                <h1>Hello</h1>
+                <h1>{`${this.props.user.first_name}'s reservations:`}</h1>    
             </div>
         )
     }

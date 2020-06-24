@@ -12,7 +12,6 @@ class RestaurantIndex extends React.Component {
     }
 
     render() {
-        // debugger;
         return (
         <div>
             {this.props.restaurants.map((restaurant) => (

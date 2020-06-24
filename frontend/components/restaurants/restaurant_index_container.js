@@ -5,7 +5,6 @@ import RestaurantIndex from './restaurant_index'
 
 
 const mSTP = state => {
-    // debugger
     return {
         restaurants: Object.values(state.entities.restaurants)
     }

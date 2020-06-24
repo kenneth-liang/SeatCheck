@@ -16,8 +16,7 @@ const Greeting = ({currentUser, logout, openModal}) => {
         <div className="greeting">
           <h3>Hi, {currentUser.first_name}</h3>
           <ul className="header-dropdown-menu">
-            <li>My Profile</li>
-            <li>My Dining History</li>
+            <li>My Reservations</li>
             <li>My Saved Restaurants</li>
             <li onClick={logout}>Sign Out</li>
           </ul>

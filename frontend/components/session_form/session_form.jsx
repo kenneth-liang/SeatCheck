@@ -1,5 +1,7 @@
 import React from 'react'
 
+import {withRouter} from 'react-router-dom'
+
 class SessionForm extends React.Component{
     constructor(props){
         super(props)
@@ -26,7 +28,6 @@ class SessionForm extends React.Component{
     }
 
     renderErrors() {
-        // debugger
         return(
             <ul>
                 {this.props.errors.map((error, i) => (
@@ -42,7 +43,6 @@ class SessionForm extends React.Component{
     handleSubmit(e){
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        // debugger
         this.props.action(user).then(this.props.closeModal);
     }
 
@@ -89,4 +89,4 @@ class SessionForm extends React.Component{
     }
 }
 
-export default SessionForm;
+export default withRouter(SessionForm);

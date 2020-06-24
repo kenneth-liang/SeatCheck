@@ -6,7 +6,6 @@ import { openModal, closeModal } from "../../actions/modal_actions";
 
 
 const mSTP = ({errors}) => {
-  // debugger
   return {
     errors: errors.session,
     formType: "Create Account",
@@ -14,7 +13,6 @@ const mSTP = ({errors}) => {
 };
 
 const mDTP = dispatch => {
-  // debugger
   return {
     action: (user) => dispatch(signup(user)),
     receiveErrors: (errors) => dispatch(receiveErrors(errors)),

@@ -3,7 +3,6 @@ import {fetchUser} from '../../actions/user_actions'
 import UserProfile from './user'
 
 const mSTP = state => {
-    // debugger
     return {
         user: state.entities.users[state.session.id]
     }
