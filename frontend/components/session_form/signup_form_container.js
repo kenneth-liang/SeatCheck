@@ -16,7 +16,7 @@ const mSTP = ({errors}) => {
 const mDTP = dispatch => {
   // debugger
   return {
-    signup: (user) => dispatch(signup(user)),
+    action: (user) => dispatch(signup(user)),
     receiveErrors: (errors) => dispatch(receiveErrors(errors)),
     closeModal: () => dispatch(closeModal()),
     clearErrors: () => dispatch(clearErrors()),
