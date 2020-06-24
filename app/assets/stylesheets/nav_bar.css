@@ -1,0 +1,49 @@
+ul.nav-bar-items {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 5px;
+    margin: 0 auto;
+    /* background: orange; */
+    border-bottom: 1px solid lightgray;
+}
+
+
+nav.greeting-links {
+    display: flex;
+    box-sizing: border-box;
+    height: 100%;
+    width: 200px;
+}
+
+
+
+button.form-button-signup {
+    color: #fff;
+    background-color: #247f9e;
+    font-size: 14px;
+    margin: 0 8px;
+    border: 0.0625rem solid #247f9e;
+    padding: 6px 12px 6px 12px;
+    cursor: pointer;
+}
+
+button.form-button-signin {
+    color: #2d333f;
+    background-color: transparent;
+    border: 0.0625rem solid #d8d9db;
+    font-size: 14px;
+    margin: 0;
+    padding: 6px 12px 6px 12px;
+    cursor: pointer;
+}
+
+h1.logo {
+    font-size: 22px;
+    font-weight: 700;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
