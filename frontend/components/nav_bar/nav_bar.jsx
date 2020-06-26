@@ -13,6 +13,9 @@ export default ({currentUser, logout}) => {
             </Link>
           </li>
           <li>
+            {/* Locations */}
+          </li>
+          <li>
             <Greeting />
           </li>
         </ul>
