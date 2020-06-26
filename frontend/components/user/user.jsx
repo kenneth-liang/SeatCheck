@@ -14,7 +14,7 @@ class UserProfile extends React.Component{
     render () {
         return(
             <div>
-                <h1>{`${this.props.user.first_name}'s reservations:`}</h1>    
+                <h1>{`${this.props.user.first_name}'s reservations & favorites:`}</h1>    
             </div>
         )
     }
