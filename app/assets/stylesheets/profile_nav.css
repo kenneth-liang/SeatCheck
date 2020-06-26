@@ -35,7 +35,6 @@ h3 {
 li:hover .header-dropdown-menu {
     display: block;
     top: 30px;
-    left: -100px;
     min-width: 30px;
     z-index: 5;
     background:white;
