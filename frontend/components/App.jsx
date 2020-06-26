@@ -6,7 +6,7 @@ import SignInFormContainer from './session_form/signin_form_container'
 import SignUpFormContainer from './session_form/signup_form_container'
 import UserContainer from './user/user_container'
 import RestaurantIndexContainer from './restaurants/restaurant_index_container'
-
+import SearchContainer from './search/search_container'
 import Modal from "./modal/modal";
 import NavBar from './nav_bar/nav_bar_container'
 
@@ -20,7 +20,8 @@ const App = () => (
       <NavBar />
     </header>
     <Switch>
-      <Route exact path="/" component={RestaurantIndexContainer}/>
+      <Route exact path="/" component={SearchContainer}/>
+      <Route path="/api/users/:id" component={UserContainer}/>
     </Switch>
 
 
