@@ -11,23 +11,23 @@ const Greeting = ({currentUser, logout, openModal}) => {
         </nav>
     );
 
-
     const loggedInMenuDrop = () => (
-        <div className="greeting">
-          <h3>Hi, {currentUser.first_name}</h3>
-          <ul className="header-dropdown-menu">
-            <li>My Reservations</li>
-            <li>My Saved Restaurants</li>
-            <li onClick={logout}>Sign Out</li>
-          </ul>
-        </div>
-    );
-
-    return (
-      <div>
-        {currentUser ? loggedInMenuDrop() : greetingLinks()}
+      <div className="greeting">
+        <h3>Hi, {currentUser.first_name}</h3>
+        <ul className="header-dropdown-menu">
+          {/* {/* <li>My Reservations</li>
+            <li>My Saved Restaurants</li> */}
+          <li> 
+            <Link to={`/api/users/${currentUser.id}`}>My Profile</Link>
+          </li>
+          <li onClick={() => logout()}>
+            <Link to="/">Sign Out</Link>
+          </li>
+        </ul>
       </div>
     );
+
+    return !currentUser ?  greetingLinks(): loggedInMenuDrop()
   
 }
 
