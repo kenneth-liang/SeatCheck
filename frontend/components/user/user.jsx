@@ -21,7 +21,6 @@ class UserProfile extends React.Component{
             </div>
 
             <div className="content-group">
-              {/* <div className="page-nav-wraper"> */}
               <nav className="page-nav">
                 <ul>
                   <li className="page-links">
@@ -51,7 +50,6 @@ class UserProfile extends React.Component{
                   <div>Display Favorites here, hidden when none</div>
                 </div>
               </div>
-              {/* </div> */}
             </div>
           </div>
         );
