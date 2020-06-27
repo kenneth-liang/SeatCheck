@@ -52,6 +52,8 @@ restaurant1 = Restaurant.create!(
 )
 pic1 = open('https://seat-check-seeds.s3-us-west-1.amazonaws.com/houseofprimerib.jpg')
 restaurant1.photo.attach(io: pic1, filename: 'houseofprimerib.jpg')
+pic1back = open('https://seat-check-seeds.s3-us-west-1.amazonaws.com/hopr-back.jpg')
+restaurant1.bphoto.attach(io: pic1back, filename: 'hopr-back.jpg')
 
 restaurant2 = Restaurant.create!(
     name: "Providence",
@@ -68,6 +70,9 @@ restaurant2 = Restaurant.create!(
 )
 pic2 = open('https://seat-check-seeds.s3-us-west-1.amazonaws.com/providence.jpg')
 restaurant2.photo.attach(io: pic2, filename: 'providence.jpg')
+pic2back = open('https://seat-check-seeds.s3-us-west-1.amazonaws.com/providence-back.jpg')
+restaurant2.bphoto.attach(io: pic2back, filename: 'providence-back.jpg')
+
 
 restaurant3 = Restaurant.create!(
     name: "Bouchon at The Venetian",
@@ -85,6 +90,8 @@ restaurant3 = Restaurant.create!(
 
 pic3 = open('https://seat-check-seeds.s3-us-west-1.amazonaws.com/bouchon.jpg')
 restaurant3.photo.attach(io: pic3, filename: 'bouchon.jpg')
+pic3back = open('https://seat-check-seeds.s3-us-west-1.amazonaws.com/bouchon-back.jpg')
+restaurant3.bphoto.attach(io: pic3back, filename: 'bouchon-back.jpg')
 
 
 restaurant4 = Restaurant.create!(
@@ -103,3 +110,5 @@ restaurant4 = Restaurant.create!(
 
 pic4 = open('https://seat-check-seeds.s3-us-west-1.amazonaws.com/koi.jpg')
 restaurant4.photo.attach(io: pic4, filename: 'koi.jpg')
+pic4back = open('https://seat-check-seeds.s3-us-west-1.amazonaws.com/koi-back.jpg')
+restaurant4.bphoto.attach(io: pic4back, filename: 'koi-back.jpg')
