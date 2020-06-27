@@ -47,3 +47,9 @@ h1.logo {
     cursor: pointer;
 }
 
+.nav-logo {
+    display: flex;
+    align-items: center;
+    padding: 10px 5px 10px 25px;
+}
+
