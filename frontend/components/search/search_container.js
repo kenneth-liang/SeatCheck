@@ -1,6 +1,9 @@
 import {connect} from 'react-redux'
 import {asArray} from '../../reducers/selectors'
-import { fetchRestaurants } from "../../actions/restaurant_actions";
+import {
+  fetchRestaurants,
+  fetchRestaurant,
+} from "../../actions/restaurant_actions";
 import Search from './search'
 
 const mSTP = state => {
@@ -12,6 +15,7 @@ const mSTP = state => {
 const mDTP = (dispatch) => {
   return {
     fetchRestaurants: () => dispatch(fetchRestaurants()),
+    // fetchRestaurant: restaurantId => dispatch(fetchRestaurant(restaurantId))
     // updateFilter: (filter, value) => dispatch(updateFilter(filter, value))
 
   };
