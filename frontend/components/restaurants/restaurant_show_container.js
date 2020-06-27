@@ -1,11 +1,12 @@
 import {connect} from 'react-redux';
-import { fetchRestaurant } from '../../util/restaurant_api_util';
+import { fetchRestaurant } from '../../actions/restaurant_actions';
 import RestaurantShow from './restaurant_show'
 
 
 const mSTP = (state, ownProps) => {
+    // debugger
     return {
-        restaurant: state.entities.restaurants[ownProps.match.params.id]
+        restaurant: state.entities.restaurants[ownProps.match.params.restaurantId]
     }
 }
 
