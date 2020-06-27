@@ -4,7 +4,7 @@ import configureStore from "./store/store";
 import Root from "./components/root";
 
 import { signup, login, logout } from './util/session_api_util';
-import {fetchRestaurants} from './actions/restaurant_actions'
+import {fetchRestaurants, fetchRestaurant} from './actions/restaurant_actions'
 
 window.signup = signup;
 window.login = login;
@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.login = login;
     window.logout = logout;
     window.fetchRestaurants = fetchRestaurants
+    window.fetchRestaurant = fetchRestaurant
 
     ReactDOM.render(<Root store={store} />, root);
 });
