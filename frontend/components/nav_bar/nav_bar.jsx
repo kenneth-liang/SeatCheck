@@ -9,12 +9,13 @@ export default ({currentUser, logout}) => {
         <ul className="nav-bar-items">
           <li>
             <Link to="/">
-                <h1 className="logo">SeatCheck</h1>
+              <div className='nav-logo'>
+                <img src="https://img.icons8.com/ios/50/000000/sleeper-chair.png" />
+                <h1 className="logo">Seat Check</h1>
+              </div>
             </Link>
           </li>
-          <li>
-            {/* Locations */}
-          </li>
+          <li>{/* Locations */}</li>
           <li>
             <Greeting />
           </li>
