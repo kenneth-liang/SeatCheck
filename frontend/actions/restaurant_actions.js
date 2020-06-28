@@ -10,10 +10,10 @@ export const receiveAllRestaurants = restaurants => {
     };
 }
 
-export const receiveRestaurant = restaurant => {
+export const receiveRestaurant = payload => {
     return {
       type: RECEIVE_RESTAURANT,
-      restaurant
+      payload
     };
 }
 
@@ -25,4 +25,10 @@ export const fetchRestaurants = () => dispatch => {
 export const fetchRestaurant = id => dispatch => {
     return ApiUtil.fetchRestaurant(id).then(
         (payload) => dispatch(receiveRestaurant(payload)))
+}
+
+export const searchRestaurants = search => dispatch => {
+  return ApiUtil.searchRestaurants(search).then((searchedRestaurants) =>
+    dispatch(receiveAllRestaurants(searchedRestaurants))
+  );
 }
