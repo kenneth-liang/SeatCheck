@@ -24,10 +24,10 @@ class UserProfile extends React.Component{
               <nav className="page-nav">
                 <ul>
                   <li className="page-links">
-                    <Link to="/api/reservations">Reservations</Link>
+                    <Link to="/reservations">Reservations</Link>
                   </li>
                   <li className="page-links">
-                    <Link to="/api/favorites/">Saved Restaurants</Link>
+                    <Link to="/favorites/">Saved Restaurants</Link>
                   </li>
                 </ul>
               </nav>
