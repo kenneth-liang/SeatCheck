@@ -1,44 +1,122 @@
-.img{
-    height: 250px;
-    width: 350px;
-    background-size:cover;
-    flex: 0 0 350px;
-    margin-right: 25px;
-}
-
-h1.available {
-    font-family: sans-serif;
-    font-size: 18px;
-    line-height: 24px;
-    font-weight: 700;
-    margin-left: 10%;
-}
-
 .restaurant-container {
     display: flex;
     flex-direction: column;
-    margin: 30px;
     margin-bottom: 44px;
     font-family: sans-serif;
+}
+
+.restaurant-page-content{
+    margin: 20px auto;
+    min-width: 900px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.restaurant-filters{
+    float: left;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 16px;
+    margin: 20px auto;
+    width: 150px;
+    height: 300px;
 }
 
 .restaurant-items {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
+    border: 1px solid black;
+    margin: 20px auto;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px 0px #ccc;
+    padding: 16px;
+    float: left;
+    width: 620px;
 }
 
-div#rest-img {
-    margin-top: 25px;
-    width: 250px;
-    box-shadow: 0 2px 2px lightgray, 0 2px 5px black;
+.search-control {
+    background-color: white;
+    background-image: url(//media.otstatic.com/search-result-node/images/patterns/woodgrain-dark.7b6a1e98.png)
 }
 
-.restaurant-info {
-    margin-top: 15px;
+.restaurant-lists{
+    padding: 13px;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+    list-style: none;
 }
 
-div#rest-name {
+.restaurant-content{
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    width: 100%;
+    min-height: 5rem;
+}
+
+.img{
+    height: 250px;
+    width: 350px;
+    background-size: cover;
+    margin-right: 15px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.rest-name{
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 600;
+    padding-bottom: 15px;
+    padding-top: 4px;
+    color: #247f9e;
+}
+
+.rest-name:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+.rest-review {
+    padding-top: 2px;
+    margin-bottom: 4px;    
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.rest-row {
+    padding-top: 2px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    display: inline-block;
+}
+
+.restaurant-info{
+    padding: 15px;
+}
+
+
+.restaurant-info span {
+    margin-left: 8px;
+    margin-right: 12px;
+}
+
+.rest-contact {
+    font-size: 14px;
+    font-weight: 500;
+    color: #da3743;
+    vertical-align: middle;
+    line-height: 20px;
+    border: 1px solid #d8d9db;
+    border-radius: 4px;
+    display: inline-block;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    padding: 5px 10px;
 }
