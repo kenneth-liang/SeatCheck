@@ -3,4 +3,10 @@ class Restaurant < ApplicationRecord
 
     has_one_attached :photo
     has_one_attached :bphoto
+
+
+    def self.search_by_key(keyword)
+        Restaurant.where("lower(city) like ?", "%#{keyword.downcase}%")
+            .or(Restaurant.where("lower(cuisine) like ?", "%#{keyword.downcase}%"))
+    end
 end
