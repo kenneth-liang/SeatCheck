@@ -4,9 +4,12 @@ import { asArray } from "../../reducers/selectors";
 import {
   fetchRestaurants,
   fetchRestaurant,
+  searchRestaurants,
 } from "../../actions/restaurant_actions";
 
+
 const mSTP = state => {
+  // debugger
     return {
       restaurants: asArray(state.entities),
     };
@@ -15,6 +18,8 @@ const mSTP = state => {
 const mDTP = dispatch => {
     return {
       fetchRestaurants: () => dispatch(fetchRestaurants()),
+      fetchRestaurant: restaurantId => dispatch(fetchRestaurant(restaurantId)),
+      searchRestaurants: search => dispatch(searchRestaurants(search))
     };
 }
 
