@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  email           :string           not null
+#  first_name      :string           not null
+#  last_name       :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
 class User < ApplicationRecord
     validates :email, :password_digest, :session_token, presence: true
     validates :email, :session_token, uniqueness: true
@@ -8,6 +21,11 @@ class User < ApplicationRecord
     attr_reader :password
 
     # associations
+
+    has_many :reservations, 
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :Reservation
 
     # spire
 
