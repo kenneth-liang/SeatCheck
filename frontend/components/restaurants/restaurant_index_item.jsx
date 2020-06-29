@@ -22,7 +22,7 @@ class IndexItem extends React.Component{
                       <span>Ratings: chairs icon </span>
                       <span>(12345)</span>
                     </div>
-                    <div class="rest-row">
+                    <div className="rest-row">
                         <span>${restaurant.price}</span>
                         <span>{restaurant.cuisine}</span>
                         <span>{restaurant.city}</span>

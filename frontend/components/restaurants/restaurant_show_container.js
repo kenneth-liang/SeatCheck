@@ -6,7 +6,8 @@ import RestaurantShow from './restaurant_show'
 const mSTP = (state, ownProps) => {
     // debugger
     return {
-        restaurant: state.entities.restaurants[ownProps.match.params.restaurantId]
+        restaurant: state.entities.restaurants[ownProps.match.params.restaurantId],
+        currentUser: state.session.currentUser
     }
 }
 

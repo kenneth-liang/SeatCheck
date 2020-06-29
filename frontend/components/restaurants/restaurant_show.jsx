@@ -1,7 +1,7 @@
 import React from 'react';
-import {Link, withRouter} from 'react-router-dom'
+import {Route, Link, withRouter} from 'react-router-dom'
 
-
+import ReservationForm from '../reservation/reservation_form_container'
 
 class RestaurantShow extends React.Component{
     constructor(props){
@@ -18,7 +18,7 @@ class RestaurantShow extends React.Component{
         const bImg = {
           backgroundImage: `url(${restaurant.bphotoURL})`,
         };
-
+        // debugger
         return (
           <div className="single-restaurant-show">
             <div className="rest-show-header">
@@ -35,36 +35,7 @@ class RestaurantShow extends React.Component{
             <div className="rest-show-content">
               <aside className="rest-right-side">
                 <div className="side-content">
-                  <div className="reservation-box">
-                    <div className="res-header">
-                      <h3>
-                        <span>Make a reservation</span>
-                      </h3>
-                    </div>
-                    <div className="res-content">
-                      <div className="res-filters">
-                        <div className="party">
-                          <div className="party-header">Party Size</div>
-                          <div className="party-button">Party Select</div>
-                        </div>
-                        <div className="date-time">
-                          <div className="date">
-                            <div className="date-header">Date</div>
-                            <div className="date-button">Date Select</div>
-                          </div>
-                          <div className="time">
-                            <div className="time-header">Time</div>
-                            <div className="time-button">Time Select</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="res-search-button">
-                        <button className="res-button">
-                          <span>Find a Table</span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+                  <Route path={`/restaurants/:restaurantId`} component={ReservationForm}/>
                   <div className="rest-info">
                     <div className="rest-info-box">
                       <div className="box-head">Street</div>
@@ -129,5 +100,5 @@ class RestaurantShow extends React.Component{
     }
 }
 
-export default withRouter(RestaurantShow);
+export default RestaurantShow;
 
