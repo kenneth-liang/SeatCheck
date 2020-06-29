@@ -21,7 +21,7 @@ const App = () => (
     <Modal />
     <NavBar />
     <Switch>
-      <Route path="/restaurants/:restaurantId" component={RestaurantShowContainer} />
+      <Route exact path="/restaurants/:restaurantId" component={RestaurantShowContainer} />
       <Route path="/restaurants" component={RestaurantIndexContainer} />
       <Route path="/users/:id" component={UserContainer} />
       <Route exact path="/" component={HomeContainer} />
