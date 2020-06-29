@@ -1,10 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom'
 
-import RestaurantIndex from "../restaurants/restaurant_index"
-import Filters from "./filters"
-import FilterForm from './filter_form'
-
 class Search extends React.Component{
   constructor(props){
     super(props);
@@ -14,9 +10,9 @@ class Search extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  componentDidMount(){
-    this.props.searchRestaurants(this.state.search)
-  }
+  // componentDidMount(){
+  //   this.props.searchRestaurants(this.state.search)
+  // }
 
   update(field) {
     return e => this.setState({ [field]: e.currentTarget.value });
@@ -25,7 +21,7 @@ class Search extends React.Component{
   handleSubmit(e) {
     e.preventDefault();
     this.props.searchRestaurants(this.state.search)
-    //reset search 
+    //reset search?
     this.props.history.push("/restaurants");
   }
 
@@ -36,7 +32,7 @@ class Search extends React.Component{
           <div className="search-field">
             <input type="text"
               className="search-input"
-              value={this.state.searchTerms}
+              value={this.state.search}
               onChange={this.update('search')}
               placeholder="City, Restaurant, or Cuisine"
             />

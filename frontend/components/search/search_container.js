@@ -10,6 +10,7 @@ import {
 import Search from './search'
 
 const mSTP = state => {
+  // not needed 
   // debugger
     return {
       restaurants: asArray(state.entities),
@@ -19,7 +20,7 @@ const mSTP = state => {
 const mDTP = (dispatch) => {
   // debugger
   return {
-    fetchRestaurants: (filters) => dispatch(fetchRestaurants(filters)),
+    fetchRestaurants: () => dispatch(fetchRestaurants()),
     fetchRestaurant: (restaurantId) => dispatch(fetchRestaurant(restaurantId)),
     searchRestaurants: search => dispatch(searchRestaurants(search))
   };
