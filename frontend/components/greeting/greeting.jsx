@@ -18,7 +18,7 @@ const Greeting = ({currentUser, logout, openModal}) => {
           {/* {/* <li>My Reservations</li>
             <li>My Saved Restaurants</li> */}
           <li> 
-            <Link to={`/api/users/${currentUser.id}`}>My Profile</Link>
+            <Link to={`/users/${currentUser.id}`}>My Profile</Link>
           </li>
           <li onClick={() => logout()}>
             <Link to="/">Sign Out</Link>
