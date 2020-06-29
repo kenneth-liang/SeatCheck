@@ -12,3 +12,11 @@ export const fetchRestaurant = (id) => {
         url: `/api/restaurants/${id}`, 
     })
 }
+
+export const searchRestaurants = search => {
+    return $.ajax({
+      method: "GET",
+      url: "/api/restaurants",
+      data: {search}
+    });
+}
