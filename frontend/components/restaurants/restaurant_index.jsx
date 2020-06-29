@@ -7,13 +7,12 @@ class RestaurantIndex extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.fetchRestaurants();
-  }
+  // componentDidMount() {
+  //   this.props.fetchRestaurants();
+  // }
 
   render() {
     // debugger
-    //include filters
     const items = 
       this.props.restaurants.map((restaurant) => (
       <IndexItem key={restaurant.id} restaurant={restaurant} />
