@@ -10,7 +10,14 @@ require 'open-uri'
 
 User.delete_all
 Restaurant.delete_all 
+Reservation.delete_all
 
+demo = User.create!(
+    first_name: "Demo",
+    last_name: "User",
+    email: 'demo@aa.io',
+    password: 'password'
+)
 user1 = User.create!(
     first_name: "Bobby",
     last_name: "Lee",
@@ -28,13 +35,6 @@ user3 = User.create!(
     last_name: "Santino",
     email: "andrews@aa.io",
     password: "password"
-)
-
-demo = User.create!(
-    first_name: "Demo",
-    last_name: "User",
-    email: 'demo@aa.io',
-    password: 'password'
 )
 
 restaurant1 = Restaurant.create!(
@@ -64,7 +64,7 @@ restaurant2 = Restaurant.create!(
     price: 55,
     cuisine: 'Seafood',
     open_time: DateTime.parse("18:00:00"),
-    close_time: DateTime.parse("21:30:00"),
+    close_time: DateTime.parse("21:00:00"),
     phone_number: "(323) 460-4170",
     description: "Two Michelin Stars; 2019 Best Chef: West-Michael Cimarusti, 2013, 2014, 2015, 2016, 2017 Best Restaurant, LA Times; 2010 Chef of the Year, Angeleno Magazine; 2014, 2012, 2011 and 2010 Best Chef Nominee, James Beard Foundation; Best New Restaurants, Esquire Magazine; Best New Restaurant nominee, James Beard Foundation; Best Chef Pacific nominee, James Beard Foundation; Best Seafood Restaurant, Los Angeles Magazine; Top 40 Restaurants in the United States, Gayot.com; Top 50 Restaurants in the United States, Gourmet Magazine."     
 )
@@ -102,8 +102,8 @@ restaurant4 = Restaurant.create!(
     zip: "10018",
     price: 45,
     cuisine: 'Japanese',
-    open_time: DateTime.parse("17:30:00"),
-    close_time: DateTime.parse("23:30:00"),
+    open_time: DateTime.parse("17:00:00"),
+    close_time: DateTime.parse("23:00:00"),
     phone_number: "(212) 921-3330",
     description: "Rich earth tones of orange, red and brown impart warmth to the cool and tranquil space. Thin tapestries of translucent rose fabric are embellished with flame motifs and suspended from the ceiling, creating a separate seating area perfect for a light bite near the large front windows. Famous for its unique and mouth-watering interpretation of Japanese cuisine. Upscale Japanese fare is given a jolt of new life through an innovative use of ingredients, resulting in refreshing and exciting flavor combinations. Crispy Rice with Spice Tuna, an addictive version of the classic spicy tuna roll, featuring warm grilled rice topped with a thick layer of cool, savory tuna. Baked Crab Roll, for which succulent fresh crabmeat is wrapped in a thin rice crepe paper dotted with sesame seeds and baked to perfection. Hamachi Fusion with Soy-Citrus and Truffle Essence all artfully plated by Koi’s skilled culinary team."     
 )
@@ -112,3 +112,34 @@ pic4 = open('https://seat-check-seeds.s3-us-west-1.amazonaws.com/koi.jpg')
 restaurant4.photo.attach(io: pic4, filename: 'koi.jpg')
 pic4back = open('https://seat-check-seeds.s3-us-west-1.amazonaws.com/koi-back.jpg')
 restaurant4.bphoto.attach(io: pic4back, filename: 'koi-back.jpg')
+
+
+reservation1 = Reservation.create!(
+    restaurant_id: 1,
+    user_id: 1,
+    party: 2,
+    time: "17",
+    date: "2020-07-04"
+)
+
+reservation2 = Reservation.create!(
+    restaurant_id: 3,
+    user_id: 1,
+    party: 5,
+    time: "18",
+    date: "2020-10-05"
+)
+reservation3 = Reservation.create!(
+    restaurant_id: 2,
+    user_id: 1,
+    party: 3,
+    time: "19",
+    date: "2020-08-24"
+)
+reservation4 = Reservation.create!(
+    restaurant_id: 4,
+    user_id: 1,
+    party: 7,
+    time: "20",
+    date: "2020-12-18"
+)
