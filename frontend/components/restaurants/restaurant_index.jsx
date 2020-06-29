@@ -11,14 +11,32 @@ class RestaurantIndex extends React.Component {
     this.props.fetchRestaurants();
   }
 
-  items(){
-    return this.props.restaurants.map((restaurant) => (
+  render() {
+    // debugger
+    //include filters
+    const items = 
+      this.props.restaurants.map((restaurant) => (
       <IndexItem key={restaurant.id} restaurant={restaurant} />
     ));
-  }
 
-  render() {
-    //include filters
+    const errors = (
+      <div className="search-error">
+        <h3>WE DID NOT FIND A MATCH FOR YOUR SEARCH</h3>
+        <p>
+          Sorry, we couldn't find any results. Try checking your spelling or
+          using less specific keywords.
+        </p>
+        <p>
+          There are no restaurants with availability within 30 miles of your
+          search.
+        </p>
+      </div>
+    );
+    
+    let searchResults;
+
+    items.length === 0 ? searchResults = errors : searchResults = items 
+
     return (
       <div className="restaurant-container">
         <div className="search-control">
@@ -30,7 +48,9 @@ class RestaurantIndex extends React.Component {
           <div className="restaurant-filters">
             Filters here
           </div>
-          <div className="restaurant-items">{this.items()}</div>
+          <div className="restaurant-items">
+            {searchResults}
+            </div>
         </div>
       </div>
     );
