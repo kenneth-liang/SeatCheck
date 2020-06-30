@@ -3,9 +3,7 @@ import {
 } from '../actions/reservation_actions';
 
 
-const _nullErrors = { errors: [] };
-
-const reservationErrorsReducer = (state = _nullErrors, action) => {
+const reservationErrorsReducer = (state = [], action) => {
   Object.freeze(state);
   // debugger
   switch (action.type) {
