@@ -5,7 +5,7 @@ import Root from "./components/root";
 
 import { signup, login, logout } from './util/session_api_util';
 import {fetchRestaurants, fetchRestaurant} from './actions/restaurant_actions'
-
+import { fetchUserReservations} from './actions/reservation_actions'
 window.signup = signup;
 window.login = login;
 window.logout = logout;
@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.logout = logout;
     window.fetchRestaurants = fetchRestaurants
     window.fetchRestaurant = fetchRestaurant
+    window.fetchUserReservations = fetchUserReservations;
 
     ReactDOM.render(<Root store={store} />, root);
 });
