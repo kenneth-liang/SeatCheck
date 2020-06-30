@@ -131,14 +131,14 @@ reservation2 = Reservation.create!(
 )
 reservation3 = Reservation.create!(
     restaurant_id: 2,
-    user_id: 1,
+    user_id: 2,
     party: 3,
     time: "19",
     date: "2020-08-24"
 )
 reservation4 = Reservation.create!(
     restaurant_id: 4,
-    user_id: 1,
+    user_id: 2,
     party: 7,
     time: "20",
     date: "2020-12-18"
