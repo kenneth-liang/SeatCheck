@@ -39,7 +39,7 @@ export const receiveReservationErrors = errors => {
 export const createReservation = reservation => dispatch=> {
   // debugger
     return ApiUtil.createReservation(reservation).then(
-        (newReservation) => dispatch(receiveReservation(newReservation)),
+        (newReservation) => dispatch(receiveReservation(newReservation.id)),
         (errors) => dispatch(receiveReservationErrors(errors.responseJSON))
     )
 }
@@ -59,7 +59,7 @@ export const fetchUserReservations = userId => dispatch => {
     );
 }
 
-export const cancelReservation = id => dispatch => {
+export const deleteReservation = id => dispatch => {
     return ApiUtil.deleteReservation(id).then(
       (reservation) => dispatch(removeReservation(reservation.id)),
       (errors) => dispatch(receiveReservationErrors(errors.responseJSON))
