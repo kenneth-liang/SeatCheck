@@ -1,15 +1,16 @@
 import React from 'react';
 import IndexItem from './restaurant_index_item'
 import SearchForm from '../search/search_container'
+import { withRouter } from "react-router-dom";
 
 class RestaurantIndex extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  // componentDidMount() {
-  //   this.props.fetchRestaurants();
-  // }
+  componentDidMount() {
+    this.props.fetchRestaurants();
+  }
 
   render() {
     // debugger
@@ -24,10 +25,6 @@ class RestaurantIndex extends React.Component {
         <p>
           Sorry, we couldn't find any results. Try checking your spelling or
           using less specific keywords.
-        </p>
-        <p>
-          There are no restaurants with availability within 30 miles of your
-          search.
         </p>
       </div>
     );
@@ -44,9 +41,9 @@ class RestaurantIndex extends React.Component {
           </div>
         </div>
         <div className="restaurant-page-content">
-          <div className="restaurant-filters">
+          {/* <div className="restaurant-filters">
             Filters here
-          </div>
+          </div> */}
           <div className="restaurant-items">
             {searchResults}
             </div>
@@ -59,4 +56,4 @@ class RestaurantIndex extends React.Component {
 
 
 
-export default RestaurantIndex;
+export default withRouter(RestaurantIndex);

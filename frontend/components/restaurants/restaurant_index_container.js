@@ -8,6 +8,7 @@ import RestaurantIndex from './restaurant_index'
 
 const mSTP = state => {
     return {
+        currentUser: state.currentUser,
         restaurants: Object.values(state.entities.restaurants)
     }
 }

@@ -13,12 +13,11 @@ class RestaurantShow extends React.Component{
     }
 
     render (){
-        // debugger
-        const {restaurant} = this.props;
+        const restaurant = this.props.restaurant;
+        // const {restaurant} = this.props.restaurant;
         const bImg = {
           backgroundImage: `url(${restaurant.bphotoURL})`,
         };
-        // debugger
         return (
           <div className="single-restaurant-show">
             <div className="rest-show-header">
@@ -100,5 +99,5 @@ class RestaurantShow extends React.Component{
     }
 }
 
-export default RestaurantShow;
+export default withRouter(RestaurantShow);
 

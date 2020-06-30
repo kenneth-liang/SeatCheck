@@ -7,10 +7,11 @@ class IndexItem extends React.Component{
 
 
     render (){
-        const {restaurant} = this.props
+        const restaurant = this.props.restaurant
         const pImg = {
             backgroundImage: `url(${restaurant.photoURL})`
         }
+        // debugger
         return (
           <Link to={`/restaurants/${restaurant.id}`}>
             <li className="restaurant-lists">
