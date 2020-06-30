@@ -11,7 +11,8 @@ class ReservationForm extends React.Component {
       time: "14:00",
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   componentWillUnmount() {
@@ -35,8 +36,8 @@ class ReservationForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    if (this.props.user) {
-      this.state.customerId = this.props.user.id;
+    if (this.props.currentUser) {
+      this.state.customerId = this.props.currentUser.id;
     }
 
     let resInfo = {
@@ -46,16 +47,15 @@ class ReservationForm extends React.Component {
       date: this.state.date,
       time: this.state.time,
     };
+
     
     // debugger
-    this.props.createReservation(resInfo).then(() => {
-      this.props.clearErrors();
-      this.props.history.push(`/users/${this.props.user.id}`);
-    });
+    this.props.createReservation(resInfo)
+    this.props.clearErrors();
+    this.props.history.push(`/users/${this.props.currentUser.id}`);
   }
 
   render() {
-
     return (
       <div className="reservation-box">
         <div className="res-header">
@@ -63,7 +63,7 @@ class ReservationForm extends React.Component {
             <span>Make a reservation</span>
           </h3>
         </div>
-
+        {this.renderErrors()}
         <form className="res-content">
           <div className="res-filters">
             <div className="party">
@@ -103,8 +103,9 @@ class ReservationForm extends React.Component {
               </div>
             </div>
           </div>
+
           <div className="res-search-button">
-            {this.props.user ? (
+            {this.props.currentUser ? (
               <input
                 type="submit"
                 onClick={this.handleSubmit}
@@ -116,12 +117,16 @@ class ReservationForm extends React.Component {
                 type="submit"
                 onClick={this.handleSubmit}
                 value="Find a Table"
-                className="res-button"
                 disabled="disabled"
-                background="grey"
+                className="res-button"
+                id="disabled-btn"
               />
             )}
           </div>
+
+          {this.props.currentUser ? "" : (
+            <p>Log in to make a reservation!</p>
+          )}
         </form>
       </div>
     );

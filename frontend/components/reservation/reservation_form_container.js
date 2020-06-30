@@ -9,7 +9,7 @@ import ReservationForm from './reservation_form'
 
 const mSTP = state  => {
     return {
-        user: state.entities.users[state.session.id],
+        currentUser: state.entities.users[state.session.id],
         restaurants: Object.values(state.entities.restaurants),
         errors: state.errors.reservation
     };
