@@ -1,6 +1,6 @@
 class Api::RestaurantsController < ApplicationController
     def index 
-        if params[:search]
+        if params[:search] ## newyork 
             @restaurants = Restaurant.search_by_key(params[:search])
             if @restaurants ##filter is made 
                 @restaurants

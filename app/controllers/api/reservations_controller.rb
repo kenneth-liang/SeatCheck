@@ -1,6 +1,14 @@
 class Api::ReservationsController < ApplicationController
     def index 
-        @reservations = Reservation.all 
+        # @reservations = Reservation.all 
+
+        user = User.find_by(id: params[:userId])
+        # debugger
+        if user 
+            @reservations = user.reservations
+        else 
+            render json: ["No User"], status: 404
+        end
     end 
 
     def show 
@@ -11,8 +19,8 @@ class Api::ReservationsController < ApplicationController
     def create 
         @reservation = Reservation.new(reservation_params)
 
-        if @reservation 
-            render :show 
+        if @reservation.save
+            render 'api/reservations/show'
         else 
             render json: @reservation.errors.full_messages, status: 422
         end 
@@ -20,10 +28,10 @@ class Api::ReservationsController < ApplicationController
     end 
 
     def destroy 
-        @reservation = Rservation.find(params[:id])
+        @reservation = Reservation.find(params[:id])
 
         if @reservation.destroy 
-            render json: reservation
+            render json: @reservation
         else 
             render json: ["You can't destroy what's not there."], status: 404
         end
