@@ -132,6 +132,10 @@ h3.res-header {
     cursor: pointer;
 }
 
+#disabled-btn {
+    background-color: gray;
+}
+
 .rest-info {
     margin: 17px;
     padding: 13px;
