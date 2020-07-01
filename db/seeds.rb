@@ -114,6 +114,35 @@ pic4back = open('https://seat-check-seeds.s3-us-west-1.amazonaws.com/koi-back.jp
 restaurant4.bphoto.attach(io: pic4back, filename: 'koi-back.jpg')
 
 
+
+restaurant5 = Restaurant.create!(
+    name: "Amber India",
+    address: "40 West 40th Street",
+    city: "San Francisco",
+    state: "California",
+    zip: "94103",
+    price: 30,
+    cuisine: 'Indian',
+    open_time: DateTime.parse("17:00:00"),
+    close_time: DateTime.parse("22:00:00"),
+    phone_number: "(415) 777-0500",
+    description: "Amber India Restaurant embodies the spirit and essence of fine Indian cuisine. Located in the heart of downtown San Francisco, Amber India Restaurant takes Indian cuisine to a new culinary level, while still holding true to its traditional nuances. Much like the ambiance within the restaurant, Amber India’s cuisine is a mix of modern style with traditional roots. The delectable cuisine, the well paired wines, and the exotic cocktails are sure to indulge anyone’s senses. The split-level three-story restaurant can easily accommodate 140 people, with a private dining room in the back for up to 25 people. With its vaulted ceilings, stylish décor, and a constant LED light show behind the bar, Amber India Restaurant is truly a feast for both the mouth as well as the eyes."
+)
+
+restaurant6 = Restaurant.create!(
+    name: "Amber India",
+    address: "40 West 40th Street",
+    city: "San Francisco",
+    state: "California",
+    zip: "94103",
+    price: 30,
+    cuisine: 'Indian',
+    open_time: DateTime.parse("17:00:00"),
+    close_time: DateTime.parse("22:00:00"),
+    phone_number: "(415) 777-0500",
+    description: "Amber India Restaurant embodies the spirit and essence of fine Indian cuisine. Located in the heart of downtown San Francisco, Amber India Restaurant takes Indian cuisine to a new culinary level, while still holding true to its traditional nuances. Much like the ambiance within the restaurant, Amber India’s cuisine is a mix of modern style with traditional roots. The delectable cuisine, the well paired wines, and the exotic cocktails are sure to indulge anyone’s senses. The split-level three-story restaurant can easily accommodate 140 people, with a private dining room in the back for up to 25 people. With its vaulted ceilings, stylish décor, and a constant LED light show behind the bar, Amber India Restaurant is truly a feast for both the mouth as well as the eyes."
+)
+
 reservation1 = Reservation.create!(
     restaurant_id: 1,
     user_id: 1,
