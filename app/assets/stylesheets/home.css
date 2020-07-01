@@ -49,3 +49,72 @@
     color: #fff;
     text-align: center;
 }
+
+.features { 
+    width: 75%;
+    margin: 0 auto;
+    min-width: 580px;
+    margin-bottom: 50px;
+}
+.areas { 
+    margin-top: 55px;
+    padding-bottom: 5px;
+    border: 1px solid white ;
+    border-radius: 5px ;
+    box-shadow: 0px 3px 7px 0px #ccc;
+}
+
+.areas h1{
+    border-bottom: 1px solid lightgray;
+    font-size: 24px;
+    padding: 10px 0px 20px 0px;
+    margin: 10px 20px;
+    font-weight: 800;
+    font-family: sans-serif;
+}
+
+.area-list {
+    padding: 10px;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+}
+
+.city {
+    width: 40%;
+    height: 200px;
+    color: white;
+    font-size: 22px;
+    text-align: center;
+    line-height: 200px;
+    background: orange;
+    margin: 5px;
+    border-radius: 5px;
+    text-shadow: 1px 1px 2px #000;
+    font-family: sans-serif;
+}
+
+.city:hover {
+  opacity: 0.80;
+  cursor: pointer;
+}
+
+
+
+
+#san_francisco {
+    background: url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/san+francisco.jpeg") no-repeat;
+    background-size: cover;
+}
+#los_angeles {
+    background: url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/los-angeles.jpg") no-repeat;
+    background-size: cover;
+}
+#new_york {
+    background: url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/newyork.jpg") no-repeat;
+    background-size: cover;
+}
+#las_vegas {
+    background: url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/lasvegas.jpg") no-repeat;
+    background-size: cover;
+}

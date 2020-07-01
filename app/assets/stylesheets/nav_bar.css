@@ -1,3 +1,7 @@
+.nav-bar{
+    background: white
+}
+
 ul.nav-bar-items {
     box-sizing: border-box;
     display: flex;
@@ -8,8 +12,8 @@ ul.nav-bar-items {
     margin: 0 auto;
     /* background: orange; */
     border-bottom: 1px solid lightgray;
+    max-width: 90%;
 }
-
 
 nav.greeting-links {
     display: flex;
@@ -17,7 +21,6 @@ nav.greeting-links {
     height: 100%;
     width: 200px;
 }
-
 
 
 button.form-button-signup {

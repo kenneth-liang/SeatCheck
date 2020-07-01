@@ -59,9 +59,12 @@
 }
 
 .reservation-box {
-    padding-bottom: 8px;
-    box-shadow: 0 2px 8px rgba(153,153,153,.4);   
+    border-radius: 10px;
+    border: 1px solid transparent;
+    box-shadow: 0 5px 10px grey;
 }
+
+
 
 .res-header {
     height: 48px;
@@ -91,7 +94,6 @@ h3.res-header {
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
     background-color: #fff;
-    margin-bottom: 1rem;
 }
 
 .res-filters{

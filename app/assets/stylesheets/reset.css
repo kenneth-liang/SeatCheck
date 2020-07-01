@@ -32,3 +32,12 @@ ul {
   display: block;
   clear: both;
 }
+
+html {
+  height: 100%
+}
+
+body {
+    min-height: 100vh;
+    background: #f7f7f7;
+}

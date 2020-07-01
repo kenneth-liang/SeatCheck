@@ -1,6 +1,6 @@
 .page-container {
-    background: #f7f7f7;
-    min-height: 500px;
+    /* background: #f7f7f7; */
+    min-height: 100%;
     width: 100%;
     position: relative;
     font-family: sans-serif;
@@ -38,20 +38,25 @@
 }
 
 .page-nav{
-    float:left;
+    float: left;
     width: 200px;
-    padding: 20px
+    padding: 20px;
+    background: white;
+    margin-top: 20px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px grey;
 }
 
 .page-main-content{
     float: left;
     width: 620px;
     padding: 20px;
+    border: 1px solid transparent;
     border-radius: 5px;
-    box-shadow: 0 1px 0 rgba(0,0,0,.1);
+    box-shadow: 0 1px 3px grey;
     margin:20px;
     background-color: white;
-
 }
 
 .content.header{
@@ -67,12 +72,78 @@
     padding:8px;
 }
 
-.content-reservations {
 
+.reservation-index-item { 
+    padding-bottom: 1rem;
+    min-height: 10.9375rem;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+    position: relative;
+    line-height: 1.5rem;
+    z-index: 0;
+    display: flex;
+    margin-top: 15px;
 }
-.content-favorites {
+
+.res-img {
+    height: 150px;
+    width: 150px;
+    background-size: cover;
+    margin-right: 15px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.res-rest-info{
+    justify-content: flex-end;
+}
+
+
+.res-rest-name{
+    margin-right: 4rem;
+    margin-bottom: .5rem;
+    max-width: 22rem;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    clear: both;
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5rem;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.res-rest-name:hover {
+    color:red;
+    text-decoration: underline;
     
 }
 
+.cancel-button{
+    display:block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 20px;
+    background: #DA3743;
+    color: #fff;
+    border: 1px solid transparent;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+}
 
+.res-info{
+    color: red;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 15px;
+}
 
+.res-location{
+    font-size: 14px;
+    display: flex;
+    margin-top: 15px;
+    justify-content: space-evenly;
+}
