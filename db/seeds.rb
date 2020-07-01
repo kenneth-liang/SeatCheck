@@ -113,11 +113,9 @@ restaurant4.photo.attach(io: pic4, filename: 'koi.jpg')
 pic4back = open('https://seat-check-seeds.s3-us-west-1.amazonaws.com/koi-back.jpg')
 restaurant4.bphoto.attach(io: pic4back, filename: 'koi-back.jpg')
 
-
-
 restaurant5 = Restaurant.create!(
     name: "Amber India",
-    address: "40 West 40th Street",
+    address: "25 Yerba Buena",
     city: "San Francisco",
     state: "California",
     zip: "94103",
@@ -128,23 +126,74 @@ restaurant5 = Restaurant.create!(
     phone_number: "(415) 777-0500",
     description: "Amber India Restaurant embodies the spirit and essence of fine Indian cuisine. Located in the heart of downtown San Francisco, Amber India Restaurant takes Indian cuisine to a new culinary level, while still holding true to its traditional nuances. Much like the ambiance within the restaurant, Amber India’s cuisine is a mix of modern style with traditional roots. The delectable cuisine, the well paired wines, and the exotic cocktails are sure to indulge anyone’s senses. The split-level three-story restaurant can easily accommodate 140 people, with a private dining room in the back for up to 25 people. With its vaulted ceilings, stylish décor, and a constant LED light show behind the bar, Amber India Restaurant is truly a feast for both the mouth as well as the eyes."
 )
+
+pic5 = open('https://seat-check-seeds.s3-us-west-1.amazonaws.com/amberindia.jpg')
+restaurant5.photo.attach(io: pic5, filename: 'amberindia.jpg')
+pic5back = open('https://seat-check-seeds.s3-us-west-1.amazonaws.com/amberindaback.jpg')
+restaurant5.bphoto.attach(io: pic5back, filename: 'amberindia-back.jpg')
 
 restaurant6 = Restaurant.create!(
-    name: "Amber India",
-    address: "40 West 40th Street",
-    city: "San Francisco",
+    name: "Bestia",
+    address: "2121 E. 7th",
+    city: "Los Angeles",
     state: "California",
-    zip: "94103",
-    price: 30,
-    cuisine: 'Indian',
+    zip: "90021",
+    price: 45,
+    cuisine: 'Italian',
     open_time: DateTime.parse("17:00:00"),
     close_time: DateTime.parse("22:00:00"),
-    phone_number: "(415) 777-0500",
-    description: "Amber India Restaurant embodies the spirit and essence of fine Indian cuisine. Located in the heart of downtown San Francisco, Amber India Restaurant takes Indian cuisine to a new culinary level, while still holding true to its traditional nuances. Much like the ambiance within the restaurant, Amber India’s cuisine is a mix of modern style with traditional roots. The delectable cuisine, the well paired wines, and the exotic cocktails are sure to indulge anyone’s senses. The split-level three-story restaurant can easily accommodate 140 people, with a private dining room in the back for up to 25 people. With its vaulted ceilings, stylish décor, and a constant LED light show behind the bar, Amber India Restaurant is truly a feast for both the mouth as well as the eyes."
+    phone_number: "(213) 514-5724",
+    description: "A multi-regional Italian restaurant in the Arts District of downtown Los Angeles."
 )
 
+pic6 = open('https://seat-check-seeds.s3-us-west-1.amazonaws.com/bestia.jpg')
+restaurant6.photo.attach(io: pic6, filename: 'bestia.jpg')
+pic6back = open('https://seat-check-seeds.s3-us-west-1.amazonaws.com/bestiaback.jpg')
+restaurant6.bphoto.attach(io: pic6back, filename: 'bestia-back.jpg')
+
+
+restaurant7 = Restaurant.create!(
+    name: "Lexington Brass",
+    address: "517 Lexington Ave",
+    city: "New York",
+    state: "New York",
+    zip: "10017",
+    price: 25,
+    cuisine: 'American',
+    open_time: DateTime.parse("17:00:00"),
+    close_time: DateTime.parse("23:00:00"),
+    phone_number: "(212) 392-5976",
+    description: "Located adjacent to the Hotel 48 Lex in midtown Manhattan, Lexington Brass is a new age American Brasserie focused on bringing high quality dishes to diners in search of an authentic New York experience. Using only the finest, locally sourced ingredients from some of the region’s most trusted purveyors, the bustling, 100 seat restaurant combines organic, nutrient-rich proteins and fresh, seasonal produce to create a menu of hearty, tasty dishes including the Organic Pennsylvania Dutch Crispy Chicken Salad, Brass Health Bowl, vegetarian Mushroom Pasta and Herb-Roasted Branzino with many gluten free, dairy free and vegan options to boot. Offering reasonable price points and reliable quality in a relaxed upscale environment, Lexington Brass stands beside the business backdrop of modern midtown and sets itself apart with elevated brasserie favorites and a top notch team of hospitality professionals at your service breakfast, lunch, dinner and into the late evening hours."
+)
+
+pic7 = open('https://seat-check-seeds.s3-us-west-1.amazonaws.com/lexingtonbrass.jpg')
+restaurant7.photo.attach(io: pic7, filename: 'lexington.jpg')
+pic7back = open('https://seat-check-seeds.s3-us-west-1.amazonaws.com/lexingtonback.jpg')
+restaurant7.bphoto.attach(io: pic7back, filename: 'lexington-back.jpg')
+
+
+restaurant8 = Restaurant.create!(
+    name: "Nacho Daddy",
+    address: "3663 Las Vegas Blvd",
+    city: "Las Vegas",
+    state: "Nevada",
+    zip: "89109",
+    price: 20,
+    cuisine: 'Mexican',
+    open_time: DateTime.parse("15:00:00"),
+    close_time: DateTime.parse("18:00:00"),
+    phone_number: "(213) 514-5724",
+    description: "A multi-regional Italian restaurant in the Arts District of downtown Los Angeles."
+)
+
+pic8 = open('https://seat-check-seeds.s3-us-west-1.amazonaws.com/nachodaddy.jpg')
+restaurant8.photo.attach(io: pic8, filename: 'nacho.jpg')
+pic8back = open('https://seat-check-seeds.s3-us-west-1.amazonaws.com/nachodaddyback.jpeg')
+restaurant8.bphoto.attach(io: pic8back, filename: 'nacho-back.jpg')
+
+
 reservation1 = Reservation.create!(
-    restaurant_id: 1,
+    restaurant_id: 6,
     user_id: 1,
     party: 2,
     time: "17",
@@ -169,6 +218,13 @@ reservation4 = Reservation.create!(
     restaurant_id: 4,
     user_id: 2,
     party: 7,
+    time: "20",
+    date: "2020-12-18"
+)
+reservation5 = Reservation.create!(
+    restaurant_id: 7,
+    user_id: 3,
+    party: 4,
     time: "20",
     date: "2020-12-18"
 )
