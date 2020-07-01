@@ -12,7 +12,7 @@ class Api::ReservationsController < ApplicationController
     end 
 
     def show 
-        @reservation = Reserveration.find(params[:id])
+        @reservation = Reservation.find(params[:id])
     end 
 
 
