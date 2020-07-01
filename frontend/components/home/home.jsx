@@ -1,6 +1,7 @@
 import React from 'react';
-
 import SearchForm from '../search/search_container'
+import FeaturedAreas from '../featured_areas/featured_areas_container'
+
 class HomePage extends React.Component{
     constructor(props){
         super(props)
@@ -20,6 +21,9 @@ class HomePage extends React.Component{
                 </div>
               </div>
             </header>
+            <div className="features">
+              <FeaturedAreas/>
+            </div>
           </div>
         );
     }

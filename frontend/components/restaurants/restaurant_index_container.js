@@ -2,7 +2,9 @@ import {connect} from 'react-redux'
 
 import {
   fetchRestaurants,
-  fetchRestaurant} from "../../actions/restaurant_actions";
+  fetchRestaurant,
+  searchRestaurants,
+} from "../../actions/restaurant_actions";
 import RestaurantIndex from './restaurant_index'
 
 
@@ -18,6 +20,8 @@ const mDTP = dispatch => {
       fetchRestaurants: () => dispatch(fetchRestaurants()),
       fetchRestaurant: (restaurantId) => dispatch(fetchRestaurant(restaurantId)),
       fetchUserReservations: (userId) => dispatch(fetchUserReservations(userId)),
+      searchRestaurants: search => dispatch(searchRestaurants(search))
+
     };
 }
 

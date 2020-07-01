@@ -26,25 +26,31 @@ class ReservationIndexItem extends React.Component {
 
   render() {
     if (!(this.props.restaurants[this.props.reservation.restaurant_id])) return null;
-    // if (!this.props.reservation) return null;
-    // if (!this.props.restaurants) return null;
-    // debugger
     
+    const locationimg = <img className="location-icon"src="https://img.icons8.com/material/24/000000/worldwide-location--v1.png" />
+    
+
     return (
       <div className="reservation-index-item">
-        <img className="img" src={this.props.restaurants[this.props.reservation.restaurant_id].photoURL}/>
-        <Link to={`/restaurants/${this.props.reservation.restaurant_id}`}>
-          {this.props.reservation.restaurant.name}
-        </Link>
-        <h1>Date: {this.props.reservation.date}</h1>
-        <h1>Time: {this.props.reservation.time}</h1>
-        <h1>Table for {this.props.reservation.party}</h1>
-        <button
-          type="button"
-          onClick={this.deleteReservation(this.props.reservation.id)}
-        >
-          Cancel
-        </button>
+        <div className="res-img-container">
+          <img className="res-img" src={this.props.restaurants[this.props.reservation.restaurant_id].photoURL}/>
+        </div>
+        <div className="res-rest-info">
+          <Link to={`/restaurants/${this.props.reservation.restaurant_id}`} className="res-rest-name">
+            {this.props.reservation.restaurant.name}
+          </Link>
+          <div className="res-info">Date: {this.props.reservation.date}</div>
+          <div className="res-info">Time: {this.props.reservation.time}:00</div>
+          <div className="res-info">Party: {this.props.reservation.party}</div>
+          <div className="res-location">{locationimg} {this.props.reservation.restaurant.address}, {this.props.reservation.restaurant.city}</div>
+          <button
+            className="cancel-button"
+            type="button"
+            onClick={this.deleteReservation(this.props.reservation.id)}
+          >
+            Cancel
+          </button>
+        </div>
       </div>
     );
   }

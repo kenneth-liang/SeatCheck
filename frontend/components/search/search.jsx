@@ -11,7 +11,7 @@ class Search extends React.Component{
   }
 
   // componentDidMount(){
-  //   this.props.searchRestaurants(this.state.search)
+  //   this.props.fetchRestaurants()
   // }
 
   update(field) {
@@ -26,6 +26,7 @@ class Search extends React.Component{
   }
 
   render (){
+    const searchicon = <img src="https://img.icons8.com/pastel-glyph/64/000000/search--v2.png" />
     return (
       <div>
         <form className="search-form-container">

@@ -6,31 +6,20 @@ import ReservationIndex from '../reservation/reservation_index_container'
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
-    // debugger
   }
 
   componentDidMount() {
-    // debugger
     Promise.all([this.props.fetchUser(this.props.currentUser.id) 
         ,this.props.fetchUserReservations(this.props.currentUser.id)
         ,this.props.fetchRestaurants()])
-    // this.props.fetchUser(this.props.currentUser.id);
-    // this.props.fetchUserReservations(this.props.currentUser.id);
-    // this.props.fetchRestaurants();
   }
 
-
   render() {
-    // debugger
-    // if (!this.props.reservation) return null
-    // if (!this.props.restaurants) return null
-    // if (!this.props.restaurant) return null
-    // if (!this.props.reservations) return null
-
     const {currentUser} = this.props
 
     return (
       <div className="page-container">
+
         <div className="page-header">
           <div className="page-header-content">
             <h1 className="full-name">{`${currentUser.first_name} ${currentUser.last_name}`}</h1>
