@@ -9,6 +9,7 @@ class RestaurantIndex extends React.Component {
   }
 
   componentDidMount() {
+    // debugger
     this.props.fetchRestaurants();
   }
 
@@ -37,7 +38,7 @@ class RestaurantIndex extends React.Component {
       <div className="restaurant-container">
         <div className="search-control">
           <div className="page-header-content">
-            <SearchForm />
+            <SearchForm restaurants={this.props.restaurants}/>
           </div>
         </div>
         <div className="restaurant-page-content">

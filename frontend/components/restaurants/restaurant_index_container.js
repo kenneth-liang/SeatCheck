@@ -17,6 +17,7 @@ const mDTP = dispatch => {
     return {
       fetchRestaurants: () => dispatch(fetchRestaurants()),
       fetchRestaurant: (restaurantId) => dispatch(fetchRestaurant(restaurantId)),
+      fetchUserReservations: (userId) => dispatch(fetchUserReservations(userId)),
     };
 }
 

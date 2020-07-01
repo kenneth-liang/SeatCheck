@@ -5,7 +5,7 @@ class IndexItem extends React.Component{
         super(props)
     }
 
-
+  
     render (){
         const restaurant = this.props.restaurant
         const pImg = {

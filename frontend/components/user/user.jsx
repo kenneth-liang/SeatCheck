@@ -1,67 +1,43 @@
 import React from "react";
 import {Link} from "react-router-dom"
 
+import ReservationIndex from '../reservation/reservation_index_container'
+
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
-    this.reservations = this.reservations.bind(this);
-    this.deleteReservation = this.deleteReservation.bind(this);
+    // debugger
   }
 
   componentDidMount() {
-    this.props.fetchUser(this.props.currentUser.id);
-    this.props.fetchUserReservations(this.props.currentUser.id);
+    // debugger
+    Promise.all([this.props.fetchUser(this.props.currentUser.id) 
+        ,this.props.fetchUserReservations(this.props.currentUser.id)
+        ,this.props.fetchRestaurants()])
+    // this.props.fetchUser(this.props.currentUser.id);
+    // this.props.fetchUserReservations(this.props.currentUser.id);
+    // this.props.fetchRestaurants();
   }
 
-  deleteReservation(id) {
-    return (e) => {
-      e.preventDefault();
-      this.props.deleteReservation(id);
-    };
-  }
-
-  reservations() {
-    const reservations = [];
-    const allRes = Object.values(this.props.reservations);
-
-    allRes.forEach((reservation) => {
-      reservations.push(reservation);
-    })
-
-    if (reservations.length > 0) {
-      return (
-        <div>
-          {reservations.map((res) => {
-            return (
-              <div>
-                <div>{res.restaurant.name}</div>
-                <div>{res.date}</div>
-                <div>{res.time}</div>
-                <div>{res.party}</div>
-                <button type="button" onClick={this.deleteReservation(res.id)}>
-                  Cancel
-                </button>
-              </div>
-            )
-          }
-          )}
-        </div>
-      );
-    } else {
-      return <p className="no-res">No Reservations</p>;
-    }
-  }
 
   render() {
+    // debugger
+    // if (!this.props.reservation) return null
+    // if (!this.props.restaurants) return null
+    // if (!this.props.restaurant) return null
+    // if (!this.props.reservations) return null
+
+    const {currentUser} = this.props
+
     return (
       <div className="page-container">
         <div className="page-header">
           <div className="page-header-content">
-            <h1 className="full-name">{`${this.props.currentUser.first_name} ${this.props.currentUser.last_name}`}</h1>
+            <h1 className="full-name">{`${currentUser.first_name} ${currentUser.last_name}`}</h1>
           </div>
         </div>
 
-        {/* <div className="content-group">
+        <div className="content-group">
           <nav className="page-nav">
             <ul>
               <li className="page-links">
@@ -72,7 +48,7 @@ class UserProfile extends React.Component {
               </li>
             </ul>
           </nav>
-        </div> */}
+        </div>
 
         <div className="page-main-content">
           <div className="content-reservations">
@@ -80,7 +56,9 @@ class UserProfile extends React.Component {
               <h3>Reservations</h3>
             </div>
             <div className="content-feed">
-              {this.reservations()}
+              <ReservationIndex restaurants={this.props.restaurants}
+                 reservations={this.props.reservations} 
+                />
             </div>
           </div>
           <div className="content-favorites">

@@ -1,20 +1,29 @@
 import React from 'react';
-import {Route, Link, withRouter} from 'react-router-dom'
+import {Route, Link} from 'react-router-dom'
 
 import ReservationForm from '../reservation/reservation_form_container'
 
 class RestaurantShow extends React.Component{
     constructor(props){
         super(props)
+        console.log("constructor")
+    }
+
+     componentDidUpdate(preprops) {
+      // debugger
     }
 
     componentDidMount(){
+      // debugger
+        this.props.fetchRestaurants();
         this.props.fetchRestaurant(this.props.match.params.restaurantId);
     }
 
     render (){
-        const restaurant = this.props.restaurant;
-        // const {restaurant} = this.props.restaurant;
+      if (!this.props.restaurant) return null
+      console.log("render")
+        const {restaurant} = this.props;
+        // const restaurant = this.props.restaurant;
         const bImg = {
           backgroundImage: `url(${restaurant.bphotoURL})`,
         };
@@ -34,7 +43,7 @@ class RestaurantShow extends React.Component{
             <div className="rest-show-content">
               <aside className="rest-right-side">
                 <div className="side-content">
-                  <Route path={`/restaurants/:restaurantId`} component={ReservationForm}/>
+                  <ReservationForm/>
                   <div className="rest-info">
                     <div className="rest-info-box">
                       <div className="box-head">Street</div>
@@ -99,5 +108,5 @@ class RestaurantShow extends React.Component{
     }
 }
 
-export default withRouter(RestaurantShow);
+export default RestaurantShow;
 

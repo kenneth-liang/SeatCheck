@@ -8,6 +8,7 @@ import {
 import {fetchRestaurants} from '../../actions/restaurant_actions'
 
 const mSTP = state => {
+  // debugger
     return {
         currentUser: state.entities.users[state.session.id],
         reservations: state.entities.reservations,
@@ -18,8 +19,11 @@ const mSTP = state => {
 const mDTP = dispatch => {
     return {
       fetchUser: (userId) => dispatch(fetchUser(userId)),
-      fetchUserReservations: (userId) => dispatch(fetchUserReservations(userId)),
-      deleteReservation: (reservationId) => dispatch(deleteReservation(reservationId)),
+      fetchUserReservations: (userId) =>
+        dispatch(fetchUserReservations(userId)),
+      deleteReservation: (reservationId) =>
+        dispatch(deleteReservation(reservationId)),
+      fetchRestaurants : () => dispatch(fetchRestaurants())
     };
 }
 

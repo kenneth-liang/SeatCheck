@@ -1,4 +1,5 @@
 import React from "react"
+import {withRouter} from 'react-router-dom'
 
 class ReservationForm extends React.Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class ReservationForm extends React.Component {
       party: 1,
       date: "",
       time: "14:00",
+      // restaurant
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -48,8 +50,6 @@ class ReservationForm extends React.Component {
       time: this.state.time,
     };
 
-    
-    // debugger
     this.props.createReservation(resInfo)
     this.props.clearErrors();
     this.props.history.push(`/users/${this.props.currentUser.id}`);
@@ -133,4 +133,4 @@ class ReservationForm extends React.Component {
   }
 }
 
-export default ReservationForm;
+export default withRouter(ReservationForm);

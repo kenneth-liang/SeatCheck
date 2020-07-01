@@ -15,14 +15,14 @@ import NavBar from './nav_bar/nav_bar_container'
 
 import {AuthRoute, ProtectedRoute} from '../util/route_util'
 
-
+// debugger
 const App = () => (
   <div>
     <Modal />
     <NavBar />
     <Switch>
+      <Route exact path="/restaurants" component={RestaurantIndexContainer} />
       <Route exact path="/restaurants/:restaurantId" component={RestaurantShowContainer} />
-      <Route path="/restaurants" component={RestaurantIndexContainer} />
       <Route exact path="/users/:id" component={UserContainer} />
       <Route exact path="/" component={HomeContainer} />
     </Switch>

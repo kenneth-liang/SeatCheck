@@ -1,22 +1,41 @@
 import React from 'react';
 import ReservationIndexItem from './reservation_index_item'
 
-class ReservationIndex extends React.Component{
-    constructor(props){
-        super(props)
-    }
+class ReservationIndex extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
+  // componentDidMount(){
+  //   this.props.fetchRestaurants();
+  // }
 
-    render(){
-        <div className="reservations">
-            <h1>Reservations</h1>
-            {Object.keys(this.props.reservations).map(idx => (
-                <ReservationIndexItem key={idx} reservation={this.props.reservations[idx]}/>
-            ))}
-        </div>
-    }
-
-
+  render() {
+    // debugger
+    return (
+      <div className="reservations">
+        { (this.props.reservations.length === 0)? (
+          <p className="no-res">No Reservations</p>
+        ) : (
+          <div>
+            {this.props.reservations.map((reservation) => {
+                return (
+                    <ReservationIndexItem
+                        key={reservation.id}
+                        reservation={reservation}
+                        deleteReservation={this.props.deleteReservation}
+                        restaurants={this.props.restaurants}
+                        fetchRestaurants={this.props.fetchRestaurants}
+                        fetchReservation={this.props.fetchReservation}
+                    />
+                )
+            })}
+          </div>
+        )}
+      </div>
+    );
+  }
 }
 
 export default ReservationIndex
+

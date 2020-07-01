@@ -27,4 +27,4 @@ const mDTP = (dispatch) => {
 };
 
 
-export default connect(null,mDTP)(Search)
+export default connect(null, mDTP)(Search);
