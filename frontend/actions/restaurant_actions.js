@@ -20,12 +20,12 @@ export const receiveRestaurant = payload => {
 
 // errors handled in form
 // if nothing is returned displays custom error message 
-// export const recieveSearchErrors = errors => {
-//   return {
-//     type: RECEIVE_SEARCH_ERRORS,
-//     errors,
-//   };
-// }
+export const recieveSearchErrors = errors => {
+  return {
+    type: RECEIVE_SEARCH_ERRORS,
+    errors,
+  };
+}
 
 export const fetchRestaurants = () => dispatch => {
     return ApiUtil.fetchRestaurants().then(
@@ -40,7 +40,7 @@ export const fetchRestaurant = id => dispatch => {
 export const searchRestaurants = search => dispatch => {
   return ApiUtil.searchRestaurants(search).then(
     (searchedRestaurants) =>
-    dispatch(receiveAllRestaurants(searchedRestaurants))
-    // (errors) => dispatch(recieveSearchErrors(errors.responseJSON))
+    dispatch(receiveAllRestaurants(searchedRestaurants)),
+    (errors) => dispatch(recieveSearchErrors(errors.responseJSON))
   );
 }
