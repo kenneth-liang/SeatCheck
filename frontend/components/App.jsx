@@ -29,7 +29,8 @@ const App = () => (
 
     <footer className="footer">
       <div className="footer-description">
-        Inspired by OpenTable
+        Inspired by: 
+        <img className="footer-icon-ot"src="https://cdn.otstatic.com/cfe/4/images/opentable@2x-22713a.png"/>
       </div>
     </footer>
   </div>

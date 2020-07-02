@@ -2,8 +2,9 @@
     background-color: #2d333f;
     border-top: .0625rem solid rgba(0,0,0,.12);
     display: flex;
-    /* justify-content: center; */
-    height: 100px;
+    height: 90px;
+    width: 100%;
+    border-radius: 2px;
 }
 
 .footer-description{
@@ -13,4 +14,12 @@
     margin: 50px;
     font-family: sans-serif;
     font-size: 14px;
+    display:flex;
+    justify-content: space-evenly;
+    width: 250px;
+
+}
+
+.footer-icon-ot {
+    height: 35px;
 }
