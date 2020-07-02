@@ -39,12 +39,12 @@ class ReservationForm extends React.Component {
     e.preventDefault();
 
     if (this.props.currentUser) {
-      this.state.customerId = this.props.currentUser.id;
+      this.state.userId = this.props.currentUser.id;
     }
 
     let resInfo = {
       restaurant_id: this.state.restaurant_id,
-      user_id: this.state.customerId,
+      user_id: this.state.userId,
       party: this.state.party,
       date: this.state.date,
       time: this.state.time,

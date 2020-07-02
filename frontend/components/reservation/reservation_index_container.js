@@ -9,7 +9,6 @@ import {
 } from "../../actions/reservation_actions";
 
 const mSTP = state => {
-  
     return {
       currentUser: state.session.currentUser,
       reservations: Object.values(state.entities.reservations),
