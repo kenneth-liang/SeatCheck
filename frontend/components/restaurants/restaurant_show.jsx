@@ -1,12 +1,13 @@
 import React from 'react';
-import {Route, Link} from 'react-router-dom'
+import {Route, withRouter,Link} from 'react-router-dom'
 
 import ReservationForm from '../reservation/reservation_form_container'
-
+import RatingIndexContainer from '../rating/rating_index_container'
+import RatingForm from '../rating/rating_form_container'
 class RestaurantShow extends React.Component{
     constructor(props){
         super(props)
-        console.log("constructor")
+        // console.log("constructor")
     }
 
      componentDidUpdate(preprops) {
@@ -15,15 +16,18 @@ class RestaurantShow extends React.Component{
 
     componentDidMount(){
       // debugger
-        this.props.fetchRestaurants();
-        this.props.fetchRestaurant(this.props.match.params.restaurantId);
+      Promise.all([
+        this.props.fetchRestaurant(this.props.match.params.restaurantId),
+        this.props.fetchRestaurantRatings(this.props.match.params.restaurantId),
+        
+      ])
     }
 
     render (){
+      // debugger
       if (!this.props.restaurant) return null
-      console.log("render")
+      // console.log("render")
         const {restaurant} = this.props;
-        // const restaurant = this.props.restaurant;
         const bImg = {
           backgroundImage: `url(${restaurant.bphotoURL})`,
         };
@@ -82,7 +86,6 @@ class RestaurantShow extends React.Component{
                     <div className ="overview-detail">
                         <div className="overview-rr">
                             <div className="rest-ratings">Rating: TBD</div>
-                            <div className="rest-review-num"># Reviews</div>
                         </div>
                         <div className="overview-price">
                             <div>${restaurant.price}</div>
@@ -97,9 +100,10 @@ class RestaurantShow extends React.Component{
                   </div>
                 </div>
 
-                <div id="reviews">
-                  <div id="reviews-summary"> Review Summary </div>
-                  <div id="reviews-feed"> Review Feed </div>
+                <div id="ratings">
+                  <h3 className="ratings-title">What people are saying:</h3>
+                  <Route path={'/restaurants/:restaurantId'} component={RatingIndexContainer} />
+                  <Route path={'/restaurants/:restaurantId'} component={RatingForm} />
                 </div>
               </main>
             </div>
@@ -108,5 +112,5 @@ class RestaurantShow extends React.Component{
     }
 }
 
-export default RestaurantShow;
+export default withRouter(RestaurantShow);
 

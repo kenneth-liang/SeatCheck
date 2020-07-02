@@ -1,5 +1,9 @@
 import {connect} from 'react-redux';
 import { fetchRestaurant } from '../../actions/restaurant_actions';
+import {
+  deleteRating,
+  fetchRestaurantRatings,
+} from "../../actions/rating_actions";
 import RestaurantShow from './restaurant_show'
 
 // debugger
@@ -17,6 +21,10 @@ const mDTP = dispatch => {
       fetchRestaurants: () => dispatch(fetchRestaurants()),
       fetchRestaurant: (restaurantId) =>
         dispatch(fetchRestaurant(restaurantId)),
+      deleteRating: (ratingId) => dispatch(deleteRating(ratingId)),
+      fetchRestaurantRatings: (restaurantId) =>
+        dispatch(fetchRestaurantRatings(restaurantId)),
+        
     };
 }
 
