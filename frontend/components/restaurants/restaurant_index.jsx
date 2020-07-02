@@ -43,9 +43,9 @@ class RestaurantIndex extends React.Component {
           </div>
         </div>
         <div className="restaurant-page-content">
-          <div className="restaurant-filters">
+          {/* <div className="restaurant-filters">
             Filters coming soon
-          </div>
+          </div> */}
           <div className="restaurant-items">
             {searchResults}
             </div>
