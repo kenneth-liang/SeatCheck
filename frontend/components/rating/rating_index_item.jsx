@@ -51,15 +51,16 @@ class RatingIndexItem extends React.Component{
                     <div className="rating-info-header">
                         <span className="score-icon">{this.getScore()}</span>
                         <span className="rating-date">Sat on {this.props.rating.created_at.slice(0,10)}</span>
-                        
-                        {this.props.currentUser.id === this.props.rating.user.id ? (
-                            <button className="rating-btn" 
-                                type="button" 
-                                onClick={this.deleteRating(this.props.rating.id)}>Delete</button>
-                        ) : ( 
-                            "" 
-                        )
-                        }
+                        <span>
+                            {this.props.currentUser.id === this.props.rating.user.id ? (
+                                <button className="rating-btn" 
+                                    type="button" 
+                                    onClick={this.deleteRating(this.props.rating.id)}>Delete</button>
+                            ) : ( 
+                                "" 
+                            )
+                            }
+                        </span>
                     </div>
                     <div className="rating-review">
                         {this.props.rating.review}
