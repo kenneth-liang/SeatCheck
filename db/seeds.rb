@@ -11,6 +11,7 @@ require 'open-uri'
 User.delete_all
 Restaurant.delete_all 
 Reservation.delete_all
+Rating.delete_all
 
 demo = User.create!(
     first_name: "Demo",
@@ -26,16 +27,41 @@ user1 = User.create!(
 )
 user2 = User.create!(
     first_name: "Theo",
-    last_name: "Von",
-    email: "theov@aa.io",
+    last_name: "Ron",
+    email: "theor@aa.io",
     password: "password"
 )
 user3 = User.create!(
     first_name: "Andrew",
-    last_name: "Santino",
-    email: "andrews@aa.io",
+    last_name: "Bantino",
+    email: "andrewb@aa.io",
     password: "password"
 )
+user4 = User.create!(
+    first_name: "Joe",
+    last_name: "Pogan",
+    email: "joer@aa.io",
+    password: "password"
+)
+user5 = User.create!(
+    first_name: "Nikki",
+    last_name: "Tazer",
+    email: "nikkit@aa.io",
+    password: "password"
+)
+user6 = User.create!(
+    first_name: "Mark",
+    last_name: "Spormand",
+    email: "marks@aa.io",
+    password: "password"
+)
+user7 = User.create!(
+    first_name: "Jessica",
+    last_name: "Pirson",
+    email: "jessicanP@aa.io",
+    password: "password"
+)
+
 
 restaurant1 = Restaurant.create!(
     name: "House of Prime Rib",
@@ -228,3 +254,60 @@ reservation5 = Reservation.create!(
     time: "20",
     date: "2020-12-18"
 )
+
+reviewDataGood = [
+    "Absolutely magnificent",
+    "I did not know this awesome place was here!",
+    "My partner and I had our first date here. We loved it!",
+    "Hands down the best service in the city!",
+    "Can't wait to come back!",
+    "Be sure the try the drinks here too",
+    "Wowerz Bowsers",
+    "Wauuuuuuuu AMAZING!",
+    "I wish I knew about this earlier",
+    "Told the chef to pack his bags and things, because he should be working in the finest restaurant in the world! Love the food",
+    "Totally worth the price",
+    "I saw Steph Curry eat here!",
+    "Only thing bad about this place is that parking, there is a garage/lot 2 blocks away for $10 though.",
+    "What ever you do, don't try the steak. It is so good you will come back everyday. This place ruined my social life.",
+    "I upgrade this score because the wait staff was spectacular.",
+    "Sat down for lunch for 3 hours, stayed for dinner too.",
+    "My Lover Karen and I adore this place so much we're considering holding our ceremony here. Hope they do weddings!"
+
+]
+reviewDataBad = [
+    "I was petrified by the food here, would not recommend",
+    "Not the best in the city, but it was okay to my standard",
+    "Place was slow, but could be because I went on a Friday night.",
+    "My friend showed my this place, worst friend ever...",
+    "If my meat were Gordan Ramsey it would say IT WAS RAW, maybe try the fish next time.",
+    "I wish I knew about this eariler! so I would know how good of place this was and thats bad.",
+    "Same-Same but Different but still Same to the place across the street",
+    "Food was great, but the music they played was too loud",
+    "The entire kitchen and wait staff saw an ice cream truck and ran outside. I sat in the restaurant alone for 10 minutes. I can't believe this happened."
+]
+
+Rating.create(
+    user_id: 1,
+    restaurant_id:1,
+    overall_score: 5,
+    review: "Make no mistake. This is the best steakhouse in the town. Be sure the get the cream spinach. It's bomb diggity"
+)
+
+10.times do 
+    Rating.create(
+        user_id: (2..8).to_a.sample,
+        restaurant_id: (1..8).to_a.sample,
+        overall_score: (3..5).to_a.sample,
+        review: reviewDataGood.sample
+    )
+end
+
+10.times do 
+    Rating.create(
+        user_id: (2..8).to_a.sample,
+        restaurant_id: (1..8).to_a.sample,
+        overall_score: (1..2).to_a.sample,
+        review: reviewDataBad.sample
+    )
+end
