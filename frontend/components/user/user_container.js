@@ -5,7 +5,6 @@ import {
   fetchUserReservations,
   deleteReservation,
 } from "../../actions/reservation_actions";
-import {fetchRestaurants} from '../../actions/restaurant_actions'
 
 const mSTP = state => {
   // debugger
