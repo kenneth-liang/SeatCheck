@@ -30,6 +30,12 @@ class Restaurant < ApplicationRecord
         foreign_key: :restaurant_id,
         class_name: :Reservation
 
+    has_many :ratings,
+        primary_key: :id,
+        foreign_key: :restaurant_id,
+        class_name: :Rating
+    
+
     def self.search_by_key(keyword)
         Restaurant.where("lower(city) like ?", "%#{keyword.downcase}%")
             .or(Restaurant.where("lower(cuisine) like ?", "%#{keyword.downcase}%"))

@@ -27,6 +27,11 @@ class User < ApplicationRecord
         foreign_key: :user_id,
         class_name: :Reservation
 
+    has_many :ratings,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :Rating
+
     # spire
 
     def self.find_by_credentials(email, password)
