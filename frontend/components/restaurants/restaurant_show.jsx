@@ -67,12 +67,12 @@ class RestaurantShow extends React.Component{
 
                     <div className="rest-info-box">
                       <div className="box-head">Open</div>
-                      <div className="box-description">{restaurant.open_time}</div>
+                      <div className="box-description">{restaurant.open_time.slice(11,19)}</div>
                     </div>
 
                     <div className="rest-info-box">
                       <div className="box-head">Close</div>
-                      <div className="box-description">{restaurant.close_time}</div>
+                      <div className="box-description">{restaurant.close_time.slice(11,19)}</div>
                     </div>
 
                     <div className="rest-info-box">

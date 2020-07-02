@@ -30,10 +30,14 @@ class UserProfile extends React.Component {
           <nav className="page-nav">
             <ul>
               <li className="page-links">
-                <Link to="/reservations">Reservations</Link>
+                {/* <Link to="/reservations"> */}
+                  Reservations
+                  {/* </Link> */}
               </li>
               <li className="page-links">
-                <Link to="/favorites/">Saved Restaurants</Link>
+                {/* <Link to="/favorites/"> */}
+                  Saved Restaurants
+                  {/* </Link> */}
               </li>
             </ul>
           </nav>
@@ -55,7 +59,7 @@ class UserProfile extends React.Component {
               <h3>Saved Restaurants</h3>
             </div>
             <div className="content-feed">
-              <div>Display Favorites here, hidden when none</div>
+              <div></div>
             </div>
           </div>
         </div>

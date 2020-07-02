@@ -94,6 +94,7 @@ h3.res-header {
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
     background-color: #fff;
+    border-radius: 10px;
 }
 
 .res-filters{
@@ -239,4 +240,9 @@ h3.res-header {
     padding: 15px;
     font-size: 24px;
     font-weight: 800;
+}
+
+select.party-select {
+    width: 100%;
+    margin: 5px;
 }

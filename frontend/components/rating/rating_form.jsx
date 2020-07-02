@@ -6,7 +6,7 @@ class RatingForm extends React.Component{
         this.state = {
             user_id: "",
             restaurant_id: this.props.match.params.restaurantId,
-            overall_score: '',
+            overall_score: '1',
             review: ''
         }
 
@@ -26,13 +26,21 @@ class RatingForm extends React.Component{
         }
     }
 
+    setScore () { 
+        let scores = [] 
+
+        for (let i = 1; i <= 5; i++){
+            
+        }
+    }
+
     handleSubmit(e){
         e.preventDefault();
 
         if (this.props.currentUser) {
             this.state.userId = this.props.currentUser.id;
         }
-        debugger
+        // debugger
 
         let ratingInfo = {
             user_id: this.state.userId,

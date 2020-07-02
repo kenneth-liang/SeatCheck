@@ -67,8 +67,8 @@ class ReservationForm extends React.Component {
         <form className="res-content">
           <div className="res-filters">
             <div className="party">
-              <div className="party-header">Party Size</div>
-              <select onChange={this.update("party")}>
+              <div className="party-header">How many seats?</div>
+              <select className="party-select"onChange={this.update("party")}>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -90,15 +90,15 @@ class ReservationForm extends React.Component {
               <div className="time">
                 <div className="time-header">Time</div>
                 <select onChange={this.update("time")}>
-                  <option value="14:00">14:00</option>
-                  <option value="15:00">15:00</option>
-                  <option value="16:00">16:00</option>
-                  <option value="17:00">17:00</option>
-                  <option value="18:00">18:00</option>
-                  <option value="19:00">19:00</option>
-                  <option value="20:00">20:00</option>
-                  <option value="21:00">21:00</option>
-                  <option value="22:00">22:00</option>
+                  <option value="14">14:00</option>
+                  <option value="15">15:00</option>
+                  <option value="16">16:00</option>
+                  <option value="17">17:00</option>
+                  <option value="18">18:00</option>
+                  <option value="19">19:00</option>
+                  <option value="20">20:00</option>
+                  <option value="21">21:00</option>
+                  <option value="22">22:00</option>
                 </select>
               </div>
             </div>
