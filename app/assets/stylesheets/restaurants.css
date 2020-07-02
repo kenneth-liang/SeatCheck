@@ -20,6 +20,9 @@
     margin: 20px auto;
     width: 150px;
     height: 300px;
+    background: white;
+    box-shadow: 0 3px 6px 0px #ccc;
+
 }
 
 .restaurant-items {

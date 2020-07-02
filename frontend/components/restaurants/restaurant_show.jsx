@@ -48,6 +48,9 @@ class RestaurantShow extends React.Component{
               <aside className="rest-right-side">
                 <div className="side-content">
                   <ReservationForm/>
+                    <div className="rest-location">
+                        Map coming soon...
+                    </div>
                   <div className="rest-info">
                     <div className="rest-info-box">
                       <div className="box-head">Street</div>

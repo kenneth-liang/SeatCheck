@@ -3,8 +3,8 @@ import React from 'react';
 class RatingIndexItem extends React.Component{
     constructor(props){
         super(props)
-        // this.deleteRating = this.deleteRating.bind(this);
-        // this.getScore = this.getScore.bind(this);
+        this.deleteRating = this.deleteRating.bind(this);
+        this.getScore = this.getScore.bind(this);
     }
 
     getScore(){
@@ -33,7 +33,20 @@ class RatingIndexItem extends React.Component{
             this.props.deleteRating(id);
         }
     }
+
     render (){
+        // debugger
+        // if (!(this.props.currentUser.id === this.props.rating.user.id)) return null 
+
+        const deleleButton = 
+            (this.props.currentUser && this.props.currentUser.id === this.props.rating.user.id) ?  (
+                <button className="rating-btn"
+                    type="button"
+                    onClick={this.deleteRating(this.props.rating.id)}>Delete</button>
+            ) : (
+                ""
+            );  
+           
 
         return (
            <div className="rating-item">
@@ -52,14 +65,7 @@ class RatingIndexItem extends React.Component{
                         <span className="score-icon">{this.getScore()}</span>
                         <span className="rating-date">Sat on {this.props.rating.created_at.slice(0,10)}</span>
                         <span>
-                            {this.props.currentUser.id === this.props.rating.user.id ? (
-                                <button className="rating-btn" 
-                                    type="button" 
-                                    onClick={this.deleteRating(this.props.rating.id)}>Delete</button>
-                            ) : ( 
-                                "" 
-                            )
-                            }
+                            {deleleButton}
                         </span>
                     </div>
                     <div className="rating-review">

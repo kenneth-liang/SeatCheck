@@ -21,7 +21,7 @@ const Greeting = ({currentUser, logout, openModal}) => {
             <Link to={`/users/${currentUser.id}`}>My Profile</Link>
           </li>
           <li onClick={() => logout()}>
-            <Link to="/">Sign Out</Link>
+            Sign Out
           </li>
         </ul>
       </div>

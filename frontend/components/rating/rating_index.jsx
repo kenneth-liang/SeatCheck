@@ -7,7 +7,9 @@ class RatingIndex extends React.Component{
         super(props)
     }
     render (){
+        // debugger
         return (
+            
             <ul className="ratings-list">
                 {(this.props.ratings).map((rating) => {
                     return (

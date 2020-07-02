@@ -26,6 +26,12 @@ const App = () => (
       <ProtectedRoute exact path="/users/:id" component={UserContainer} />
       <Route exact path="/" component={HomeContainer} />
     </Switch>
+
+    <footer className="footer">
+      <div className="footer-description">
+        Inspired by OpenTable
+      </div>
+    </footer>
   </div>
 );
 

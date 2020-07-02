@@ -41,7 +41,15 @@ class RatingForm extends React.Component{
             review: this.state.review
         }
 
-       this.props.createRating(ratingInfo)
+       this.props.createRating(ratingInfo).then(() => (
+           this.setState({
+               user_id: "",
+               restaurant_id: this.props.match.params.restaurantId,
+               overall_score: '',
+               review: ''
+           })
+       ))
+
     }
 
     updateRating(newRating){
@@ -83,11 +91,29 @@ class RatingForm extends React.Component{
                             onChange={this.update('review')}
                             />
                     </div>
-                    <input type="submit" 
-                        onClick={this.handleSubmit} 
-                        value="Submit" 
-                        className="rating-submit-btn"
+                    <div>
+                        {this.props.currentUser ? (
+                        <input type="submit"
+                            onClick={this.handleSubmit}
+                            value="Submit"
+                            className="rating-submit-btn"
                         />
+                        ) : ( 
+                        <input type="submit"
+                            onClick={this.handleSubmit}
+                            value="Submit"
+                            className="rating-submit-btn"
+                            disabled = "disabled"
+                            id="disabled-btn"
+                        />
+                        )
+                        }
+                    </div>
+
+                    {this.props.currentUser ? "" : (
+                        <p>Log in to make a review!</p>
+                    )}
+                    
                 </form>
             </div>
         )

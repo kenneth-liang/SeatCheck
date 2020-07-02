@@ -5,7 +5,7 @@ class IndexItem extends React.Component{
         super(props)
     }
 
-  
+
     render (){
         const restaurant = this.props.restaurant
         const pImg = {
@@ -21,8 +21,8 @@ class IndexItem extends React.Component{
                   <div className="restaurant-info">
                     <div className="rest-name">{restaurant.name}</div>
                     <div className="rest-review">
-                      <span>Ratings: chairs icon </span>
-                      <span>(12345)</span>
+                      <span>Ratings: tbd </span>
+                      <span>({restaurant.countRating})</span>
                     </div>
                     <div className="rest-row">
                         <span>${restaurant.price}</span>
