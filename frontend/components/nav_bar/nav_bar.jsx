@@ -10,7 +10,7 @@ export default ({currentUser, logout}) => {
           <li>
             <Link to="/">
               <div className='nav-logo'>
-                <img src="https://img.icons8.com/ios/50/000000/sleeper-chair.png" />
+                <img src="https://seat-check-seeds.s3-us-west-1.amazonaws.com/sleeper-chair.png" />
                 <h1 className="logo">Seat Check</h1>
               </div>
             </Link>

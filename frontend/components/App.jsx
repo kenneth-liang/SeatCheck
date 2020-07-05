@@ -29,7 +29,7 @@ const App = () => (
     <footer className="footer">
       <div className="footer-description">
         Inspired by: 
-        <img className="footer-icon-ot"src="https://cdn.otstatic.com/cfe/4/images/opentable@2x-22713a.png"/>
+        <img className="footer-icon-ot" src="https://seat-check-seeds.s3-us-west-1.amazonaws.com/opentablelogo.png"/>
       </div>
     </footer>
   </div>
