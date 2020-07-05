@@ -27,7 +27,7 @@ class ReservationIndexItem extends React.Component {
   render() {
     if (!(this.props.restaurants[this.props.reservation.restaurant_id])) return null;
     
-    const locationimg = <img className="location-icon"src="https://img.icons8.com/material/24/000000/worldwide-location--v1.png" />
+    const locationimg = <img className="location-icon" src="https://seat-check-seeds.s3-us-west-1.amazonaws.com/worldwide-location--v1.png" />
     
 
     return (

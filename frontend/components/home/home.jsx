@@ -8,7 +8,7 @@ class HomePage extends React.Component{
     }
 
     render (){
-        const { searchRestaurants } = this.props;
+        // const { searchRestaurants } = this.props;
         return (
           <div className="home-page">
             <header className="cover">

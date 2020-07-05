@@ -13,18 +13,22 @@ class FeaturedAreas extends React.Component{
 
 
     handleClick(e){
+        //upon click use the id as the search key word 
         e.preventDefault();
         
         let city = e.target.id.split("_").join(' ');
         this.setState({
             search: city
         }, () => (
+            // search rest by search city 
             this.props.searchRestaurants(this.state.search)
         ).then( ()=> 
             this.setState({
+                //reset search 
                 search: ""
             })
         ).then(() => 
+            //navigate to restaurants 
             this.props.history.push("/restaurants"))
         )
     }

@@ -18,8 +18,6 @@ export const receiveRestaurant = payload => {
     };
 }
 
-// errors handled in form
-// if nothing is returned displays custom error message 
 export const recieveSearchErrors = errors => {
   return {
     type: RECEIVE_SEARCH_ERRORS,

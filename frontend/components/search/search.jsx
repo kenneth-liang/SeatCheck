@@ -21,12 +21,11 @@ class Search extends React.Component{
   handleSubmit(e) {
     e.preventDefault();
     this.props.searchRestaurants(this.state.search)
-    //reset search?
     this.props.history.push("/restaurants");
   }
 
   render (){
-    const searchicon = <img src="https://img.icons8.com/pastel-glyph/64/000000/search--v2.png" />
+    const searchicon = <img src="https://seat-check-seeds.s3-us-west-1.amazonaws.com/searchicon.png" />
     return (
       <div>
         <form className="search-form-container">

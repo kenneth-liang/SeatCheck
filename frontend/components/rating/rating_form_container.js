@@ -5,11 +5,9 @@ import {
   receiveRatingErrors,
 } from "../../actions/rating_actions";
 
-
-
 import RatingForm from './rating_form';
 
-const mSTP = (state, ownProps) => {
+const mSTP = (state) => {
     return {
       currentUser: state.entities.users[state.session.id],
       errors: state.errors.rating,

@@ -11,7 +11,6 @@ const ratingsReducer = (state = {}, action) =>  {
     let nextState = Object.assign({}, state)
     switch (action.type) {
         case RECEIVE_RATING:
-            // debugger
             nextState[action.rating.id] = action.rating;
             return nextState;
         case RECEIVE_RATINGS:

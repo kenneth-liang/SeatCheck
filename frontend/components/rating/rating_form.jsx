@@ -26,14 +26,6 @@ class RatingForm extends React.Component{
         }
     }
 
-    setScore () { 
-        let scores = [] 
-
-        for (let i = 1; i <= 5; i++){
-            
-        }
-    }
-
     handleSubmit(e){
         e.preventDefault();
 
@@ -76,7 +68,6 @@ class RatingForm extends React.Component{
         );
     }
 
-
     render(){
         return(
             <div className="rating-form-container">
@@ -114,8 +105,7 @@ class RatingForm extends React.Component{
                             disabled = "disabled"
                             id="disabled-btn"
                         />
-                        )
-                        }
+                        )}
                     </div>
 
                     {this.props.currentUser ? "" : (

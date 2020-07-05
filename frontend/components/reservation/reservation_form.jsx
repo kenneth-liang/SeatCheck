@@ -10,7 +10,6 @@ class ReservationForm extends React.Component {
       party: 1,
       date: "",
       time: "14:00",
-      // restaurant
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
