@@ -12,7 +12,6 @@ class IndexItem extends React.Component{
             backgroundImage: `url(${restaurant.photoURL})`
         }
       const phoneIcon = <img className="phone-icon" src="https://seat-check-seeds.s3-us-west-1.amazonaws.com/phone.png" />
-        // debugger
         return (
           <Link to={`/restaurants/${restaurant.id}`}>
             <li className="restaurant-lists">

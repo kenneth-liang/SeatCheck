@@ -14,13 +14,13 @@ class RatingIndexItem extends React.Component{
         for (var i = 0; i < overallScore; i++ ){
             score.push(
                 //filled 
-                <img key={i} className="chair-icon-filled" src="https://img.icons8.com/ios-filled/50/000000/chair.png" />
+                <img key={i} className="chair-icon-filled" src="https://seat-check-seeds.s3-us-west-1.amazonaws.com/chair-fill.png" />
             ) 
         }
         for (var i = overallScore; i < 5 ; i++ ){
             score.push(
                 //empty 
-                <img key={i} className="chair-icon" src="https://img.icons8.com/ios/50/000000/chair.png" />       
+                <img key={i} className="chair-icon" src="https://seat-check-seeds.s3-us-west-1.amazonaws.com/chair-empty.png" />       
                 ) 
         }
         return score;
@@ -35,7 +35,6 @@ class RatingIndexItem extends React.Component{
     }
 
     render (){
-        // debugger
         // if (!(this.props.currentUser.id === this.props.rating.user.id)) return null 
 
         const deleleButton = 

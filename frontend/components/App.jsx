@@ -15,7 +15,6 @@ import NavBar from './nav_bar/nav_bar_container'
 
 import {AuthRoute, ProtectedRoute} from '../util/route_util'
 
-// debugger
 const App = () => (
   <div>
     <Modal />

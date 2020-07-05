@@ -10,15 +10,12 @@ import {
 import Search from './search'
 
 const mSTP = state => {
-  // not needed 
-  // debugger
     return {
       restaurants: asArray(state.entities),
     };
 }
 
 const mDTP = (dispatch) => {
-  // debugger
   return {
     fetchRestaurants: () => dispatch(fetchRestaurants()),
     fetchRestaurant: (restaurantId) => dispatch(fetchRestaurant(restaurantId)),

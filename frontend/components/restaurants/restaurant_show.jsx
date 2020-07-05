@@ -7,15 +7,12 @@ import RatingForm from '../rating/rating_form_container'
 class RestaurantShow extends React.Component{
     constructor(props){
         super(props)
-        // console.log("constructor")
     }
 
      componentDidUpdate(preprops) {
-      // debugger
     }
 
     componentDidMount(){
-      // debugger
       Promise.all([
         this.props.fetchRestaurant(this.props.match.params.restaurantId),
         this.props.fetchRestaurantRatings(this.props.match.params.restaurantId),
@@ -24,9 +21,7 @@ class RestaurantShow extends React.Component{
     }
 
     render (){
-      // debugger
       if (!this.props.restaurant) return null
-      // console.log("render")
         const {restaurant} = this.props;
         const bImg = {
           backgroundImage: `url(${restaurant.bphotoURL})`,

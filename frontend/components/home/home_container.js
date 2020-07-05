@@ -9,7 +9,6 @@ import {
 
 
 const mSTP = state => {
-  // debugger
     return {
       restaurants: asArray(state.entities),
     };

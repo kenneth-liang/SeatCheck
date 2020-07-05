@@ -234,7 +234,7 @@ h3.res-header {
     box-shadow: 0 5px 10px grey;
     margin: 15px;
     border-radius: 5%;
-        background: url(https://www.getapkfile.com/wp-content/uploads/2018/06/My-Location-GPS-Maps-Share-location-Save-places-APK-Download-Android-APP.png) no-repeat;
+    background: url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/gpsmaps.png") no-repeat;
     background-size: cover;
     background-position: center;
     padding: 15px;

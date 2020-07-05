@@ -6,12 +6,7 @@ class ReservationIndex extends React.Component {
     super(props);
   }
 
-  // componentDidMount(){
-  //   this.props.fetchRestaurants();
-  // }
-
   render() {
-    // debugger
     return (
       <div className="reservations">
         { (this.props.reservations.length === 0)? (

@@ -6,9 +6,7 @@ import {
 } from "../../actions/rating_actions";
 import RestaurantShow from './restaurant_show'
 
-// debugger
 const mSTP = (state, ownProps) => {
-    // debugger
     return {
         // restaurants: Object.values(state.entities.restaurants),
         restaurant: state.entities.restaurants[ownProps.match.params.restaurantId],

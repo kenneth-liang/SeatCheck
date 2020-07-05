@@ -23,7 +23,7 @@
     flex: 1 1 auto;
     width: 30rem;
     height: 3rem;
-    background: url("https://img.icons8.com/pastel-glyph/64/000000/search--v2.png") no-repeat; 
+    background: url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/searchicon.png") no-repeat; 
     background-size: 25px 25px ;
     background-position: 10px 13px;
     background-color: white;

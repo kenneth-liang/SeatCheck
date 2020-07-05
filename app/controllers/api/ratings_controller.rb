@@ -2,7 +2,6 @@ class Api::RatingsController < ApplicationController
     def index  
         @current_restaurant = Restaurant.find(params[:restaurantId]) if params[:restaurantId]
         #if exists
-        # debugger
         if @current_restaurant
             @ratings = @current_restaurant.ratings.order(:created_at)
         else 

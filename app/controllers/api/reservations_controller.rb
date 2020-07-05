@@ -3,7 +3,6 @@ class Api::ReservationsController < ApplicationController
         # @reservations = Reservation.all 
 
         user = User.find_by(id: params[:userId])
-        # debugger
         if user 
             @reservations = user.reservations.order(:date)
         else 

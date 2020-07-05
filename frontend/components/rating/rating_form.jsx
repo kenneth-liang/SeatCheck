@@ -32,7 +32,6 @@ class RatingForm extends React.Component{
         if (this.props.currentUser) {
             this.state.userId = this.props.currentUser.id;
         }
-        // debugger
 
         let ratingInfo = {
             user_id: this.state.userId,

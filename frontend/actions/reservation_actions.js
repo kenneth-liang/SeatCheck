@@ -14,7 +14,6 @@ export const receiveAllReservations = reservations => {
 }
 
 export const receiveReservation = reservation => {
-  // debugger
     return {
       type: RECEIVE_RESERVATION,
       reservation
@@ -37,7 +36,6 @@ export const receiveReservationErrors = errors => {
 
 
 export const createReservation = reservation => dispatch=> {
-  // debugger
     return ApiUtil.createReservation(reservation).then(
         (newReservation) => dispatch(receiveReservation(newReservation)),
         (errors) => dispatch(receiveReservationErrors(errors.responseJSON))
