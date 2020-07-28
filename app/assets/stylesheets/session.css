@@ -9,8 +9,8 @@
 
 input.form-button {
     color: #fff;
-    width: 90%;
-    margin: 10px;
+    /* width: 90%; */
+    margin: 8px;
     background-color: #da3743;
     border-color: #b8222d;
     border-style: solid;
@@ -35,7 +35,7 @@ input.form-input {
     background: white;
     font-size: .875rem;
     border: 1px solid lightgray;
-    width: 90%;
+    /* width: 90%; */
     height: 25px;
     padding: 4px;
     margin-bottom: 10px;
@@ -62,3 +62,14 @@ h2.form-title {
     font-family: sans-serif;
     font-size: 100%;
 }
+
+
+ul.error-messsages {
+    padding: 4px;
+    margin: 8px;
+}
+
+.error-message{
+    color: red;
+}
+
