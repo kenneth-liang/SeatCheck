@@ -9,10 +9,10 @@ ul.nav-bar-items {
     align-items: center;
     height: 50px;
     padding: 5px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     /* background: orange; */
     border-bottom: 1px solid lightgray;
-    max-width: 90%;
+    /* max-width: 90%; */
 }
 
 nav.greeting-links {
