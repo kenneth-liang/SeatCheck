@@ -9,7 +9,7 @@ h3 {
     padding: 0.8125rem 16px;
     cursor: pointer;
     text-align: left;
-    font-family: sans-serif;
+    /* font-family: sans-serif; */
 }
 
 .header-dropdown-menu li:hover {

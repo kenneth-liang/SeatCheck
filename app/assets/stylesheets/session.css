@@ -15,7 +15,7 @@ input.form-button {
     border-color: #b8222d;
     border-style: solid;
     cursor: pointer;
-    font-family: sans-serif;
+    /* font-family: sans-serif; */
     font-weight: 500;
     border-width: 0;
     line-height: normal;
@@ -41,6 +41,20 @@ input.form-input {
     margin-bottom: 10px;
     margin: 8px;
 }
+input.form-error-input {
+    outline: 0;
+    font-weight: 500;
+    display: block;
+    background: white;
+    font-size: .875rem;
+    border: 1px solid red;
+    /* width: 90%; */
+    height: 25px;
+    padding: 4px;
+    margin-bottom: 10px;
+    margin: 8px;
+}
+
 .close-x {
     color: gray;
     background-color: transparent;
@@ -59,7 +73,7 @@ hr {
 }
 
 h2.form-title {
-    font-family: sans-serif;
+    /* font-family: sans-serif; */
     font-size: 100%;
 }
 
@@ -67,9 +81,15 @@ h2.form-title {
 ul.error-messsages {
     padding: 4px;
     margin: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 380px;
 }
 
 .error-message{
     color: red;
+    list-style-type: none;
+    margin-left: 15px;
 }
 

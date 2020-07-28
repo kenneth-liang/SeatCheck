@@ -44,7 +44,7 @@
     margin: 0 0 16px;
     font-size: 48px;
     line-height: 56px;
-    font-family: sans-serif;
+    /* font-family: sans-serif; */
     font-weight: 700;
     color: #fff;
     text-align: center;
@@ -70,7 +70,7 @@
     padding: 10px 0px 20px 0px;
     margin: 10px 20px;
     font-weight: 800;
-    font-family: sans-serif;
+    /* font-family: sans-serif; */
 }
 
 .area-list {
@@ -91,7 +91,7 @@
     margin: 5px;
     border-radius: 5px;
     text-shadow: 1px 1px 2px #000;
-    font-family: sans-serif;
+    /* font-family: sans-serif; */
 }
 
 .city:hover {
