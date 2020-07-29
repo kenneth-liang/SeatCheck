@@ -1,8 +1,16 @@
-/* PHASE 0: Reset */
-
-html, head, body, header,
-nav, h1, a, ul, li, main,
-section, p, footer, small {
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, 
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, head, main{
   margin: 0;
   padding: 0;
   border: 0;
@@ -48,4 +56,9 @@ html {
     width: 95%;
     margin: 0 auto;
     background: rgba(0, 0, 0, 0.05);
+}
+
+input, button {
+    font-family: 'Josefin Sans', sans-serif;
+
 }
