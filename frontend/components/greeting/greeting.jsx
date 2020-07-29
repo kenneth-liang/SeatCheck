@@ -13,17 +13,20 @@ const Greeting = ({currentUser, logout, openModal}) => {
 
     const loggedInMenuDrop = () => (
       <div className="greeting">
-        <h3>Hi, {currentUser.first_name}</h3>
-        <ul className="header-dropdown-menu">
-          {/* {/* <li>My Reservations</li>
-            <li>My Saved Restaurants</li> */}
-          <li> 
-            <Link to={`/users/${currentUser.id}`}>My Profile</Link>
-          </li>
-          <li onClick={() => logout()}>
-            Sign Out
-          </li>
-        </ul>
+        <div className="userProfileDrop">
+          <h3 className="user-header">Hi, {currentUser.first_name}!</h3>
+          <ul className="header-dropdown-menu">
+            <li>My Reservations</li>
+            <li>My Saved Restaurants</li>
+            <li> 
+              <Link to={`/users/${currentUser.id}`}>My Profile</Link>
+            </li>
+            <li onClick={() => logout()}>
+              Sign Out
+            </li>
+          </ul>
+        </div>
+        {/* <div>Upcoming Reservations</div> */}
       </div>
     );
 
