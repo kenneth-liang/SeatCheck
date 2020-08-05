@@ -14,6 +14,7 @@ class SessionForm extends React.Component{
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.renderErrors = this.renderErrors.bind(this)
+        this.demoUser = this.demoUser.bind(this)
     }
 
     componentDidMount(){
@@ -98,6 +99,45 @@ class SessionForm extends React.Component{
             return null
         }
     }
+
+    demoUser(e) {
+        e.preventDefault();
+
+        const demoUser = {
+            email: "demo@aa.io",
+            password: "password"
+        };
+
+        const speed = 100;
+        // debugger
+        if (this.state.email !== demoUser.email) {
+            const inputUsername = setInterval(() => {
+                if (this.state.email !== demoUser.email) {
+                    const temp = demoUser.email.slice(0, this.state.email.length + 1);
+                    this.setState({ email: temp });
+                } else {
+                    clearInterval(inputUsername);
+                    animatePassword()
+                }
+            }, speed);
+        };
+
+        const animatePassword = () => {
+            if (this.state.password !== demoUser.password) {
+                const inputPassword = setInterval(() => {
+                    if (this.state.password !== demoUser.password) {
+                        const temp = demoUser.password.slice(0, this.state.password.length + 1);
+                        this.setState({ password: temp });
+                    } else {
+                        clearInterval(inputPassword);
+                        // this.props.login(this.state)
+                        this.props.action(demoUser).then(this.props.closeModal)
+                    }
+                }, speed);
+            };
+        };
+    };
+    
     
     handleSubmit(e){
         e.preventDefault();
@@ -117,10 +157,10 @@ class SessionForm extends React.Component{
         const signInEmail = errors.includes("email") ? "form-error-input" : "form-input"
         const signInPassword = errors.includes("password") || errors.includes("Invalid email or password") ? "form-error-input" : "form-input"
 
-        const demo = ({
-            email: "demo@aa.io",
-            password: "password"
-        })
+        // const demo = ({
+        //     email: "demo@aa.io",
+        //     password: "password"
+        // })
 
         const displayForm = (this.props.formType === 'Create Account') ? (
             <div className="form-container">
@@ -149,7 +189,7 @@ class SessionForm extends React.Component{
                     <input type="password" value={this.state.password} placeholder="Password *" onChange={this.update("password")} className={signInPassword} /> 
                     {this.renderSignInPasswordError()}
                     <input type="submit" value={this.props.formType} className="form-button"/>
-                    <input type="submit" value="Demo Login" onClick={() => this.props.action(demo).then(this.props.closeModal)} className="form-button"/>
+                    <input type="submit" value="Demo Login" onClick={this.demoUser} className="form-button"/>
                 </form>
             </div>
         )
