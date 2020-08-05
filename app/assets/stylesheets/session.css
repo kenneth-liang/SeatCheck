@@ -28,6 +28,15 @@ input.form-button {
     height: 45px;
 }
 
+input.form-button:hover{
+    cursor: pointer;
+    opacity: 0.80;
+}
+
+input.form-input::-webkit-input-placeholder{
+    padding-left: 2px;
+}
+
 input.form-input {
     outline: 0;
     font-weight: 500;
@@ -37,9 +46,10 @@ input.form-input {
     border: 1px solid lightgray;
     /* width: 90%; */
     height: 25px;
-    padding: 4px;
+    padding: 4px 4px 4px 7px;
     margin-bottom: 10px;
     margin: 8px;
+    
 }
 input.form-error-input {
     outline: 0;
@@ -73,8 +83,14 @@ hr {
 }
 
 h2.form-title {
-    /* font-family: sans-serif; */
-    font-size: 100%;
+    /* font-size: 100%; */
+    /* margin: 8px; */
+    font-size: 24px;
+    padding: 10px 12px 10px 8px;
+    width: 95%;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 12px;
+    
 }
 
 
