@@ -30,7 +30,7 @@ button.form-button-signup {
     font-size: 20px;
     margin: 0 8px;
     border: 0.0625rem solid #247f9e;
-    padding: 6px 12px 6px 12px;
+    padding: 8px 12px 6px 12px;
     cursor: pointer;
     border-radius: 3px;
 }
@@ -41,7 +41,7 @@ button.form-button-signin {
     border: 0.0625rem solid #d8d9db;
     font-size: 20px;
     margin: 0;
-    padding: 6px 12px 6px 12px;
+    padding: 8px 12px 6px 12px;
     cursor: pointer;
     border-radius: 3px;
 }
