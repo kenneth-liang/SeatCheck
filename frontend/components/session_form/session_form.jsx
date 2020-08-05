@@ -157,16 +157,11 @@ class SessionForm extends React.Component{
         const signInEmail = errors.includes("email") ? "form-error-input" : "form-input"
         const signInPassword = errors.includes("password") || errors.includes("Invalid email or password") ? "form-error-input" : "form-input"
 
-        // const demo = ({
-        //     email: "demo@aa.io",
-        //     password: "password"
-        // })
-
         const displayForm = (this.props.formType === 'Create Account') ? (
             <div className="form-container">
                 <form onSubmit={this.handleSubmit} className="form-box">
                     <div onClick={this.props.closeModal} className="close-x">X</div>
-                    <h2 className="form-title">Welcome to SeatCheck!</h2>
+                    <h2 className="form-title">Welcome to Seat Check!</h2>
                     <input type="text" value={this.state.first_name} placeholder="First Name *" onChange={this.update("first_name")} className={firstName} />
                     {this.renderFirstNameError()}
                     <input type="text" value={this.state.last_name} placeholder="Last Name *" onChange={this.update("last_name")} className={lastName}/>
