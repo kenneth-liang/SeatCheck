@@ -31,7 +31,6 @@ const Greeting = ({currentUser, logout, openModal}) => {
     );
 
     return !currentUser ?  greetingLinks(): loggedInMenuDrop()
-  
 }
 
 export default Greeting;

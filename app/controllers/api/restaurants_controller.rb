@@ -1,8 +1,8 @@
 class Api::RestaurantsController < ApplicationController
     def index 
-        if params[:search] ## newyork 
+        if params[:search] 
             @restaurants = Restaurant.search_by_key(params[:search])
-            if @restaurants ##filter is made 
+            if @restaurants 
                 @restaurants
             else 
                 render json: ["No Restaurant Found"], status: 404
