@@ -14,6 +14,8 @@ class ReservationForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.seatsBuilder = this.seatsBuilder.bind(this);
+    this.timePickerBuilder = this.timePickerBuilder.bind(this);
   }
 
   componentWillUnmount() {
@@ -51,80 +53,97 @@ class ReservationForm extends React.Component {
 
     this.props.createReservation(resInfo)
     this.props.clearErrors();
-    this.props.history.push(`/users/${this.props.currentUser.id}`);
+    // this.props.history.push(`/users/${this.props.currentUser.id}`);
   }
 
+  seatsBuilder () { 
+    let numPeople = [] 
+    for (let i = 1; i < 11; i++){
+      numPeople.push(i);
+    }
+    let numList = numPeople.map(num => (
+      <option key={num} value={num}>
+        {num === 1 ? num + " seat" : num + " seats"}
+      </option>
+    ));
+    return numList;
+  }
+
+  timePickerBuilder() {
+    
+    let timeArr = [];
+    let openTime = this.props.restaurants[this.state.restaurant_id ].open_time;
+    openTime = parseInt(openTime.split("T")[1].split(":")[0]);
+    let closeTime = this.props.restaurants[this.state.restaurant_id].close_time;
+    closeTime = parseInt(closeTime.split("T")[1].split(":")[0]);
+    for (let i = openTime; i < closeTime; i++) {
+      timeArr.push(i);
+    }
+
+    let selectTime = timeArr.map(time => (
+      <option key={time} value={time}>
+        {" "}
+        {time < 10 ? "0" + time + ":00" : time + ":00"}
+      </option>
+    ));
+
+    return selectTime;
+  }
+
+
   render() {
+    
+    let date = new Date();
+    let minDate = date.toISOString().slice(0, 10);
     return (
       <div className="reservation-box">
-        <div className="res-header">
-          <h3>
-            <span>Make a reservation</span>
-          </h3>
-        </div>
+        <h3 id="res-h3">Make a reservation</h3>
+        
         {this.renderErrors()}
-        <form className="res-content">
-          <div className="res-filters">
-            <div className="party">
-              <div className="party-header">How many seats?</div>
-              <select className="party-select"onChange={this.update("party")}>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-              </select>
-            </div>
-            <div className="date-time">
-              <div className="date">
-                <div className="date-header">Date</div>
-                <input
-                  type="date"
-                  value={this.state.date}
-                  placeholder="YYYY-MM-DD"
-                  onChange={this.update("date")}
-                />
-              </div>
-              <div className="time">
-                <div className="time-header">Time</div>
-                <select onChange={this.update("time")}>
-                  <option value="14">14:00</option>
-                  <option value="15">15:00</option>
-                  <option value="16">16:00</option>
-                  <option value="17">17:00</option>
-                  <option value="18">18:00</option>
-                  <option value="19">19:00</option>
-                  <option value="20">20:00</option>
-                  <option value="21">21:00</option>
-                  <option value="22">22:00</option>
-                </select>
-              </div>
-            </div>
-          </div>
+        <form>
+          <select className="res-input seat" onChange={this.update("party")}>
+            {this.seatsBuilder()}
+          </select>
 
-          <div className="res-search-button">
-            {this.props.currentUser ? (
-              <input
-                type="submit"
-                onClick={this.handleSubmit}
-                value="Find a Table"
-                className="res-button"
-              />
-            ) : (
-              <input
-                type="submit"
-                onClick={this.handleSubmit}
-                value="Find a Table"
-                disabled="disabled"
-                className="res-button"
-                id="disabled-btn"
-              />
-            )}
-          </div>
+          <select className="res-input time-date" onChange={this.update("time")}>
+            {this.timePickerBuilder()}
+          </select>
 
-          {this.props.currentUser ? "" : (
-            <p>Log in to make a reservation!</p>
+          <input
+            type="date"
+            min={minDate}
+            value={this.state.date}
+            placeholder="YYYY-MM-DD"
+            onChange={this.update("date")}
+            className="res-input time-date"
+          />
+
+          {this.props.currentUser ? (
+            <input
+              type="submit"
+              onClick={this.handleSubmit}
+              value="Find a Table"
+              className="res-button"
+            />
+          ) : (
+            <input
+              type="submit"
+              onClick={this.handleSubmit}
+              value="Find a Table"
+              disabled="disabled"
+              className="res-button"
+              id="disabled-btn"
+            />
+          )}
+
+          {this.props.currentUser ? (
+            <p className="offer">
+              <i className="fas fa-chart-line"></i> Booked{" "}
+              {parseInt(this.state.restaurant_id.slice(0, 1)) * 2 + 45} times
+              today.
+            </p>
+          ) : (
+            <p id="rese-log">Log in to reserve a seat!</p>
           )}
         </form>
       </div>

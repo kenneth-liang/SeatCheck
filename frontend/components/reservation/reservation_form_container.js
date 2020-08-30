@@ -8,9 +8,10 @@ import {
 import ReservationForm from './reservation_form'
 
 const mSTP = state  => {
+  
     return {
         currentUser: state.entities.users[state.session.id],
-        restaurants: Object.values(state.entities.restaurants),
+        restaurants: state.entities.restaurants,
         errors: state.errors.reservation
     };
 }
