@@ -60,5 +60,23 @@ html {
 
 input, button {
     font-family: 'Josefin Sans', sans-serif;
+}
 
+input, label, select, button, textarea {
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+    white-space: normal;
+    background: none;
+    line-height: 1;
+    font-size: 13px;
+    /* font-family: Arial; */
+}
+
+
+i {
+  color: black;
 }

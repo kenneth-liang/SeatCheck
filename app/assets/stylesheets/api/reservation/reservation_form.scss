@@ -1,0 +1,81 @@
+.restaurant-reservation {
+  background: #fff;
+  position: sticky;
+  top:0;
+  border-radius: 4px;
+}
+
+.reservation-box {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    padding: 4px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(153,153,153,.4);
+}
+
+
+#res-h3{
+    font-size: 20px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    padding: 11px 0;
+}
+
+.party-select {
+    /* width: 100%;
+    margin: 5px; */
+    height: 42px;
+    border-bottom: 1px solid #ccc;
+    width: 99%;
+}
+
+.res-input {
+  height: 42px;
+  border-bottom: 1px solid #ccc;
+}
+
+.seat{
+  width: 99%;
+}
+
+.time-date {
+  width: 49%;
+}
+
+
+.res-button {
+  margin: 1rem;
+    padding: .75rem 1rem;
+    text-decoration: none;
+    background-color: #da3743;
+    color: #fff;
+    border: 1px solid #d8d9db;
+    font-size: 1rem;
+    line-height: 1.5;
+    width: 15rem;
+    font-weight: 500;
+    border-radius: 3px;
+    display: inline-block;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+#disabled-btn {
+    background-color: gray;
+}
+
+
+.offer {
+  font-size: 14px;
+  border-top: 1px solid #ccc;
+  padding: 12px 0;
+  text-align: center;
+}
+
+p#rese-log {
+    padding: 12px 0;
+    border-top: 1px solid #ccc;
+    justify-content: center;
+    display: flex;
+    margin-bottom: .5rem;
+}
