@@ -4,7 +4,7 @@ RECEIVE_RATINGS,
 RECEIVE_RATING_ERRORS
 } from '../actions/rating_actions'
 
-const RatingErrorsReducer = (state = [], action) => {
+const ratingErrorsReducer = (state = [], action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_RATING:
@@ -17,4 +17,4 @@ const RatingErrorsReducer = (state = [], action) => {
     }
 }
 
-export default RatingErrorsReducer;
+export default ratingErrorsReducer;
