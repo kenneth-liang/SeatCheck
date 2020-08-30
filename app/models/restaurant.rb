@@ -34,6 +34,11 @@ class Restaurant < ApplicationRecord
         primary_key: :id,
         foreign_key: :restaurant_id,
         class_name: :Rating
+
+    has_many :favorites, 
+        primary_key: :id, 
+        foreign_key: :restaurant_id,
+        class_name: :Favorite
     
 
     def self.search_by_key(keyword)
