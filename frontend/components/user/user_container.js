@@ -1,28 +1,26 @@
 import {connect} from 'react-redux';
 import {fetchUser} from '../../actions/user_actions'
 import UserProfile from './user'
-import {
-  fetchUserReservations,
-  deleteReservation,
-} from "../../actions/reservation_actions";
+import { fetchUserReservations, deleteReservation, } from "../../actions/reservation_actions";
+import { requestUserFavorites, deleteFavorite } from '../../actions/favorite_actions';
 
 const mSTP = state => {
-    return {
-        currentUser: state.entities.users[state.session.id],
-        reservations: state.entities.reservations,
-        restaurants: state.entities.restaurants
-    }
+  return {
+    currentUser: state.entities.users[state.session.id],
+    reservations: state.entities.reservations,
+    restaurants: state.entities.restaurants,
+    favorites: state.entities.favorites
+  }
 }
 
 const mDTP = dispatch => {
-    return {
-      fetchUser: (userId) => dispatch(fetchUser(userId)),
-      fetchUserReservations: (userId) =>
-        dispatch(fetchUserReservations(userId)),
-      deleteReservation: (reservationId) =>
-        dispatch(deleteReservation(reservationId)),
-      fetchRestaurants : () => dispatch(fetchRestaurants())
-    };
+  return {
+    fetchUser: (userId) => dispatch(fetchUser(userId)),
+    fetchUserReservations: (userId) => dispatch(fetchUserReservations(userId)),
+    deleteReservation: (reservationId) => dispatch(deleteReservation(reservationId)),
+    fetchRestaurants : () => dispatch(fetchRestaurants()),
+    requestUserFavorites: userId => dispatch(requestUserFavorites(userId)),
+  };
 }
 
 export default connect(mSTP,mDTP)(UserProfile)
