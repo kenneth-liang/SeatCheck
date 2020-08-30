@@ -4,6 +4,7 @@ import {Route, withRouter,Link} from 'react-router-dom'
 import ReservationForm from '../reservation/reservation_form_container'
 import RatingIndexContainer from '../rating/rating_index_container'
 import RatingForm from '../rating/rating_form_container'
+
 class RestaurantShow extends React.Component{
     constructor(props){
         super(props)
@@ -42,10 +43,12 @@ class RestaurantShow extends React.Component{
             <div className="rest-show-content">
               <aside className="rest-right-side">
                 <div className="side-content">
-                  <ReservationForm/>
-                    <div className="rest-location">
-                        Map coming soon...
-                    </div>
+                  <div className ="restaurant-reservation">
+                    <ReservationForm/>
+                  </div>
+                  <div className="rest-location">
+                      Map coming soon...
+                  </div>
                   <div className="rest-info">
                     <div className="rest-info-box">
                       <div className="box-head">Street</div>

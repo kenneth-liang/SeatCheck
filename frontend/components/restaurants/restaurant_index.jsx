@@ -9,7 +9,6 @@ class RestaurantIndex extends React.Component {
   }
 
   render() {
-
     const items = 
       this.props.restaurants.map((restaurant) => (
       <IndexItem key={restaurant.id} restaurant={restaurant} />
@@ -37,9 +36,9 @@ class RestaurantIndex extends React.Component {
           </div>
         </div>
         <div className="restaurant-page-content">
-          {/* <div className="restaurant-filters">
+          <div className="restaurant-filters">
             Filters coming soon
-          </div> */}
+          </div>
           <div className="restaurant-items">
             {searchResults}
             </div>
