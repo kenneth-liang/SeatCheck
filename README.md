@@ -1,8 +1,11 @@
 # SeatCheck
 
-[Live Link](https://seat-check.herokuapp.com/#/)
+[Seat Check Live](https://seat-check.herokuapp.com/#/)
 
 Seat Check is a full-stack web application inspired by OpenTable. The backend is built on Ruby on Rails with a PostgreSQL database and the frontend consists of a React/Redux architecture. It features restaurants that users can view, book and review. Users can search for restaurants by location, restaurant name, or cuisines through the search bar or by clicking on a specific image on index page. The city image are responsive design.
+
+![HomePage](https://user-images.githubusercontent.com/59374267/90359033-a7f06380-e00c-11ea-9245-473f925773e8.png)
+
 
 ## Description
 
