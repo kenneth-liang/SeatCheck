@@ -47,7 +47,7 @@ export const requestSingleFavorite = id => dispatch => {
 
 export const requestUserFavorites = userId => dispatch => {
   return ApiUtil.fetchUserFavorites(userId).then(
-    (favorites) => dispatch(receiveAllFavorites(favorites)),
+    (favorites) => dispatch(receiveAllFavorite(favorites)),
     (err) => dispatch(receiveFavoriteErrors(err.responseJSON))
   )
 };
