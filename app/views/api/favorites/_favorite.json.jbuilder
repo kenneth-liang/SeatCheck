@@ -1,1 +1,1 @@
-json.exract! favorite, :id, :user_id, :restaurant_id, :restaurant 
+json.extract! favorite, :id, :user_id, :restaurant_id, :restaurant 

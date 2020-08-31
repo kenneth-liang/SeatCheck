@@ -25,7 +25,7 @@ class RestaurantShow extends React.Component{
       if (!this.props.restaurant) return null
         const {restaurant} = this.props;
         const bImg = {
-          backgroundImage: `url(${restaurant.bphotoURL})`,
+          backgroundImage: `url(${restaurant.bphoto})`,
         };
         return (
           <div className="single-restaurant-show">

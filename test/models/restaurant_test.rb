@@ -16,6 +16,8 @@
 #  description  :text             not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  photo        :string
+#  bphoto       :string
 #
 require 'test_helper'
 

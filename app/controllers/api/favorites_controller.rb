@@ -26,7 +26,7 @@ class Api::FavoritesController < ApplicationController
     end 
   end 
 
-  def destory 
+  def destroy 
     @favorite = Favorite.find_by( user_id: current_user.id, restaurant_id: params[:id])
     if @favorite.destroy 
       # render 'api/restaurants/show'
