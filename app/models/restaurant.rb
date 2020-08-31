@@ -16,12 +16,14 @@
 #  description  :text             not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  photo        :string
+#  bphoto       :string
 #
 class Restaurant < ApplicationRecord
-    validates :name, :address, :city, :state, :zip, :price,:cuisine,:open_time,:close_time, :phone_number,:description, presence: true
+    validates :name, :address, :city, :state, :zip, :price,:cuisine,:open_time,:close_time, :phone_number, :description, :photo, :bphoto, presence: true
 
-    has_one_attached :photo
-    has_one_attached :bphoto
+    # has_one_attached :photo
+    # has_one_attached :bphoto
 
 
     #associations 

@@ -33,7 +33,7 @@ class ReservationIndexItem extends React.Component {
     return (
       <div className="reservation-index-item">
         <div className="res-img-container">
-          <img className="res-img" src={this.props.restaurants[this.props.reservation.restaurant_id].photoURL}/>
+          <img className="res-img" src={this.props.restaurants[this.props.reservation.restaurant_id].photo}/>
         </div>
         <div className="res-rest-info">
           <Link to={`/restaurants/${this.props.reservation.restaurant_id}`} className="res-rest-name">
@@ -44,7 +44,7 @@ class ReservationIndexItem extends React.Component {
           <div className="res-info">Party: {this.props.reservation.party}</div>
           <div className="res-location">{locationimg} {this.props.reservation.restaurant.address}, {this.props.reservation.restaurant.city}</div>
           <button
-            className="cancel-button"
+            className="red-btn"
             type="button"
             onClick={this.deleteReservation(this.props.reservation.id)}
           >

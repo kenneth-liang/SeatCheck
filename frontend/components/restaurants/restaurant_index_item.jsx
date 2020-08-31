@@ -9,7 +9,7 @@ class IndexItem extends React.Component{
     render (){
         const restaurant = this.props.restaurant
         const pImg = {
-            backgroundImage: `url(${restaurant.photoURL})`
+            backgroundImage: `url(${restaurant.photo})`
         }
       const phoneIcon = <img className="phone-icon" src="https://seat-check-seeds.s3-us-west-1.amazonaws.com/phone.png" />
         return (
