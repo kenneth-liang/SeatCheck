@@ -10,6 +10,7 @@
 #
 class Favorite < ApplicationRecord
   validates :user_id, :restaurant_id, presence: true
+  # validates :user_id, uniqueness: {scope: :restaurant_id, message: "Already Favorited"}
 
   belongs_to :user,
     primary_key: :id, 

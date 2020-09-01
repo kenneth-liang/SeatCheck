@@ -8,3 +8,7 @@ json.restaurant do
   json.partial! '/api/restaurants/restaurant', restaurant: @restaurant
 end
 
+# json.favorite do
+#   json.partial! '/api/favorites/favorite', favorite: @favorite
+# end
+

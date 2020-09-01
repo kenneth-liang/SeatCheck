@@ -26,16 +26,33 @@
     padding: 5px;
     margin: 15px;
     border: 1px solid #d8d9db;
-    border-radius: 3pxpx;
+    border-radius: 3px;
     display: inline-block;
     box-sizing: border-box;
     font-weight: 500;
-    font-size: 13px;
+    font-size: 16px;
     color: #2d333f;
-    line-height: 1.5rem;
+    line-height: 2rem;
     text-decoration: none;
     background-color: #fff;
     cursor: pointer;
+}
+
+.fav-button-text:hover{
+    border: 1px solid red;
+    cursor: pointer;
+}
+
+.fav-button-text i {
+    padding-right: 10px;
+}
+
+.fav-button-text i {
+    color: gray;
+}
+
+.favorited i{
+    color: red;
 }
 
 .rest-show-content {
