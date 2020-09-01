@@ -347,11 +347,11 @@ end
     )
 end
 
-Favorite.create(
+Favorite1 = Favorite.create(
     user_id: 1,
     restaurant_id: 1
 )
-Favorite.create(
+Favorite2 = Favorite.create(
     user_id: 1,
     restaurant_id: 4
 )

@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 2020_08_31_175055) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["restaurant_id"], name: "index_favorites_on_restaurant_id"
-    t.index ["user_id", "restaurant_id"], name: "index_favorites_on_user_id_and_restaurant_id", unique: true
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
