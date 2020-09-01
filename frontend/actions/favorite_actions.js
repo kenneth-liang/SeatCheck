@@ -1,20 +1,17 @@
 import * as ApiUtil from '../util/favorite_api_util';
 
-
-export const RECEIVE_ALL_FAVORITE = 'RECEIVE_ALL_FAVORITE';
-export const RECEIVE_SINGLE_FAVORITE = 'RECEIVE_SINGLE_FAVORITE';
+export const RECEIVE_FAVORITES = 'RECEIVE_FAVORITES';
+export const RECEIVE_FAVORITE = 'RECEIVE_FAVORITE';
 export const DESTROY_FAVORITE = 'DESTROY_FAVORITE';
-
 export const RECEIVE_FAVORITE_ERRORS = 'RECEIVE_FAVORITE_ERRORS';
 
-
-export const receiveAllFavorite = (favorites) => ({
-  type: RECEIVE_ALL_FAVORITE,
+export const receiveFavorites = (favorites) => ({
+  type: RECEIVE_FAVORITES,
   favorites
 });
 
-export const receiveSingleFavorite = (favorite) => ({
-  type: RECEIVE_SINGLE_FAVORITE,
+export const receiveFavorite = (favorite) => ({
+  type: RECEIVE_FAVORITE,
   favorite,
 });
 
@@ -29,32 +26,34 @@ export const receiveFavoriteErrors = (errors) => ({
   errors
 });
 
+export const createFavorite = favorite => dispatch => (
+  ApiUtil.createFavorite(favorite)
+    .then((newFavorite) => {
+      dispatch(receiveFavorite(newFavorite));
+    }, err => (dispatch(receiveFavoriteErrors(err.responseJSON))))
+);
 
-export const createFavorite = favorite => dispatch => {
-  return ApiUtil.createFavorite(favorite).then(
-    (newFavorite) => dispatch(receiveSingleFavorite(newFavorite)),
-    (err) => dispatch(receiveFavoriteErrors(err.responseJSON))
-  )
-};
 
-export const requestSingleFavorite = id => dispatch => {
-  return ApiUtil.fetchSingleFavorite(id).then(
-    (favorite) => {
-      dispatch(receiveSingleFavorite(favorite));
-      return favorite;
+export const fetchFavorite = (favoriteId) => dispatch => (
+  ApiUtil.fetchFavorite(favoriteId)
+    .then(payload => {
+      dispatch(receiveFavorite(payload)),
+        err => dispatch(receiveFavoriteErrors(err.responseJSON))
     })
-};
+);
 
-export const requestUserFavorites = userId => dispatch => {
-  return ApiUtil.fetchUserFavorites(userId).then(
-    (favorites) => dispatch(receiveAllFavorite(favorites)),
-    (err) => dispatch(receiveFavoriteErrors(err.responseJSON))
-  )
-};
+export const requestUserFavorites = userId => dispatch => (
+  ApiUtil.fetchFavorites(userId)
+    .then(favorites => dispatch(receiveFavorites(favorites)),
+      err => dispatch(receiveFavoriteErrors(err.responseJSON)))
+);
 
-export const deleteFavorite = id => dispatch => {
-  return ApiUtil.deleteFavorite(id).then(
-    (favorite) => dispatch(removeFavorite(favorite)),
-    (err) => dispatch(receiveFavoriteErrors(err.responseJSON))
-  )
-};
+
+
+
+export const deleteFavorite = id => dispatch => (
+  ApiUtil.deleteFavorite(id)
+    .then(favorite => dispatch(removeFavorite(favorite)),
+      err => dispatch(receiveFavoriteErrors(err.responseJSON))
+    )
+);

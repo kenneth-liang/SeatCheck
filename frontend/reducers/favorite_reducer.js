@@ -1,26 +1,26 @@
 import {
-  RECEIVE_ALL_FAVORITE,
-  RECEIVE_SINGLE_FAVORITE,
+  RECEIVE_FAVORITES,
+  RECEIVE_FAVORITE,
   DESTROY_FAVORITE,
 } from '../actions/favorite_actions';
 
 
-const favoritesReducer = (state = {}, action) => {
+const FavoritesReducer = (state = {}, action) => {
   Object.freeze(state);
-  
+
   let nextState = Object.assign({}, state)
   switch (action.type) {
-    case RECEIVE_ALL_FAVORITE:
+    case RECEIVE_FAVORITES:
       return action.favorites;
-    case DESTROY_FAVORITE:
-      delete nextState[action.favoriteId]
-      return nextState;
-    case RECEIVE_SINGLE_FAVORITE:
+    case RECEIVE_FAVORITE:
       nextState[action.favorite.id] = action.favorite
-      return nextState
+      return nextState      
+    case DESTROY_FAVORITE:
+      delete nextState[action.favoriteId.id];
+      return nextState;
     default:
       return state;
   }
-}
+};
 
-export default favoritesReducer;
+export default FavoritesReducer;

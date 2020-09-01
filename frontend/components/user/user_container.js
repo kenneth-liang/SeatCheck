@@ -5,7 +5,6 @@ import { fetchUserReservations, deleteReservation, } from "../../actions/reserva
 import { requestUserFavorites, deleteFavorite } from '../../actions/favorite_actions';
 
 const mSTP = state => {
-  // debugger
   return {
     currentUser: state.entities.users[state.session.id],
     reservations: state.entities.reservations,
@@ -21,6 +20,7 @@ const mDTP = dispatch => {
     deleteReservation: (reservationId) => dispatch(deleteReservation(reservationId)),
     fetchRestaurants : () => dispatch(fetchRestaurants()),
     requestUserFavorites: userId => dispatch(requestUserFavorites(userId)),
+    deleteFavorite: favoriteId => dispatch(deleteFavorite(favoriteId)),
   };
 }
 

@@ -16,7 +16,7 @@ export const fetchRating = ratingId => {
 export const fetchRestaurantRatings = restaurantId => {
     return $.ajax({
         method:'GET',
-        url: 'api/ratings',
+        url: '/api/ratings',
         data: {restaurantId}
     })
 }

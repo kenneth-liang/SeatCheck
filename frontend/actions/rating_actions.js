@@ -5,7 +5,7 @@ export const RECEIVE_RATING = "RECEIVE_RATING";
 export const RECEIVE_RATINGS = "RECEIVE_RATINGS";
 export const UPDATE_RATING = "UPDATE_RATING";
 export const REMOVE_RATING = "REMOVE_RATING";
-export const RECEIVE_RATING_ERRORS = "RECEIVE_RATING_ERRORS=";
+export const RECEIVE_RATING_ERRORS = "RECEIVE_RATING_ERRORS";
 
 export const receiveRating = (rating) => ({
     type: RECEIVE_RATING,

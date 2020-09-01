@@ -109,7 +109,6 @@ class SessionForm extends React.Component{
         };
 
         const speed = 100;
-        // debugger
         if (this.state.email !== demoUser.email) {
             const inputUsername = setInterval(() => {
                 if (this.state.email !== demoUser.email) {

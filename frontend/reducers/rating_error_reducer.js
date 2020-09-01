@@ -1,7 +1,7 @@
 import {
     RECEIVE_RATING,
-RECEIVE_RATINGS,
-RECEIVE_RATING_ERRORS
+    RECEIVE_RATINGS,
+    RECEIVE_RATING_ERRORS
 } from '../actions/rating_actions'
 
 const ratingErrorsReducer = (state = [], action) => {

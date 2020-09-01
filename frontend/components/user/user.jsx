@@ -1,5 +1,5 @@
 import React from "react";
-import {Link, Switch, Route} from "react-router-dom"
+import { Link, Switch, Route, withRouter} from "react-router-dom"
 
 import ReservationIndex from '../reservation/reservation_index_container'
 
@@ -8,6 +8,7 @@ class UserProfile extends React.Component {
     super(props);
 
     this.favoriteRestaurants = this.favoriteRestaurants.bind(this)
+    this.deleteFavorite = this.deleteFavorite.bind(this)
     this.scroll = this.scroll.bind(this)
   }
 
@@ -22,6 +23,15 @@ class UserProfile extends React.Component {
     // this.props.fetchUser(this.props.currentUser.id)
     this.props.fetchUserReservations(this.props.currentUser.id)
     this.props.requestUserFavorites(this.props.currentUser.id)
+  }
+
+  deleteFavorite(id) {
+    return (e) => {
+      e.preventDefault();
+      this.props.deleteFavorite(id).then(()=> 
+        window.location.reload()
+      )
+    };
   }
 
   scroll(el) {
@@ -54,7 +64,7 @@ class UserProfile extends React.Component {
                     <Link to={`/restaurants/${favorite.restaurant.id}`} className="restaurant-name">
                       {favorite.restaurant.name} 
                     </Link>
-                    <div className="remove-fav">
+                    <div className="remove-fav" onClick={this.deleteFavorite(favorite.restaurant.id)}>
                       <i className="fas fa-bookmark"></i> Remove from saved restaurants
                     </div>
                     <div className="favorite-cuisines">
@@ -76,7 +86,6 @@ class UserProfile extends React.Component {
 
   render() {
     const {currentUser} = this.props
-
     return (
       <div className="page-container">
 
@@ -116,9 +125,6 @@ class UserProfile extends React.Component {
                 {/* {UserFavorites} */}
             </div>
           </div>
-
-
-
         </div>
       </div>
     );
@@ -126,4 +132,4 @@ class UserProfile extends React.Component {
 }
 
 
-export default UserProfile;
+export default withRouter(UserProfile);
