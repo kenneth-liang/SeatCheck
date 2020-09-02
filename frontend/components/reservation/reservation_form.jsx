@@ -1,5 +1,5 @@
 import React from "react"
-import {withRouter} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 
 class ReservationForm extends React.Component {
   constructor(props) {
@@ -16,6 +16,7 @@ class ReservationForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
     this.seatsBuilder = this.seatsBuilder.bind(this);
     this.timePickerBuilder = this.timePickerBuilder.bind(this);
+    this.reservationCheck = this.reservationCheck.bind(this)
   }
 
   componentWillUnmount() {
@@ -89,13 +90,47 @@ class ReservationForm extends React.Component {
     return selectTime;
   }
 
+  reservationCheck(){
+    let currentRestaurant = this.props.restaurant
+    let resArray = Object.values(this.props.reservations)
+
+    for (let i = 0; i < resArray.length; i++){
+      if (resArray[i].restaurant.id === currentRestaurant.id){
+        return true
+      }
+    }
+    return false    
+  }
 
   render() {
     
     let date = new Date();
     let minDate = date.toISOString().slice(0, 10);
+  
+    let displayReserved = this.reservationCheck() ? (
+      <div className="reserved-banner">
+        <Link to={`/users/${this.props.currentUser.id}`} className="link-to-profile">
+          <div className="reserved-bar">
+            <div className="reserved-text">
+              <i className="fas fa-calendar-check"></i>
+              Seats Reserved!
+            </div>
+            <div className="reserved-text-off" >View All Reservations</div>
+          </div>
+        </Link>
+        <br/>
+       
+      </div>
+    ) :(
+      ""
+    )
+    
     return (
       <div className="reservation-box">
+        <div className="reserved">
+          {displayReserved}
+          {/* {this.reservationCheck()} */}
+        </div>
         <h3 id="res-h3">Make a reservation</h3>
         
         {this.renderErrors()}

@@ -24,6 +24,7 @@ class RestaurantShow extends React.Component{
     this.props.fetchRestaurant(this.props.match.params.restaurantId)
     this.props.fetchRestaurantRatings(this.props.match.params.restaurantId)
     this.props.requestUserFavorites(this.props.currentUser)
+    this.props.fetchUserReservations(this.props.currentUser)
   }
 
   scroll(el) {
@@ -122,7 +123,6 @@ class RestaurantShow extends React.Component{
     const bImg = {
       backgroundImage: `url(${restaurant.bphoto})`,
     };
-
     const moneyCheck = restaurant.price > 30 ? "$31 to $50 " : "$30 and under "
     return (
       <div className="single-restaurant-show">
@@ -136,7 +136,7 @@ class RestaurantShow extends React.Component{
           <aside className="rest-right-side">
             <div className="side-content">
               <div className ="restaurant-reservation">
-                <ReservationForm/>
+                <ReservationForm reservations={this.props.reservations} currentRestaurant={this.props.restaurant}/>
               </div>
               <div className="google-api">
                 <div className="rest-location">
