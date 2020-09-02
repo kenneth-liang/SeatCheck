@@ -48,4 +48,8 @@ class Restaurant < ApplicationRecord
             .or(Restaurant.where("lower(cuisine) like ?", "%#{keyword.downcase}%"))
             .or(Restaurant.where("lower(name) like ?", "%#{keyword.downcase}%"))
     end
+
+    def score_arr
+        self.ratings.pluck(:overall_score)
+    end
 end
