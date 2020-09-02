@@ -10,7 +10,7 @@ class ReservationIndex extends React.Component {
     return (
       <div className="reservations">
         { (this.props.reservations.length === 0)? (
-          <p className="no-res">No Reservations</p>
+          <p className="no-res">No Reservations Upcoming</p>
         ) : (
           <div>
             {this.props.reservations.map((reservation) => {
