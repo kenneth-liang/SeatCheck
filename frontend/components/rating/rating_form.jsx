@@ -6,12 +6,16 @@ class RatingForm extends React.Component{
         this.state = {
             user_id: "",
             restaurant_id: this.props.match.params.restaurantId,
-            overall_score: '1',
+            overall_score: '',
             review: ''
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.renderErrors = this.renderErrors.bind(this)
+        this.renderErrors = this.renderErrors.bind(this);
+        this.ratingChairs = this.ratingChairs.bind(this)
+
+        this.handleHover = this.handleHover.bind(this);
+        this.handleHoverLeave = this.handleHoverLeave.bind(this);
     }
 
     componentDidMount(){
@@ -48,18 +52,53 @@ class RatingForm extends React.Component{
                review: ''
            })
        ))
-
     }
 
-    updateRating(newRating){
-        return e => this.setState({
-            rating: newRating
+    handleHover(i){
+        return () => this.setState({
+            hover:true, 
+            hoverV: i
         })
+    }
+
+    handleHoverLeave(){
+        this.setState({ hover: false })
+    }
+
+    updateRating(newScore){
+        return e => this.setState({
+            overall_score: newScore
+        })
+    }
+
+
+    ratingChairs(){
+        let chairsArray = []
+
+        for (let i = 1; i < 6; i++){
+            let id, newScore; 
+            newScore = this.state.hover ? this.state.hoverV : this.state.overall_score;
+
+            if ( i <= newScore) id="full";
+
+            chairsArray.push(
+                <i key={i} 
+                    className="fas fa-2x fa-chair" 
+                    id={id} 
+                    onMouseEnter={this.handleHover(i)}
+                    onMouseLeave={this.handleHoverLeave}
+                    aria-hidden="true"
+                    onClick={this.updateRating(i)}
+                    >
+                </i>
+            )
+        }
+        return chairsArray
     }
 
     renderErrors() {
         return (
-            <ul>
+        <ul>
                 {this.props.errors.map((error, i) => (
                     <li key={`error-${i}`}>{error}</li>
                 ))}
@@ -72,19 +111,23 @@ class RatingForm extends React.Component{
             <div className="rating-form-container">
                 {/* {this.renderErrors()} */}
                 <form className="rating-form">
-                    <h3>Give A Rating</h3>
-                    <div className="rate-score">
-                        <select onChange={this.update("overall_score")}>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
+                    <div className="rating-top">
+                        <h3>Give A Rating</h3>
+                        <br/>
+                        <div className="rate-score">
+                            {/* <select onChange={this.update("overall_score")}>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select> */}
+                            {this.ratingChairs()}
+                        </div>
                     </div>
                     <div className="rating-form-review">
                         <textarea className="review-input-field"
-                            placeholder="Tell us what you thought"
+                            placeholder=" Tell us what you thought"
                             value={this.state.review}
                             onChange={this.update('review')}
                             />

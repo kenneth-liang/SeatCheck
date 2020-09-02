@@ -1,5 +1,5 @@
 import React from 'react';
-import IndexItem from './restaurant_index_item'
+import RestaurantIndexItem from './restaurant_index_item'
 import SearchForm from '../search/search_container'
 import { withRouter } from "react-router-dom";
 
@@ -11,7 +11,7 @@ class RestaurantIndex extends React.Component {
   render() {
     const items = 
       this.props.restaurants.map((restaurant) => (
-      <IndexItem key={restaurant.id} restaurant={restaurant} />
+      <RestaurantIndexItem key={restaurant.id} restaurant={restaurant} />
     ));
 
     const errors = (
@@ -36,9 +36,9 @@ class RestaurantIndex extends React.Component {
           </div>
         </div>
         <div className="restaurant-page-content">
-          <div className="restaurant-filters">
+          {/* <div className="restaurant-filters">
             Filters coming soon
-          </div>
+          </div> */}
           <div className="restaurant-items">
             {searchResults}
             </div>

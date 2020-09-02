@@ -13,19 +13,20 @@ class RatingIndexItem extends React.Component{
         const score = []
         for (var i = 0; i < overallScore; i++ ){
             score.push(
+                <i key={i} className="fas fa-chair fa-lg chair-filled"></i>
                 //filled 
-                <img key={i} className="chair-icon-filled" src="https://seat-check-seeds.s3-us-west-1.amazonaws.com/chair-fill.png" />
+                // <img key={i} className="chair-icon-filled" src="https://seat-check-seeds.s3-us-west-1.amazonaws.com/chair-fill.png" />
             ) 
         }
         for (var i = overallScore; i < 5 ; i++ ){
             score.push(
                 //empty 
-                <img key={i} className="chair-icon" src="https://seat-check-seeds.s3-us-west-1.amazonaws.com/chair-empty.png" />       
+                // <img key={i} className="chair-icon" src="https://seat-check-seeds.s3-us-west-1.amazonaws.com/chair-empty.png" />       
+                <i key={i} className="fas fa-chair fa-sm chair-open"></i>
                 ) 
         }
         return score;
     }
-
 
     deleteRating(id){
         return e=> {
@@ -45,12 +46,19 @@ class RatingIndexItem extends React.Component{
             ) : (
                 ""
             );  
-           
-
+        
+        // set random color 
+        let colors = ['#d86441', '#df4e96', '#bb6acd', '#6c8ae4'];
+        let random_color = colors[Math.floor(Math.random() * colors.length)];
+        let bcolor = {
+            background: random_color
+        }
+        
         return (
+        
            <div className="rating-item">
-               <div className="rating-user-container">
-                    <div className="rating-user-icon">
+               <div className="rating-user-container"  >
+                    <div className="rating-user-icon" style={bcolor}>
                         {this.props.rating.user.first_name[0]}
                     </div>
 
@@ -63,9 +71,9 @@ class RatingIndexItem extends React.Component{
                     <div className="rating-info-header">
                         <span className="score-icon">{this.getScore()}</span>
                         <span className="rating-date">Sat on {this.props.rating.created_at.slice(0,10)}</span>
-                        <span>
+                        <div className="dlt-btn-div">
                             {deleleButton}
-                        </span>
+                        </div>
                     </div>
                     <div className="rating-review">
                         {this.props.rating.review}
