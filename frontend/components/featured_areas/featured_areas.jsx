@@ -50,6 +50,12 @@ class FeaturedAreas extends React.Component{
                     <div className="city" id="las_vegas" onClick={this.handleClick}>
                         Las Vegas
                     </div>
+                    <div className="city" id="chicago" onClick={this.handleClick}>
+                        Chicago
+                    </div>
+                    <div className="city" id="seattle" onClick={this.handleClick}>
+                        Seattle
+                    </div>
                 </div>
             </div>
         )
