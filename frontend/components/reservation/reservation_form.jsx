@@ -9,7 +9,7 @@ class ReservationForm extends React.Component {
       user_id: "",
       party: 1,
       date: "",
-      time: "14:00",
+      time: "",
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -74,16 +74,16 @@ class ReservationForm extends React.Component {
     
     let timeArr = [];
     let openTime = this.props.restaurants[this.state.restaurant_id ].open_time;
-    openTime = (parseInt(openTime.split("T")[1].split(":")[0]) - 12) ;
+    openTime = (parseInt(openTime.split("T")[1].split(":")[0])) ;
     let closeTime = this.props.restaurants[this.state.restaurant_id].close_time;
-    closeTime = (parseInt(closeTime.split("T")[1].split(":")[0]) - 12);
+    closeTime = (parseInt(closeTime.split("T")[1].split(":")[0]));
     for (let i = openTime; i < closeTime; i++) {
       timeArr.push(i);
     }
     let selectTime = timeArr.map(time => (
       <option key={time} value={time}>
         {" "}
-        {time < 10 ? "0" + time + ":00 pm" : time + ":00 pm" }
+        {time < 10 ? "0" + time + ":00 pm" : (time - 12 ) + ":00 pm" }
       </option>
     ));
 
