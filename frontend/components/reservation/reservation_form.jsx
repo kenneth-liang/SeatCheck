@@ -1,5 +1,5 @@
 import React from "react"
-import {withRouter} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 
 class ReservationForm extends React.Component {
   constructor(props) {
@@ -9,13 +9,14 @@ class ReservationForm extends React.Component {
       user_id: "",
       party: 1,
       date: "",
-      time: "14:00",
+      time: "",
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
     this.seatsBuilder = this.seatsBuilder.bind(this);
     this.timePickerBuilder = this.timePickerBuilder.bind(this);
+    this.reservationCheck = this.reservationCheck.bind(this)
   }
 
   componentWillUnmount() {
@@ -73,29 +74,63 @@ class ReservationForm extends React.Component {
     
     let timeArr = [];
     let openTime = this.props.restaurants[this.state.restaurant_id ].open_time;
-    openTime = (parseInt(openTime.split("T")[1].split(":")[0]) - 12) ;
+    openTime = (parseInt(openTime.split("T")[1].split(":")[0])) ;
     let closeTime = this.props.restaurants[this.state.restaurant_id].close_time;
-    closeTime = (parseInt(closeTime.split("T")[1].split(":")[0]) - 12);
+    closeTime = (parseInt(closeTime.split("T")[1].split(":")[0]));
     for (let i = openTime; i < closeTime; i++) {
       timeArr.push(i);
     }
     let selectTime = timeArr.map(time => (
       <option key={time} value={time}>
         {" "}
-        {time < 10 ? "0" + time + ":00 pm" : time + ":00 pm" }
+        {time < 10 ? "0" + time + ":00 pm" : (time - 12 ) + ":00 pm" }
       </option>
     ));
 
     return selectTime;
   }
 
+  reservationCheck(){
+    let currentRestaurant = this.props.restaurant
+    let resArray = Object.values(this.props.reservations)
+
+    for (let i = 0; i < resArray.length; i++){
+      if (resArray[i].restaurant.id === currentRestaurant.id){
+        return true
+      }
+    }
+    return false    
+  }
 
   render() {
     
     let date = new Date();
     let minDate = date.toISOString().slice(0, 10);
+  
+    let displayReserved = this.reservationCheck() ? (
+      <div className="reserved-banner">
+        <Link to={`/users/${this.props.currentUser.id}`} className="link-to-profile">
+          <div className="reserved-bar">
+            <div className="reserved-text">
+              <i className="fas fa-calendar-check"></i>
+              Seats Reserved!
+            </div>
+            <div className="reserved-text-off" >View All Reservations</div>
+          </div>
+        </Link>
+        <br/>
+       
+      </div>
+    ) :(
+      ""
+    )
+    
     return (
       <div className="reservation-box">
+        <div className="reserved">
+          {displayReserved}
+          {/* {this.reservationCheck()} */}
+        </div>
         <h3 id="res-h3">Make a reservation</h3>
         
         {this.renderErrors()}

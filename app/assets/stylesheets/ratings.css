@@ -88,6 +88,12 @@ button.rating-btn {
     padding: .4rem;
 }
 
+.rating-btn:hover{
+    opacity: 0.80;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
 
 .rating-form-container {
     background-color: #fff;
@@ -119,6 +125,13 @@ button.rating-btn {
     cursor: pointer;
 }
 
+.rating-submit-btn:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+
+
 .rating-user {
     text-align: center;
 }
@@ -147,6 +160,7 @@ form.rating-form {
 #full{
     color:gold;
     cursor: pointer;
+    transform: scale(1.15);
 }
 
 .rating-top h3 {

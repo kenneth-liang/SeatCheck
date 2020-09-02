@@ -19,6 +19,7 @@
     border-bottom: 1px solid #ccc;
     text-align: center;
     padding: 11px 0;
+    cursor: auto;
 }
 
 .party-select {
@@ -45,19 +46,24 @@
 
 .res-button {
   margin: 1rem;
-    padding: .75rem 1rem;
-    text-decoration: none;
-    background-color: #da3743;
-    color: #fff;
-    border: 1px solid #d8d9db;
-    font-size: 1rem;
-    line-height: 1.5;
-    width: 17rem;
-    font-weight: 500;
-    border-radius: 3px;
-    display: inline-block;
-    box-sizing: border-box;
-    cursor: pointer;
+  padding: .75rem 1rem;
+  text-decoration: none;
+  background-color: #da3743;
+  color: #fff;
+  border: 1px solid #d8d9db;
+  font-size: 1rem;
+  line-height: 1.5;
+  width: 17rem;
+  font-weight: 500;
+  border-radius: 3px;
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.res-button:hover{
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 #disabled-btn {
@@ -78,4 +84,47 @@ p#rese-log {
     justify-content: center;
     display: flex;
     margin-bottom: .5rem;
+}
+
+.reserved-bar {
+    background: mediumseagreen;
+    display: flex;
+    justify-content: center;
+    line-height: 1.5rem;
+    padding: .5rem;
+    border-radius: 3px;
+    box-shadow: 0px 3px 7px 0px #ccc;
+}
+
+.reserved-banner {
+  margin-top: .5rem;
+}
+
+i.fas.fa-calendar-check {
+  margin-right: .5rem;
+}
+
+
+.link-to-profile {
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    color: black;
+}
+
+.link-to-profile:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.reserved-text{
+  color: white;
+  font-size: 18px;
+}
+
+.reserved-text-off{
+  color: black;
+  font-size: 13px;
+  margin-left: .5rem;
 }

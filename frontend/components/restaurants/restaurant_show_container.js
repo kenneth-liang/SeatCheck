@@ -2,6 +2,7 @@ import {connect} from 'react-redux';
 import { fetchRestaurant } from '../../actions/restaurant_actions';
 import { deleteRating, fetchRestaurantRatings, } from "../../actions/rating_actions";
 import { createFavorite, deleteFavorite, requestUserFavorites } from "../../actions/favorite_actions"
+import { fetchUserReservations } from "../../actions/reservation_actions"
 import RestaurantShow from './restaurant_show'
 
 
@@ -10,7 +11,8 @@ const mSTP = (state, ownProps) => {
       favorites: Object.values(state.entities.favorites),
       // restaurants: Object.values(state.entities.restaurants),
       restaurant: state.entities.restaurants[ownProps.match.params.restaurantId],
-      currentUser: state.session.id
+      currentUser: state.session.id,
+      reservations: state.entities.reservations
     }
 }
 
@@ -22,7 +24,9 @@ const mDTP = dispatch => {
       fetchRestaurantRatings: (restaurantId) => dispatch(fetchRestaurantRatings(restaurantId)),
       createFavorite: favorite => dispatch(createFavorite(favorite)),
       deleteFavorite: favoriteId => dispatch(deleteFavorite(favoriteId)),
-      requestUserFavorites: userId => dispatch(requestUserFavorites(userId))
+      requestUserFavorites: userId => dispatch(requestUserFavorites(userId)),
+      fetchUserReservations: (userId) => dispatch(fetchUserReservations(userId)),
+
     };
 }
 
