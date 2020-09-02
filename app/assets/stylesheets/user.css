@@ -78,7 +78,9 @@
 
 .page-nav-links:hover {
     text-decoration:underline;
-     cursor: pointer;
+    cursor: pointer;
+    color: #da3743;
+    transform: scale(1.05);
 }
 
 .content.header{

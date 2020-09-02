@@ -96,6 +96,7 @@
 
 .city:hover {
   opacity: 0.80;
+  transform: scale(1.05);
   cursor: pointer;
 }
 

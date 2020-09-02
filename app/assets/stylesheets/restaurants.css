@@ -53,6 +53,11 @@
     list-style: none;
 }
 
+.restaurant-lists:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
 .restaurant-content{
     display: flex;
     align-items: flex-start;

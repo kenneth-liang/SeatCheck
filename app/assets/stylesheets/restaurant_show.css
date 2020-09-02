@@ -188,7 +188,7 @@ img.chair-sml {
 
 .rest-location{
     border: 1px solid lightgray;
-    height: 160px;
+    height: 250px;
     width: 285px;
     display: flex;
     justify-content: center;
@@ -275,4 +275,5 @@ img.chair-sml {
     color: #da3743;
     text-decoration: underline;
     cursor: pointer;
+    transform: scale(1.05);
 }
