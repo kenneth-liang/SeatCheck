@@ -77,7 +77,7 @@ restaurant1 = Restaurant.create!(
     phone_number: "(415) 885-4605",
     photo: 'https://seat-check-seeds.s3-us-west-1.amazonaws.com/houseofprimerib.jpg',
     bphoto: 'https://seat-check-seeds.s3-us-west-1.amazonaws.com/hopr-back.jpg',
-    description: "62 years of loyal customers can't be wrong. We are grateful to all our customers, employees, and critics (...though we may not always agree!). The only way to find out the truth is with a visit. Oft imitated, never duplicated. Thank you in advance."     
+    description: "62 years of loyal customers can't be wrong. We are grateful to all our customers, employees, and critics (...though we may not always agree!). The only way to find out the truth is with a visit. Often imitated, never duplicated. Thank you in advance."     
 )
 
 # pic1 = open('https://seat-check-seeds.s3-us-west-1.amazonaws.com/houseofprimerib.jpg')

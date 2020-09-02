@@ -65,7 +65,7 @@
 }
 
 .rest-right-side {
-    width: 320px;
+    width: 350px;
     margin: 0 0 0 16px;
     display:block;
 }
@@ -85,14 +85,16 @@
 }
 
 .box-head{
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 800;
     line-height: 20px;
+    margin-bottom: .5rem;
 }
 .box-description{
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
+    margin-left: 1rem;
 }
 
 .restaurant-main-content {
@@ -106,7 +108,7 @@
 }
 
 #overview-section {
-    padding: 2rem 1rem;
+    padding: 1rem;
 }
 
 .overview-head {
@@ -115,18 +117,34 @@
 
 .overview-title {
     border-bottom: 1px solid #d8d9db;
-    border-top: 1px solid #d8d9db;
+    /* border-top: 1px solid #d8d9db; */
     margin: 0 0 1rem;
     font-size: 48px;
     font-weight: 700;
     line-height: 56px;
-    padding: 1.5rem 1rem 2rem .5rem;;
+    padding: 1.5rem 1rem 2rem .5rem;
+    display:flex;
+    align-items: center;
+}
+
+img.chair-sml {
+    width: 35px;
+    height: 35px;
+}
+
+.overview-title span {
+    position: relative;
+    top: -15px;
+    margin-left: 15px;
+    
 }
 
 .overview-detail{
     display: flex;
-    margin-bottom:1rem;
-    flex-wrap:wrap;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #d8d9db;
+    padding-bottom: 1rem;
 }
 
 .overview-rr{
@@ -144,10 +162,12 @@
 
 .overview-price {
     margin-left: .5rem;
+    padding-right: .5rem;
 }
 
 .overview-cuisine{
     margin-left: .5rem;
+    padding-right: .5rem;
 }
 
 .overview-description {
@@ -160,20 +180,98 @@
     padding: 0 0 4rem;
 }
 
-.rest-location{
+.google-api{
     border: 1px solid transparent;
-    height: 250px;
-    width: 250px;
+    box-shadow: 0 5px 10px grey;
+    border-radius: 2%;
+}
+
+.rest-location{
+    border: 1px solid lightgray;
+    height: 160px;
+    width: 285px;
     display: flex;
     justify-content: center;
     line-height: 10;
-    box-shadow: 0 5px 10px grey;
     margin: 15px;
-    border-radius: 5%;
-    background: url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/gpsmaps.png") no-repeat;
+    background: url(https://seat-check-seeds.s3-us-west-1.amazonaws.com/gpsmaps.png) no-repeat;
     background-size: cover;
     background-position: center;
     padding: 15px;
-    font-size: 24px;
-    font-weight: 800;
+}
+
+
+.restaurant-nav {
+    display: flex;
+    position: sticky;
+    height: 48px;
+    border-radius: 2px 2px 0 0;
+    padding: 0 .5rem;
+    background-color: #fff;
+    box-sizing: border-box;
+    top: 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.ratings-title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.33;
+    color: #2d333f;
+    border-bottom: 1px solid #d8d9db;
+    padding-bottom: 1rem;
+    margin: 0 1rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.overview-rr, .overview-price{
+    border-right: 1px solid lightgray
+}
+
+
+.rest-full-address span {
+    color: #da3743;
+    font-size: 13px;
+    margin-left: .5rem;
+}
+
+.rest-full-address span:hover{
+    color: #da3743;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.rest-full-address {
+    padding: .5rem;
+}
+
+.dlt-btn-div {
+    margin-left: 35%;
+}
+
+.menu-title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.33;
+    color: #2d333f;
+    border-bottom: 1px solid #d8d9db;
+    padding-bottom: 1rem;
+    margin: 0 1rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.menu-link {
+    color: #da3743;
+    padding: 1rem;
+    margin-left: 1rem;
+}
+
+.menu-link:hover{
+    color: #da3743;
+    text-decoration: underline;
+    cursor: pointer;
 }

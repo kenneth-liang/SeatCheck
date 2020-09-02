@@ -29,7 +29,7 @@ class ReservationIndexItem extends React.Component {
     
     const locationimg = <img className="location-icon" src="https://seat-check-seeds.s3-us-west-1.amazonaws.com/worldwide-location--v1.png" />
     
-
+    const resTime = (parseInt(this.props.reservation.time) - 12)
     return (
       <div className="reservation-index-item">
         <div className="res-img-container">
@@ -40,7 +40,7 @@ class ReservationIndexItem extends React.Component {
             {this.props.reservation.restaurant.name}
           </Link>
           <div className="res-info">Date: {this.props.reservation.date}</div>
-          <div className="res-info">Time: {this.props.reservation.time}:00</div>
+          <div className="res-info">Time: {resTime}:00 pm</div>
           <div className="res-info">Party: {this.props.reservation.party}</div>
           <div className="res-location">{locationimg} {this.props.reservation.restaurant.address}, {this.props.reservation.restaurant.city}</div>
           <button
