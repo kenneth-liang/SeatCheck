@@ -119,3 +119,12 @@
     background: url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/lasvegas.jpg") no-repeat;
     background-size: cover;
 }
+#seattle {
+    background: url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/seattle.jpg") no-repeat;
+    background-size: cover;
+}
+
+#chicago {
+    background: url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/chicago.jpg") no-repeat;
+    background-size: cover;
+}
