@@ -100,7 +100,7 @@ button.rating-btn {
 
 .review-input-field {
     margin-top: 10px;
-    width: 100%;
+    width: 95%;
     height: 100px;
     border: 1px solid #ccc;
     padding: .5rem;
@@ -151,6 +151,7 @@ form.rating-form {
 
 .rating-top h3 {
     font-size: 24px;
+    cursor: auto;
 }
 
 span.rating-date {

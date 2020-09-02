@@ -108,12 +108,6 @@ class RestaurantShow extends React.Component{
         <i key={i} className="fas fa-chair fa-lg chair-filled"></i>
       )
     }
-    
-    // for (let i = restaurantAvgRating; i < 4; i++) {
-    //   restRatingArray.push(
-    //     <i key={i} className="fas fa-chair fa-lg chair-open"></i>
-    //   )
-    // }
 
     return restRatingArray
   }
