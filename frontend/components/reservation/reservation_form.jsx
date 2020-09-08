@@ -133,7 +133,7 @@ class ReservationForm extends React.Component {
         </div>
         <h3 id="res-h3">Make a reservation</h3>
         
-        {this.renderErrors()}
+        {/* {this.renderErrors()} */}
         <form>
           <select className="res-input seat" onChange={this.update("party")}>
             {this.seatsBuilder()}

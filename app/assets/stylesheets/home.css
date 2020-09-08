@@ -80,7 +80,7 @@
     justify-content: center;
 }
 
-.city {
+.fcity {
     width: 40%;
     height: 200px;
     color: white;
@@ -94,7 +94,7 @@
     /* font-family: sans-serif; */
 }
 
-.city:hover {
+.fcity:hover {
   opacity: 0.80;
   transform: scale(1.05);
   cursor: pointer;
