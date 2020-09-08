@@ -1,12 +1,13 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
+import { Redirect, withRouter } from "react-router-dom";
+import RestaurantIndexContainer from "../restaurants/restaurant_index_container";
 
 
 class FeaturedAreas extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            search: ""
+            search: []
         }
         this.handleClick = this.handleClick.bind(this)
     }
@@ -17,20 +18,39 @@ class FeaturedAreas extends React.Component{
         e.preventDefault();
         
         let city = e.target.id.split("_").join(' ');
-        this.setState({
-            search: city
-        }, () => (
-            // search rest by search city 
-            this.props.searchRestaurants(this.state.search)
-        ).then( ()=> 
-            this.setState({
-                //reset search 
-                search: ""
-            })
-        ).then(() => 
-            //navigate to restaurants 
-            this.props.history.push("/restaurants"))
-        )
+        this.setState(
+          {
+            search: [city],
+          },
+          () =>
+            this.props
+              .searchRestaurants(
+                // search rest by search city
+                this.state.search
+              )
+              // .then( ()=>
+              //     this.setState({
+              //         //reset search
+              //         search: ""
+              //     })
+              // )
+              .then(() =>
+                this.props.history.push({
+                  pathname: "/restaurants",
+                  state: { search: this.state.search },
+                })
+                // {
+                //     debugger
+                //     return console.log(this.state.search);
+                // }
+                //navigate to restaurants
+                // <Redirect
+                //   push to={{
+                //     pathname: "/restaurants",
+                //     state: { search: this.state.search }
+                //   }} />
+              )
+        );
     }
 
     render( ) {
@@ -38,22 +58,22 @@ class FeaturedAreas extends React.Component{
             <div className="areas">
                 <h1>Featured Areas</h1>
                 <div className="area-list">
-                    <div className="city" id="san_francisco" onClick={this.handleClick}>
+                    <div className="fcity" id="san_francisco" onClick={this.handleClick}>
                         San Francisco
                     </div>
-                    <div className="city" id="los_angeles" onClick={this.handleClick}>
+                    <div className="fcity" id="los_angeles" onClick={this.handleClick}>
                         Los Angeles
                     </div>
-                    <div className="city" id="new_york" onClick={this.handleClick}>
+                    <div className="fcity" id="new_york" onClick={this.handleClick}>
                         New York
                     </div>
-                    <div className="city" id="las_vegas" onClick={this.handleClick}>
+                    <div className="fcity" id="las_vegas" onClick={this.handleClick}>
                         Las Vegas
                     </div>
-                    <div className="city" id="chicago" onClick={this.handleClick}>
+                    <div className="fcity" id="chicago" onClick={this.handleClick}>
                         Chicago
                     </div>
-                    <div className="city" id="seattle" onClick={this.handleClick}>
+                    <div className="fcity" id="seattle" onClick={this.handleClick}>
                         Seattle
                     </div>
                 </div>

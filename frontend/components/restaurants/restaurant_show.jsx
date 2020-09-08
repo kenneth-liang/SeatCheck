@@ -210,7 +210,7 @@ class RestaurantShow extends React.Component{
 
             <div id="menu">
               <h3 className="menu-title">Menu</h3>
-              <div className="menu-link"><i className="fas fa-external-link-alt"></i> View menu on restaurant's website</div>
+              <div className="menu-link"><i className="fas fa-external-link-alt"></i> <a href={restaurant.menu_link}>View menu on restaurant's website</a></div>
             </div>
 
             <div id="ratings" ref={el => { this.ratingSection = el; }}>
