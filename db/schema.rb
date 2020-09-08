@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_31_175055) do
+ActiveRecord::Schema.define(version: 2020_09_07_232512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2020_08_31_175055) do
     t.string "city", null: false
     t.string "state", null: false
     t.integer "zip", null: false
-    t.integer "price", null: false
+    t.string "price", null: false
     t.string "cuisine", null: false
     t.datetime "open_time", null: false
     t.datetime "close_time", null: false
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 2020_08_31_175055) do
     t.datetime "updated_at", null: false
     t.string "photo"
     t.string "bphoto"
+    t.string "menu_link"
     t.index ["city"], name: "index_restaurants_on_city"
     t.index ["cuisine"], name: "index_restaurants_on_cuisine"
     t.index ["name"], name: "index_restaurants_on_name"
