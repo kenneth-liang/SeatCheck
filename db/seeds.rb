@@ -157,7 +157,7 @@ restaurant4 = Restaurant.create!(
     state: "New York",
     zip: "10018",
     price: "$$$",
-    cuisine: 'Asian',
+    cuisine: 'Japanese',
     open_time: DateTime.parse("17:00:00"),
     close_time: DateTime.parse("23:00:00"),
     phone_number: "(212) 921-3330",
@@ -515,6 +515,193 @@ restaurant24 = Restaurant.create!(
     photo: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/ohlala.jpg",
     bphoto: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/ohlala-back.jpg",
     description: "OHLALA is a modern french bistro that make you fall in love with french food. Ohlala had been created by Richard Terzaghi, owner of L'Osteria Del Forno in San Francisco. In the Industry restaurant since 2002. Whether you’re looking for a romantic rendez-vous or a place to enjoy for happy hour with large choice of different plates to share, you’ll find the perfect spot at OHLALA. The décor midway between little Parisian bistro and cozy restaurant is ideal for Rendez-Vous and happy friends meeting. The bar waits for you, enjoy happy hours, and wine tasting. OHLALA definitely awaits for you. The large choice of small plates to share, tartines and full dishes in the respect of traditional french cook will delight the food lovers The wine list is comprised of high quality yet affordable wines from France and California."
+)
+
+restaurant25 = Restaurant.create!(
+    name: "The Capital Grille",
+    address: "3200 Las Vegas Blvd",
+    city: "Las Vegas",
+    state: "Nevada",
+    zip: "89109",
+    price: "$$$$",
+    cuisine: 'Steak',
+    open_time: DateTime.parse("17:00:00"),
+    close_time: DateTime.parse("21:00:00"),
+    phone_number: "(702) 932-6631",
+    menu_link: "https://www.thecapitalgrille.com/menu-listing/the-generous-pour",
+    photo: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/capgrille.jpg",
+    bphoto: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/capgrille-back.jpeg",
+    description: "You are cordially invited to be wined, dined and dazzled at The Capital Grille. Enjoy nationally renowned steaks—dry aged and hand-cut on premises by our in-house butchers—the freshest of seafood, creative sides, and irresistible desserts prepared on-site every day. All accompanied by an acclaimed wine list, carefully curated and featuring over 350 labels from around the world. Experience gracious, anticipatory service in our comfortable, sophisticated dining room."
+)
+
+restaurant26 = Restaurant.create!(
+    name: "SUSHISAMBA",
+    address: "3327 Las Vegas Blvd",
+    city: "Las Vegas",
+    state: "Nevada",
+    zip: "89109",
+    price: "$$$",
+    cuisine: 'Japanese',
+    open_time: DateTime.parse("13:00:00"),
+    close_time: DateTime.parse("23:00:00"),
+    phone_number: "(702) 607-0700",
+    menu_link: "https://www.sushisamba.com/locations/usa/las-vegas/menus",
+    photo: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/sushisamba.jpg",
+    bphoto: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/sushisamba-back.jpg",
+    description: "Only at SUSHISAMBA will you find a unique blend of Japanese, Brazilian and Peruvian cuisine, music and design. Hearty moquecas and colorful seviches are served alongside more inventive dishes, including Tuna Tataki and Wagyu Gyoza. Complementing the menu are signature cocktails and an acclaimed sake list, as well as wine, beer and champagne. Equal parts imagination and history, the SUSHISAMBA experience is truly unique."
+)
+
+restaurant27 = Restaurant.create!(
+    name: "True Food Kitchen",
+    address: "3500 Las Vegas Blvd",
+    city: "Las Vegas",
+    state: "Nevada",
+    zip: "89109",
+    price: "$$",
+    cuisine: 'American',
+    open_time: DateTime.parse("13:00:00"),
+    close_time: DateTime.parse("21:00:00"),
+    phone_number: "(702) 340-2600",
+    menu_link: "https://www.truefoodkitchen.com/menu/",
+    photo: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/truefood.jpg",
+    bphoto: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/truefood-back.jpg",
+    description: "True Food Kitchen in the Forum Shops at Caesars Palace is now reopen with dine-in service. As we carefully and conservatively re-open our restaurant, we continue to honor our commitment to the health and safety of our guests and staff. Our dining room and patio will look different as we’ve made critical adjustments to accommodate for social distancing, enhanced standards and safety measures. We appreciate your patience and understanding as we navigate this new normal together."
+)
+
+restaurant29 = Restaurant.create!(
+    name: "Best Friend",
+    address: "3500 Las Vegas Blvd",
+    city: "Las Vegas",
+    state: "Nevada",
+    zip: "89109",
+    price: "$$",
+    cuisine: 'Korean',
+    open_time: DateTime.parse("17:00:00"),
+    close_time: DateTime.parse("23:00:00"),
+    phone_number: "(702) 730-6770",
+    menu_link: "https://parkmgm.mgmresorts.com/en/restaurants/best-friend.html#/menu=menu",
+    photo: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/bestfriend.jpg",
+    bphoto: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/bestfriend-back.jpg",
+    description: "Best Friend is a remixed and remastered collection of the evolution of our Los Angeles - its food, its music, its culture. It is the only place to sink your teeth into all the flavors from Kogi-to-Commissary and everything in between, along with fresh new ideas I've been cooking up for years. It's Koreatown in a capsule - a portal to the streets of LA, but also rooted in what makes Las Vegas... VEGAS. Hip hop-to-bibimbop. Kimchi-to-spaghetti. BBQ and late-night food. My neighborhood mixed with the Vegas good-good. I want Best Friend to energize the minds of people looking to experience the best in life. Whether they are from Hollywood or Hong Kong, D.C. or Down Under, I hope all guests are licking their fingers with their mouths full saying 'holy sh!t' as they reach across the table for another bite. LA food in Las Vegas. Los Vegas. Best Friend. Forever."
+)
+
+restaurant30 = Restaurant.create!(
+    name: "Olio e Più",
+    address: "3 Greenwich Ave",
+    city: "New York",
+    state: "New York",
+    zip: "10011",
+    price: "$$",
+    cuisine: 'Italian',
+    open_time: DateTime.parse("17:00:00"),
+    close_time: DateTime.parse("22:00:00"),
+    phone_number: "(212) 243-6546",
+    menu_link: "http://olioepiu.nyc/menu/",
+    photo: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/olio.jpg",
+    bphoto: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/olio-back.jpg",
+    description: "Inspired by the warmth and comfort of the Italian countryside, Olio e Piú and Chef Pedro Cruz bring tradition and authentic Italian cuisine to the West Village. Enjoy fresh, house-made pastas dressed with the highest quality ingredients and a hand-selected collection of excellent wines and cocktails to pair with your dish. An expertly crafted wood-fire oven crackles and glows, cooking house-made dough into perfect, crisp Neapolitan-style pizza while creating an inviting atmosphere."
+)
+
+restaurant31 = Restaurant.create!(
+    name: "Jue Lan Club",
+    address: "49 W 20th Street",
+    city: "New York",
+    state: "New York",
+    zip: "10011",
+    price: "$$$",
+    cuisine: 'Asian',
+    open_time: DateTime.parse("16:00:00"),
+    close_time: DateTime.parse("22:00:00"),
+    phone_number: "(646) 524-7409",
+    menu_link: "https://www.juelanclub.com/",
+    photo: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/juelan.png",
+    bphoto: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/juelan-back.jpg",
+    description: "Jue Lan Club is a multi-level, 275 seat Asian-Fusion restaurant featuring our 100 seat outdoor garden courtyard. We have several distinctive private dining rooms. Jue Lan features an incredibly flavorful Asian Raw Menu, numerous Dim Sum options along with other classic Asian-Fusion dishes with a contemporary spin by our chef Nick Zhong! Dine on our one of a kind sweet creations by our Head Pasty Chef McCleeford Orientus. Please visit us on all social media @JueLanClub / Web JueLanClub.com"
+)
+
+restaurant32 = Restaurant.create!(
+    name: "Boucherie",
+    address: "99 7th Avenue",
+    city: "New York",
+    state: "New York",
+    zip: "10014",
+    price: "$$$",
+    cuisine: 'French',
+    open_time: DateTime.parse("17:00:00"),
+    close_time: DateTime.parse("23:00:00"),
+    phone_number: "(212) 837-1616",
+    menu_link: "http://boucherie.nyc/menu/",
+    photo: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/boucherie.jpg",
+    bphoto: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/boucherie-back.jpg",
+    description: "BOUCHERIE is a traditional French brasserie and steakhouse, celebrating Joie de Vivre in the heart of West Village. The restaurant prepares a menu of French classics and timeless bistro favorites, in addition to the dry-aged steaks. An absinthe-inspired bar offers classic drinks, signature cocktails and craft beers. Located in the building that used to house the prominent Circle Repertory Theater, the 320-seat restaurant provides a diverse array of dining options from the spacious dining room, a seat at the butcher counter, the intimate second-floor gallery with private dining and outdoor cafe."
+)
+
+restaurant33 = Restaurant.create!(
+    name: "Royal 35 Steakhouse",
+    address: "1 E 35th St",
+    city: "New York",
+    state: "New York",
+    zip: "10016",
+    price: "$$$$",
+    cuisine: 'Steak',
+    open_time: DateTime.parse("16:00:00"),
+    close_time: DateTime.parse("22:00:00"),
+    phone_number: "(212) 804-7276",
+    menu_link: "https://royal35steakhouse.com/#food",
+    photo: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/royal.jpg",
+    bphoto: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/royal-back.jpg",
+    description: "Royal 35 Steakhouse is a stone’s throw away from iconic New York City landmark, The Empire State Building, combining the vibrant energy of New York City with an authentic steakhouse setting. At the core of Royal 35’s menu is our classic collection of high standard Certified Angus Beef brand USDA Prime. And marbling is key to its incredible flavor and tenderness which is dry aged for 30-35 days in our in-house aging box. The 130-seat dining room and upper level private dining room offer a chic and elegant backdrop for an unforgettable dining experience for our guests."
+)
+
+restaurant34 = Restaurant.create!(
+    name: "Le Colonial",
+    address: "57 East Oak Street",
+    city: "Chicago",
+    state: "Illinois",
+    zip: "60611",
+    price: "$$$",
+    cuisine: 'Asian',
+    open_time: DateTime.parse("16:00:00"),
+    close_time: DateTime.parse("22:00:00"),
+    phone_number: "(312) 255-0088",
+    menu_link: "http://www.lecolonialchicago.com/",
+    photo: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/lecolonial.jpg",
+    bphoto: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/lecolonial-back.jpg",
+    description: "Heralded as an escapist's paradise, Le Colonial is a celebration of the seductive spirit and vivid flavors of Vietnam. The restaurant opened on iconic Oak Street in March 2019, after moving from its location of over 20 years on Rush Street. Le Colonial features a dining room, an all-season terrace overlooking Oak Street, an evocative bar/lounge, and The Monkey Parlour (a private dining room with seating for up to 12 guests)."
+)
+
+restaurant35 = Restaurant.create!(
+    name: "The Hampton Social",
+    address: "353 W Hubbard Street",
+    city: "Chicago",
+    state: "Illinois",
+    zip: "60654",
+    price: "$$$",
+    cuisine: 'American',
+    open_time: DateTime.parse("14:00:00"),
+    close_time: DateTime.parse("23:00:00"),
+    phone_number: "(312) 464-0500",
+    menu_link: "http://www.thehamptonsocial.com/",
+    photo: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/hampton.jpg",
+    bphoto: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/hampton-back.jpg",
+    description: "Coastal cuisine with a focus on seasonally inspired dishes and fresh ingredients. Whether it’s business or pleasure, you can escape to The Hamptons any night of the week."
+)
+
+restaurant36 = Restaurant.create!(
+    name: "Pink Taco",
+    address: "431 N Wells",
+    city: "Chicago",
+    state: "Illinois",
+    zip: "60654",
+    price: "$$",
+    cuisine: 'Mexican',
+    open_time: DateTime.parse("16:00:00"),
+    close_time: DateTime.parse("23:00:00"),
+    phone_number: "(312) 212-5566",
+    menu_link: "http://www.pinktaco.com/",
+    photo: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/pinktaco.jpg",
+    bphoto: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/pinktaco-back.jpg",
+    description: "Pink Taco restaurants have 'Mexican food with a great attitude'; it's a place where you can enjoy exciting Mexican cuisine in a casual, yet highly stylized environment. The food's quality and vibrant presentation sets the tone for the restaurant, and while taste is of the utmost importance, Pink Taco also believes that guests' sensory experience can only be improved with great music, exotic decor, and the spiciest staff in town!"
 )
 
 
