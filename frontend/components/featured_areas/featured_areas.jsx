@@ -7,7 +7,7 @@ class FeaturedAreas extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            search: []
+            search: ""
         }
         this.handleClick = this.handleClick.bind(this)
     }
@@ -16,40 +16,17 @@ class FeaturedAreas extends React.Component{
     handleClick(e){
         //upon click use the id as the search key word 
         e.preventDefault();
-        
+
         let city = e.target.id.split("_").join(' ');
         this.setState(
           {
             search: [city],
-          },
-          () =>
-            this.props
-              .searchRestaurants(
-                // search rest by search city
-                this.state.search
-              )
-              // .then( ()=>
-              //     this.setState({
-              //         //reset search
-              //         search: ""
-              //     })
-              // )
-              .then(() =>
-                this.props.history.push({
-                  pathname: "/restaurants",
-                  state: { search: this.state.search },
+          },() => this.props .searchRestaurants( this.state.search ).then(
+              () => this.props.history.push({ 
+                  pathname: "/restaurants", 
+                  state: { search: this.state.search } 
                 })
-                // {
-                //     debugger
-                //     return console.log(this.state.search);
-                // }
-                //navigate to restaurants
-                // <Redirect
-                //   push to={{
-                //     pathname: "/restaurants",
-                //     state: { search: this.state.search }
-                //   }} />
-              )
+            )
         );
     }
 
