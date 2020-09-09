@@ -23,106 +23,169 @@ const CUISINE = [
   "Californian"
 ]
 
-class Filter extends React.Component{
-  constructor(props){
+const PRICE = [
+  "$$",
+  "$$$",
+  "$$$$",
+]
+
+class Filter extends React.Component {
+  constructor(props) {
     super(props);
-
-    let city = {} 
-    let cuisine = {}
-
-    CITY.forEach( i => (
-      city[i] = false 
-    ))
-
-    CUISINE.forEach ( i => (
-      cuisine[i] = false
-    ))
-
-
-    this.state = {
-      filters: props.location.search ? [props.location.search] : []
-    }
-  }
-
-  componentDidMount(){
-    // const grid = document.querySelector(".fitler-list");
-    // wrapGrid(grid)
-    // this.props.fetchRestaurants()
-    //   .then(
-    //     () => this.setState({restaurants: this.props.restaurants})
-    //   )
-  }
-
-  handleChange(item){
-    return e => {
-      if (e.target.classList.contains('city')){
-        if (!this.state.city[item]) {
-          let temp = {...this.state.city}
-          temp[item] = true;
-          this.setState({
-            city: temp
-          })
-        } else {
-          let temp = {...this.state.city }
-          temp[item] = false;
-          this.setState({
-            city: temp
-          })
-        }
-      } else {
-        if (!this.state.cuisine[item]){
-          let temp = {...this.state.cuisine}
-          temp[item] = true;
-          this.setState({
-            cuisine: temp
-          })
-        } else {
-          let temp = { ...this.state.cuisine }
-          temp[item] = false;
-          this.setState({
-            cuisine: temp
-          })
-        }
-      }
-    }
-  }
-
-
-
-  render(){
-    let cityCheckBox, 
-      cuisineCheckBox,
-      filtered = [] ,
-      filteredCity = [] ,
-      fitleredCuisine = [] ,
-      cityValues = [],
-      muscleValues = []
-
-
-    cityCheckBox =  CITY.map((e,i) => (
-      <label key={i} className="filter-item">
-        <input type="checkbox" value={e} className="city" onChange={this.handleChange(e)}/>{e}
-      </label>
-    ))
-
-    cuisineCheckBox = CUISINE.map((m,i) => (
-      <label key={i} className="filter-item">
-        <input type="checkbox" value={m} className="cuisine" onChange={this.handleChange(m)} />{m}
-      </label>
-    ))
     
-    return(
+    this.state = {
+      searchFilter: props.history.location.state ? props.history.location.state.search : []
+    };
+    
+    this.handleChange = this.handleChange.bind(this);
+    this.filterBuilderCity = this.filterBuilderCity.bind(this);
+    this.filterBuilderCuisine = this.filterBuilderCuisine.bind(this);
+    this.filterBuilderPrice = this.filterBuilderPrice.bind(this);
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  componentDidMount() {
+    const grid = document.querySelector(".restaurant-items");
+    wrapGrid(grid);
+    this.sendSearch();
+  }
+
+  sendSearch() {
+    this.props.searchRestaurants(this.state.searchFilter);
+  }
+
+  filterBuilderCity() {
+    let cityFilter = CITY.map((c,i) => (
+      <div className="filter-item-div" key={i}>
+        <input
+          className="filter-checkbox"
+          type="checkbox"
+          value={c}
+          onChange={this.handleChange}
+          checked={this.state.searchFilter.includes(c) ? "checked" : ""}
+        />
+        <label className="filter-label">{c}</label>
+      </div>
+    ));
+    return cityFilter;
+  }
+
+  filterBuilderCuisine() {
+    let cuisineFilter = CUISINE.map((c,i) => (
+      <div className="filter-item-div" key={i}>
+        <input
+          className="filter-checkbox"
+          type="checkbox"
+          value={c}
+          onChange={this.handleChange}
+          checked={this.state.searchFilter.includes(c) ? "checked" : ""}
+        />
+        <label className="filter-label">{c}</label>
+      </div>
+    ));
+    return cuisineFilter;
+  }
+
+  
+
+  filterBuilderPrice(){
+    // let priceFilter = PRICE.map((c, i) => (
+    //   <div key={i}>
+    //     <input
+    //       type="checkbox"
+    //       value={c}
+    //       onChange={this.handleChange}
+    //       checked={this.state.searchFilter.includes(c) ? "checked" : ""}
+    //     />
+    //     <label className="label">{c}</label>
+    //   </div>
+    // ));
+    // return priceFilter;
+    return (
+      <div>
+        {/* <div className="filters-title">
+          <span>Price</span>
+        </div> */}
+        <ul className="price-filter-items">
+          <li title="$30 and under" value="$$" onClick={this.handleClick}>
+            $$
+          </li>
+          <li title="$31 and $50" value="$$$" onClick={this.handleClick}>
+            $$$
+          </li>
+          <li title="$50 and over" value="$$$$" onClick={this.handleClick}>
+            $$$$
+          </li>
+        </ul>
+      </div>
+    );
+  }
+
+  //price
+  handleClick(e){
+    e.preventDefault();
+    let price = e.target.getAttribute("value");
+    let newSearch = this.state.searchFilter;
+    if (newSearch.includes(price)) {
+      e.target.classList.remove("price-selected");
+      let i = newSearch.indexOf(price);
+      newSearch = newSearch.slice(0, i).concat(newSearch.slice(i + 1));
+    } else {
+      e.target.classList.add("price-selected");
+      newSearch.push(price);
+    }
+
+    this.props.searchRestaurants(newSearch).then(() =>
+      this.setState({
+        searchFilter: newSearch,
+      })
+    );
+  }
+
+  //city ,cuisine
+  handleChange(e) {
+    e.preventDefault();
+    let item = e.target.value;
+    let newSearch = this.state.searchFilter;
+    if (newSearch.includes(item)) {
+      let i = newSearch.indexOf(item);
+      newSearch = newSearch.slice(0, i).concat(newSearch.slice(i + 1));
+    } else {
+      newSearch.push(item);
+    }
+
+    this.props.searchRestaurants(newSearch).then(() =>
+      this.setState({
+        searchFilter: newSearch,
+      })
+    );
+  }
+
+  render() {
+    return (
       <div className="filter-container">
         <section className="filter-section">
           <div className="filter-option">
-            {cityCheckBox}
+            <h5>
+              <i className="far fa-money-bill-alt"></i> Price
+            </h5>
+            {this.filterBuilderPrice()}
           </div>
           <div className="filter-option">
-            {cuisineCheckBox}
+            <h5>
+              <i className="fas fa-map-marker-alt"></i> City
+            </h5>
+            {this.filterBuilderCity()}
+          </div>
+          <div className="filter-option">
+            <h5>
+              <i className="fas fa-utensils"></i> Cuisine
+            </h5>
+            {this.filterBuilderCuisine()}
           </div>
         </section>
       </div>
-    )
+    );
   }
 }
 
