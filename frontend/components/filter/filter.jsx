@@ -20,7 +20,8 @@ const CUISINE = [
   "Italian",
   "American",
   "Mexican",
-  "Californian"
+  "Californian",
+  "Korean"
 ]
 
 const PRICE = [
