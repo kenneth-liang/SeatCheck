@@ -47,7 +47,7 @@ class IndexItem extends React.Component{
         backgroundImage: `url(${restaurant.photo})`
     }
     
-    const moneyCheck = restaurant.price > 30 ? "$$$ " : "$$ "
+    // const moneyCheck = restaurant.price > 30 ? "$$$ " : "$$ "
 
     const phoneIcon = <img className="phone-icon" src="https://seat-check-seeds.s3-us-west-1.amazonaws.com/phone.png" />
       return (
@@ -61,7 +61,8 @@ class IndexItem extends React.Component{
                   <span>Rating: {this.getAverageRating()} {this.getChairsScoreRestaurant()}</span>
                   </div>
                   <div className="rest-row">
-                    <span>{moneyCheck}</span>
+                    {/* <span>{moneyCheck}</span> */}
+                    <span>{restaurant.price}</span>
                   <span><i className="fas fa-utensils"></i> {restaurant.cuisine}</span>
                   <span><i className="fas fa-map-marker-alt location-idx"></i> {restaurant.city}</span>
                   </div>

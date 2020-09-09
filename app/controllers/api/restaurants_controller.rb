@@ -1,34 +1,32 @@
 class Api::RestaurantsController < ApplicationController
     def index 
         if params[:search] 
-            # input array 
-            # output array of objects 
-            searchArray = params[:search]
-            # searchArray = ["las vegas", "french", "asian"]
-            res = [] 
-            # for (let i = 0; i < searchArray.length; i + 1) {
-            #     let keyword = searchArray[i];
-            #     res.push(Restaurant.search_by_key(keyword));
-            # }
-            searchArray.each do |keyword| 
-                res.concat(Restaurant.search_by_key(keyword))
+            if params[:search].length > 1 
+                @restaurants = narrowSearch(params[:search])
+                # search_list = params[:search]
+                # res = [] 
+                # search_list.each{ |keyword| res.concat(Restaurant.search_by_key(keyword)) }
+                # @restaurants = res 
+            else 
+                @restaurants = Restaurant.search_by_key(params[:search][0])
             end
+            # if params[:search]
+            #     @restaurants = Restaurant.where(city: params[:search])
+            # end
 
-            # @restaurants = Restaurant.search_by_key(params[:search][0])
-            @restaurants = res
+            # if params[:search][:price]
 
+            # end
+
+            # if params[:search][:cuisine]
+
+            # end
+                        
             if @restaurants 
                 @restaurants
             else 
                 render json: ["No Restaurant Found"], status: 404
             end 
-
-            # if params[:search][:price]
-            #     @restaurants = @restaurants.where(:price => params[:search][:price] )
-            # end
-            # if params[:search][:cuisine]
-            #     @restaurants = @restaurants.where(:cuisine => params[:search][:cuisine] )
-            # end
 
         else 
             @restaurants = Restaurant.all
@@ -39,4 +37,14 @@ class Api::RestaurantsController < ApplicationController
     def show 
         @restaurant = Restaurant.find(params[:id])
     end 
+
+
+    private 
+    def narrowSearch(array)
+        res = []
+        array.each {|keyword| res.concat(Restaurant.search_by_key(keyword))}
+        counts = Hash.new(0)
+        res.each{ |ele| counts[ele] += 1}
+        counts.select{|v,count| count > 1}.keys
+    end
 end

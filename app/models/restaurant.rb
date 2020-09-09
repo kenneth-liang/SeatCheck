@@ -44,10 +44,10 @@ class Restaurant < ApplicationRecord
     
 
     def self.search_by_key(keyword)
-
         Restaurant.where("lower(city) like ?", "%#{keyword.downcase}%")
             .or(Restaurant.where("lower(cuisine) like ?", "%#{keyword.downcase}%"))
             .or(Restaurant.where("lower(name) like ?", "%#{keyword.downcase}%"))
+            .or(Restaurant.where("price = ?", "#{keyword}"))
     end
 
     def score_arr
