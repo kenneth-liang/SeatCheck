@@ -8,6 +8,7 @@ import { wrapGrid } from "animate-css-grid";
 
 class RestaurantIndex extends React.Component {
   constructor(props) {
+    window.scrollTo(0, 0);
     super(props);
   }
 
