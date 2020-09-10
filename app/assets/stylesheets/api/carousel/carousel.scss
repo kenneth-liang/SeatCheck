@@ -1,0 +1,84 @@
+.carousel {
+    display: flex;
+    justify-content: center;
+}
+
+.slider-container{
+    display: block;
+    margin: 20px 0 17px 0;
+    border-radius: 5px;
+    height: 350px;
+    padding: 2rem;
+    width: 75%;
+    border: 1px solid white;
+    box-shadow: 0px 3px 7px 0px #ccc;
+};
+
+.slider-header {
+    border-bottom: 1px solid lightgray;
+    font-size: 24px;
+    padding: 10px 0px 20px 0px;
+    margin: 10px 20px 20px;
+    font-weight: 800;
+}
+
+
+.slides {
+  position: relative;
+}
+
+
+.slides .slick-prev {
+  left: 1%;
+}
+
+.slides .slick-next {
+  right: 1%;
+}
+.slick-list {
+    height: 300px;
+    padding-left: 2rem
+}
+
+.slick-slide.slick-active.slick-current {
+    width: 300px;
+}
+
+.slick-next:before, .slick-prev:before {
+    font-size: 40px;
+    line-height: 1;
+    opacity: .85;
+    color: whitesmoke;
+}
+
+.slide-item img {
+  border-radius: 5px;
+  cursor: pointer;
+  // box-shadow: ;
+}
+
+.slide-item img:hover{
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.slides .slick-prev,
+.slides .slick-next {
+  position: absolute;
+  top: 40%;
+  z-index:1;
+}
+
+
+.slider-item-cuisine{
+  position: absolute; 
+  top: 180px;
+  color: white;
+  font-size: 19px;
+  outline:none;
+  font-weight: 700;
+  line-height: 1.5rem;
+  text-shadow: 1px 1px 1px #000;
+  margin-left: 1rem;
+  cursor: pointer;
+}

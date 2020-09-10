@@ -17,7 +17,7 @@ class FeaturedAreas extends React.Component{
         //upon click use the id as the search key word 
         e.preventDefault();
 
-        let city = e.target.id.split("_").join(' ');
+        let city = e.target.id.split("_").map(i => i[0].toUpperCase() + i.slice(1)).join(' ');
         this.setState(
           {
             search: [city],
