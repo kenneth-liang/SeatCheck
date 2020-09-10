@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchForm from '../search/search_container'
 import FeaturedAreas from '../featured_areas/featured_areas_container'
+import Carousel from '../carousel/carousel_container'
 
 class HomePage extends React.Component{
     constructor(props){
@@ -21,6 +22,9 @@ class HomePage extends React.Component{
                 </div>
               </div>
             </header>
+            <div className="carousel">
+              <Carousel/>
+            </div>
             <div className="features">
               <FeaturedAreas/>
             </div>
