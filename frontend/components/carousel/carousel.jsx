@@ -97,8 +97,8 @@ class Carousel extends Component {
             return (
               <div key={i} className="slide-item">
                 <img
-                  width="250px"
-                  height="250px"
+                  width="100%"
+                  height="100%"
                   src={cuisine.url}
                   id={cuisine.name}
                   onClick={this.handleClick}
