@@ -3,24 +3,9 @@ class Api::RestaurantsController < ApplicationController
         if params[:search] 
             if params[:search].length > 1 
                 @restaurants = narrowSearch(params[:search])
-                # search_list = params[:search]
-                # res = [] 
-                # search_list.each{ |keyword| res.concat(Restaurant.search_by_key(keyword)) }
-                # @restaurants = res 
             else 
                 @restaurants = Restaurant.search_by_key(params[:search][0])
             end
-            # if params[:search]
-            #     @restaurants = Restaurant.where(city: params[:search])
-            # end
-
-            # if params[:search][:price]
-
-            # end
-
-            # if params[:search][:cuisine]
-
-            # end
                         
             if @restaurants 
                 @restaurants
