@@ -6,9 +6,9 @@ import RestaurantIndexContainer from "../restaurants/restaurant_index_container"
 class FeaturedAreas extends React.Component{
     constructor(props) {
         super(props);
-        this.state = {
-            search: ""
-        }
+        // this.state = {
+        //     search: ""
+        // }
         this.handleClick = this.handleClick.bind(this)
     }
 
@@ -17,17 +17,21 @@ class FeaturedAreas extends React.Component{
         //upon click use the id as the search key word 
         e.preventDefault();
 
-        let city = e.target.id.split("_").map(i => i[0].toUpperCase() + i.slice(1)).join(' ');
-        this.setState(
-          {
-            search: [city],
-          },() => this.props .searchRestaurants( this.state.search ).then(
-              () => this.props.history.push({ 
-                  pathname: "/restaurants", 
-                  state: { search: this.state.search } 
-                })
-            )
-        );
+        let cityValue = e.target.id.split("_").map(i => i[0].toUpperCase() + i.slice(1)).join(' ');
+        // this.setState(
+        //   {
+        //     search: [city],
+        //   },() => this.props .searchRestaurants( this.state.search ).then(
+        //       () => this.props.history.push({ 
+        //           pathname: "/restaurants", 
+        //           state: { search: this.state.search } 
+        //         })
+        //     )
+        // );
+        this.props.history.push({
+          pathname: "/restaurants",
+          state: { city: cityValue },
+        });
     }
 
     render( ) {
