@@ -1,6 +1,12 @@
 .filter-container {
     width: 13rem;
-    margin: 20px auto;
+    margin: 20px 1rem auto auto;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    // background-color: yellow;
+    // padding: 50px;
+    // font-size: 20px;
 }
 
 .filter-section{
@@ -31,11 +37,21 @@
     padding: .2rem;
 }
 
+.filters-summary-container {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: white;
+}
+
 .filters-summary{
-    margin: 2rem;
-    padding: 1rem 0 ;
+    margin: 1rem;
+    padding: 1rem;
     border-top: 1px solid lightgray;
     border-bottom: 1px solid lightgray;
+    display: flex;
+    justify-content: space-between;
 }
 
 .price-filter-items {
@@ -89,9 +105,46 @@
     margin-right: .5rem;
     height: 1rem;
     width: 1rem;
+    cursor: pointer;
 }
 
 .price-selected{
     background: #2d333f;
     color:white
+}
+
+.price-choice {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.price-choice .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  top: 40px;
+  left: -25px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.price-choice:hover .tooltiptext {
+  visibility: visible;
+}
+
+.top-btn {
+    cursor: pointer;
+    text-decoration: none;
+    outline: 0 !important;
+    display: flex;
+    width: 40px;
+    justify-content: space-around;
+
 }

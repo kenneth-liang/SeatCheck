@@ -12,6 +12,10 @@ class RestaurantIndex extends React.Component {
     super(props);
   }
 
+  scrollTop(){
+      document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+  }
   render() {
     const items = this.props.restaurants.map((restaurant) => (
       <RestaurantIndexItem key={restaurant.id} restaurant={restaurant} />
@@ -32,7 +36,19 @@ class RestaurantIndex extends React.Component {
 
     let restaurantNumber =
       items.length !== 0 ? (
-        <div className="filters-summary"> {items.length} Restaurants available</div>
+        <div className="filters-summary">
+          {items.length} Restaurants available
+          <div>
+            <button
+              className="top-btn"
+              onClick={() =>
+                window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+              }
+            >
+              Top <i className="fas fa-arrow-up"></i>
+            </button>
+          </div>
+        </div>
       ) : (
         ""
       );
@@ -47,7 +63,7 @@ class RestaurantIndex extends React.Component {
     //   );
     
     return (
-      <div className="restaurant-container">
+      <div className="restaurant-container" id="top">
         <div className="search-control">
           <div className="page-header-content">
             <SearchForm restaurants={this.props.restaurants} />

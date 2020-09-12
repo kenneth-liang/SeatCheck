@@ -1,33 +1,21 @@
 class Api::RestaurantsController < ApplicationController
     def index 
         if params[:search] 
-            if params[:search].length > 1 
-                @restaurants = narrowSearch(params[:search])
-                # search_list = params[:search]
-                # res = [] 
-                # search_list.each{ |keyword| res.concat(Restaurant.search_by_key(keyword)) }
-                # @restaurants = res 
+            if params[:search][:city]
+                @restaurants = params[:search][:city] == ["All"] ? 
+                    Restaurant.all : 
+                    Restaurant.where(city: params[:search][:city])
             else 
-                @restaurants = Restaurant.search_by_key(params[:search][0])
+                 @restaurants = Restaurant.all
             end
-            # if params[:search]
-            #     @restaurants = Restaurant.where(city: params[:search])
-            # end
 
-            # if params[:search][:price]
+            if params[:search][:price]
+                @restaurants = @restaurants.where(:price => params[:search][:price])
+            end
 
-            # end
-
-            # if params[:search][:cuisine]
-
-            # end
-                        
-            if @restaurants 
-                @restaurants
-            else 
-                render json: ["No Restaurant Found"], status: 404
-            end 
-
+            if params[:search][:cuisines]
+                @restaurants = @restaurants.where(:cuisine => params[:search][:cuisines])
+            end
         else 
             @restaurants = Restaurant.all
         end
