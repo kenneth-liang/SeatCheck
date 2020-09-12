@@ -3,7 +3,6 @@ import {withRouter} from 'react-router-dom';
 import {wrapGrid} from 'animate-css-grid';
 
 const CITY = [
-  "All",
   "San Francisco",
   "Las Vegas",
   "Seattle",
@@ -35,18 +34,22 @@ class Filter extends React.Component {
   constructor(props) {
     super(props);
 
+    // this.state = { searchFilter: props.history.location.state ? props.history.location.state.search : [], };
     this.state = {
-      searchFilter: props.history.location.state
-        ? props.history.location.state.search
-        : [],
+      price: [],
+      cuisines: props.location.state ? [props.location.state.cuisine] : [],
+      locations:
+        props.location.state && props.location.state.city
+          ? [props.location.state.city]
+          : ["All"],
     };
 
-    this.handleChangeCuisine = this.handleChangeCuisine.bind(this);
     this.handleChangeCity = this.handleChangeCity.bind(this);
     this.filterBuilderCity = this.filterBuilderCity.bind(this);
+    this.handleChangeCuisine = this.handleChangeCuisine.bind(this);
     this.filterBuilderCuisine = this.filterBuilderCuisine.bind(this);
-    this.filterBuilderPrice = this.filterBuilderPrice.bind(this);
     this.handleClickPrice = this.handleClickPrice.bind(this);
+    this.filterBuilderPrice = this.filterBuilderPrice.bind(this);
   }
 
   componentDidMount() {
@@ -56,24 +59,28 @@ class Filter extends React.Component {
   }
 
   sendSearch() {
-    this.props.searchRestaurants(this.state.searchFilter);
+    // this.props.searchRestaurants({this.state.searchFilter});
+    this.props.searchRestaurants({
+      price: this.state.price,
+      city: this.state.locations,
+      cuisines: this.state.cuisines,
+    });
   }
 
   filterBuilderCity() {
-    return (
-      <select onChange={this.handleChangeCity}>
-        {CITY.map((c, i) => (
-            <option
-              key={i}
-              value={c === "All" ? "" : c}
-              selected={this.state.searchFilter.includes(c) ? "selected" : ""}
-            >
-              {c}
-            </option>
-          ))
-        }
-      </select>
-    )
+    let cityFilter = CITY.map((c, i) => (
+      <div className="filter-item-div" key={i}>
+        <input
+          className="filter-checkbox"
+          type="checkbox"
+          value={c}
+          onChange={this.handleChangeCity}
+          checked={this.state.locations.includes(c) ? "checked" : ""}
+        />
+        <label className="filter-label">{c}</label>
+      </div>
+    ));
+    return cityFilter;
   }
 
   filterBuilderCuisine() {
@@ -84,7 +91,7 @@ class Filter extends React.Component {
           type="checkbox"
           value={c}
           onChange={this.handleChangeCuisine}
-          checked={this.state.searchFilter.includes(c) ? "checked" : ""}
+          checked={this.state.cuisines.includes(c) ? "checked" : ""}
         />
         <label className="filter-label">{c}</label>
       </div>
@@ -96,14 +103,26 @@ class Filter extends React.Component {
     return (
       <div>
         <ul className="price-filter-items">
-          <li title="$30 and under" className="price-choice" value="$$" onClick={this.handleClickPrice}>
-            $$
+          <li
+            className="price-choice"
+            value="$$"
+            onClick={this.handleClickPrice}
+          >
+            $$ <span className="tooltiptext">{"$30 and Under"}</span>
           </li>
-          <li title="$31 and $50" className="price-choice" value="$$$" onClick={this.handleClickPrice}>
-            $$$
+          <li
+            className="price-choice"
+            value="$$$"
+            onClick={this.handleClickPrice}
+          >
+            $$$ <span className="tooltiptext">{"$31 and $50"}</span>
           </li>
-          <li title="$50 and over" className="price-choice" value="$$$$" onClick={this.handleClickPrice}>
-            $$$$
+          <li
+            className="price-choice"
+            value="$$$$"
+            onClick={this.handleClickPrice}
+          >
+            $$$$ <span className="tooltiptext">{"$50 and over"}</span>
           </li>
         </ul>
       </div>
@@ -113,77 +132,123 @@ class Filter extends React.Component {
   handleClickPrice(e) {
     e.preventDefault();
     let price = e.target.getAttribute("value");
-    let newSearch = this.state.searchFilter;
-    if (newSearch.includes(price)) {
-      e.target.classList.remove("price-selected");
-      let i = newSearch.indexOf(price);
-      newSearch = newSearch.slice(0, i).concat(newSearch.slice(i + 1))
+    // let newSearch = this.state.searchFilter;
+    // if (newSearch.includes(price)) {
+    //   e.target.classList.remove("price-selected");
+    //   let i = newSearch.indexOf(price);
+    //   newSearch = newSearch.slice(0, i).concat(newSearch.slice(i + 1))
+    // } else {
+    //     e.target.classList.add("price-selected");
+    //     newSearch.push(price);
+    // }
+    // this.props.searchRestaurants(newSearch).then(() =>
+    //   this.setState({
+    //     searchFilter: newSearch,
+    //   })
+    // );
+    if (this.state.price.indexOf(price) === -1) {
+      e.target.classList.add("price-selected");
+      this.setState(
+        {
+          price: [...this.state.price, price],
+        },
+        () => this.sendSearch()
+      );
     } else {
-        e.target.classList.add("price-selected");
-        newSearch.push(price);
+      e.target.classList.remove("price-selected");
+      this.setState({ price: this.state.price.filter((p) => p != price) }, () =>
+        this.sendSearch()
+      );
     }
-    this.props.searchRestaurants(newSearch).then(() =>
-      this.setState({
-        searchFilter: newSearch,
-      })
-    );
-
   }
 
   handleChangeCuisine(e) {
     e.preventDefault();
     let cuisine = e.target.value;
-    let newSearch = this.state.searchFilter;
-    if (newSearch.includes(cuisine)) {
-      let i = newSearch.indexOf(cuisine);
-      newSearch = newSearch.slice(0, i).concat(newSearch.slice(i + 1));
-    } else {
-      newSearch.push(cuisine);
-    }
+    // let newSearch = this.state.searchFilter;
+    // if (newSearch.includes(cuisine)) {
+    //   let i = newSearch.indexOf(cuisine);
+    //   newSearch = newSearch.slice(0, i).concat(newSearch.slice(i + 1));
+    // } else {
+    //   newSearch.push(cuisine);
+    // }
 
-    this.props.searchRestaurants(newSearch).then(() =>
-      this.setState({
-        searchFilter: newSearch,
-      })
-    );
+    // this.props.searchRestaurants(newSearch).then(() =>
+    //   this.setState({
+    //     searchFilter: newSearch,
+    //   })
+    // );
+    if (this.state.cuisines.indexOf(cuisine) === -1) {
+      this.setState(
+        {
+          cuisines: [...this.state.cuisines, cuisine],
+        },
+        () => this.sendSearch()
+      );
+    } else {
+      this.setState(
+        { cuisines: this.state.cuisines.filter((p) => p != cuisine) },
+        () => this.sendSearch()
+      );
+    }
   }
 
-  handleChangeCity(e){
-    e.preventDefault
-    let newCity = e.target.value;
-    let newSearch = this.state.searchFilter;
-      
-    for ( let i = 0; i < newSearch.length; i++) {
-      if (CITY.includes(newSearch[i])) {
-        newSearch = newSearch.slice(0, i).concat(newSearch.slice(i + 1));
-      } 
-    }
-    newSearch.push(newCity)
+  handleChangeCity(e) {
+    e.preventDefault;
+    let city = e.target.value;
+    // let newSearch = this.state.searchFilter;
 
-    this.props.searchRestaurants(newSearch).then(() =>
-      this.setState({
-        searchFilter: newSearch,
-      })
-    );
+    // for ( let i = 0; i < newSearch.length; i++) {
+    //   if (CITY.includes(newSearch[i])) {
+    //     newSearch = newSearch.slice(0, i).concat(newSearch.slice(i + 1));
+    //   }
+    // }
+    // newSearch.push(city)
+
+    // this.props.searchRestaurants(newSearch).then(() =>
+    //   this.setState({
+    //     searchFilter: newSearch,
+    //   })
+    // );
+    if (this.state.locations.indexOf(city) === -1) {
+      this.setState(
+        {
+          locations: [...this.state.locations, city],
+        },
+        () => this.sendSearch()
+      );
+    } else {
+      this.setState(
+        { locations: this.state.locations.filter((p) => p != city) },
+        () => this.sendSearch()
+      );
+    }
   }
 
   render() {
-    console.log(this.state.searchFilter)
+    // window.scrollTo({
+    //   top: 100,
+    //   left: 100,
+    //   behavior: "smooth",
+    // });    
     return (
       <div className="filter-container">
         <section className="filter-section">
-          <div className="filter-option">
-            <h5>
-              <i className="fas fa-map-marker-alt"></i> City
-            </h5>
-            {this.filterBuilderCity()}
-          </div>
+          
           <div className="filter-option">
             <h5>
               <i className="far fa-money-bill-alt"></i> Price
             </h5>
             {this.filterBuilderPrice()}
           </div>
+
+          <div className="filter-option">
+            <h5>
+              <i className="fas fa-map-marker-alt"></i> City
+            </h5>
+            {this.filterBuilderCity()}
+          </div>
+
           <div className="filter-option">
             <h5>
               <i className="fas fa-utensils"></i> Cuisine
