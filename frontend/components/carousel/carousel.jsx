@@ -59,19 +59,23 @@ class Carousel extends Component {
   handleClick(e) {
     e.preventDefault();
 
-    let cuisine = e.target.id
-    this.setState(
-      {
-        search: [cuisine],
-      },
-      () =>
-        this.props.searchRestaurants(this.state.search).then(() =>
-          this.props.history.push({
-            pathname: "/restaurants",
-            state: { search: this.state.search },
-          })
-        )
-    );
+    let cuisineValue = e.target.id
+    // this.setState(
+    //   {
+    //     search: [cuisine],
+    //   },
+    //   () =>
+    //     this.props.searchRestaurants(this.state.search).then(() =>
+    //       this.props.history.push({
+    //         pathname: "/restaurants",
+    //         state: { search: this.state.search },
+    //       })
+    //     )
+    // );
+    this.props.history.push({
+      pathname: "/restaurants",
+      state: { cuisine: cuisineValue },
+    });
 
   }
 
