@@ -491,7 +491,7 @@ restaurant22 = Restaurant.create!(
     zip: "98104",
     price: "$$",
     cuisine: 'Seafood',
-    open_time: DateTime.parse("12:00:00"),
+    open_time: DateTime.parse("13:00:00"),
     close_time: DateTime.parse("20:00:00"),
     phone_number: "(206) 624-6852",
     menu_link: "https://www.ivars.com/locations/acres-of-clams#menus",
