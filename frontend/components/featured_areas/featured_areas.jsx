@@ -14,20 +14,9 @@ class FeaturedAreas extends React.Component{
 
 
     handleClick(e){
-        //upon click use the id as the search key word 
         e.preventDefault();
 
         let cityValue = e.target.id.split("_").map(i => i[0].toUpperCase() + i.slice(1)).join(' ');
-        // this.setState(
-        //   {
-        //     search: [city],
-        //   },() => this.props .searchRestaurants( this.state.search ).then(
-        //       () => this.props.history.push({ 
-        //           pathname: "/restaurants", 
-        //           state: { search: this.state.search } 
-        //         })
-        //     )
-        // );
         this.props.history.push({
           pathname: "/restaurants",
           state: { city: cityValue },

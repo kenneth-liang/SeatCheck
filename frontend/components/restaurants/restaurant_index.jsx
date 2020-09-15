@@ -13,8 +13,8 @@ class RestaurantIndex extends React.Component {
   }
 
   scrollTop(){
-      document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
   }
   render() {
     const items = this.props.restaurants.map((restaurant) => (
@@ -37,7 +37,7 @@ class RestaurantIndex extends React.Component {
     let restaurantNumber =
       items.length !== 0 ? (
         <div className="filters-summary">
-          {items.length} Restaurants available
+          {items.length} Restaurants Available
           <div>
             <button
               className="top-btn"
