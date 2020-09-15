@@ -27,13 +27,11 @@ class Carousel extends Component {
 
   handleClick(e) {
     e.preventDefault();
-
-    let cuisineValue = e.target.id
+    let cuisineValue = e.currentTarget.id
     this.props.history.push({
       pathname: "/restaurants",
       state: { cuisine: cuisineValue },
     });
-
   }
 
   render() {
@@ -42,7 +40,7 @@ class Carousel extends Component {
       infinite: true,
       speed: 500,
       slidesToShow: 4.2,
-      slidesToScroll: 1,
+      slidesToScroll: 1.4,
       arrows: true,
       className: "slides",
       autoplay: true,
@@ -58,7 +56,7 @@ class Carousel extends Component {
             return (
               <div key={i} className="slide-item slide-item-back" id={cuisine}
                 onClick={this.handleClick}>
-                  <div className="slide-item-cuisine">
+                <div className="slide-item-cuisine">
                     <p>Best {cuisine}</p>
                     <p>Restaurants Around You</p>
                   </div>
