@@ -69,8 +69,7 @@
 .slide-item:hover{
   transform: scale(1.05);
   cursor: pointer;
-  filter: brightness(160%) saturate(160%);;
-  
+  filter: brightness(150%) saturate(150%);;
 }
 
 .slides .slick-prev,
@@ -99,78 +98,78 @@
 
 // i don't like repeating this 
 #Steak{
-  background-image:  linear-gradient(rgba(0, 0, 0, 0.5),
-                       rgba(0, 0, 0, 0.5)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/prime-provis.jpg");
+  background-image:  linear-gradient(rgba(0, 0, 0, 0.3),
+                       rgba(0, 0, 0, 0.3)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/prime-provis.jpg");
   background-size: 98% 240px;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 #Seafood{
-  background-image:  linear-gradient(rgba(0, 0, 0, 0.5),
-                       rgba(0, 0, 0, 0.5)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/ivar.jpg");
+  background-image:  linear-gradient(rgba(0, 0, 0, 0.3),
+                       rgba(0, 0, 0, 0.3)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/ivar.jpg");
   background-size: 98% 240px;
   background-position: center;
   background-repeat: no-repeat;
 }
 #French{
-  background-image:  linear-gradient(rgba(0, 0, 0, 0.5),
-                       rgba(0, 0, 0, 0.5)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/nomi.jpg");
+  background-image:  linear-gradient(rgba(0, 0, 0, 0.3),
+                       rgba(0, 0, 0, 0.3)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/nomi.jpg");
   background-size: 98% 240px;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 #Asian{
-  background-image:  linear-gradient(rgba(0, 0, 0, 0.5),
-                       rgba(0, 0, 0, 0.5)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/wgk.jpg");
+  background-image:  linear-gradient(rgba(0, 0, 0, 0.3),
+                       rgba(0, 0, 0, 0.3)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/wgk.jpg");
   background-size: 98% 240px;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 #Indian{
-  background-image:  linear-gradient(rgba(0, 0, 0, 0.5),
-                       rgba(0, 0, 0, 0.5)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/amberindia.jpg");
+  background-image:  linear-gradient(rgba(0, 0, 0, 0.3),
+                       rgba(0, 0, 0, 0.3)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/amberindia.jpg");
   background-size: 98% 240px;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 #Italian{
-  background-image:  linear-gradient(rgba(0, 0, 0, 0.5),
-                       rgba(0, 0, 0, 0.5)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/arte-cafe.jpg");
+  background-image:  linear-gradient(rgba(0, 0, 0, 0.3),
+                       rgba(0, 0, 0, 0.3)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/arte-cafe.jpg");
   background-size: 98% 240px;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 #American{
-  background-image:  linear-gradient(rgba(0, 0, 0, 0.5),
-                       rgba(0, 0, 0, 0.5)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/lexingtonbrass.jpg");
+  background-image:  linear-gradient(rgba(0, 0, 0, 0.3),
+                       rgba(0, 0, 0, 0.3)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/lexingtonbrass.jpg");
   background-size: 98% 240px;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 #Mexican{
-  background-image:  linear-gradient(rgba(0, 0, 0, 0.5),
-                       rgba(0, 0, 0, 0.5)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/nachodaddy.jpg");
+  background-image:  linear-gradient(rgba(0, 0, 0, 0.3),
+                       rgba(0, 0, 0, 0.3)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/nachodaddy.jpg");
   background-size: 98% 240px;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 #Korean{
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5),
-                       rgba(0, 0, 0, 0.5)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/ombu.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3),
+                       rgba(0, 0, 0, 0.3)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/ombu.jpg");
   background-size: 98% 240px;
   background-position: center;
   background-repeat: no-repeat;
 }
 #Californian{
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5),
-                       rgba(0, 0, 0, 0.5)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/wayfaret.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3),
+                       rgba(0, 0, 0, 0.3)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/wayfaret.jpg");
   background-size: 98% 240px;
   background-position: center;
   background-repeat: no-repeat;
