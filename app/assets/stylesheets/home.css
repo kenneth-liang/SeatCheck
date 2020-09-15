@@ -95,36 +95,44 @@
 }
 
 .fcity:hover {
-  opacity: 0.80;
+  /* opacity: 0.80; */
   transform: scale(1.05);
   cursor: pointer;
+filter: brightness(150%) saturate(150%);;
+
 }
 
 
 
 
 #san_francisco {
-    background: url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/san+francisco.jpeg") no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.4),
+                       rgba(0, 0, 0, 0.4)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/san+francisco.jpeg") no-repeat;
     background-size: cover;
 }
 #los_angeles {
-    background: url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/los-angeles.jpg") no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.4),
+                       rgba(0, 0, 0, 0.4)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/los-angeles.jpg") no-repeat;
     background-size: cover;
 }
 #new_york {
-    background: url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/newyork.jpg") no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.4),
+                       rgba(0, 0, 0, 0.4)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/newyork.jpg") no-repeat;
     background-size: cover;
 }
 #las_vegas {
-    background: url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/lasvegas.jpg") no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.4),
+                       rgba(0, 0, 0, 0.4)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/lasvegas.jpg") no-repeat;
     background-size: cover;
 }
 #seattle {
-    background: url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/seattle.jpg") no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.4),
+                       rgba(0, 0, 0, 0.4)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/seattle.jpg") no-repeat;
     background-size: cover;
 }
 
 #chicago {
-    background: url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/chicago.jpg") no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.4),
+                       rgba(0, 0, 0, 0.4)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/chicago.jpg") no-repeat;
     background-size: cover;
 }
