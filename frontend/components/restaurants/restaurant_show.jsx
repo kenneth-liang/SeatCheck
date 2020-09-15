@@ -8,7 +8,7 @@ import RatingForm from '../rating/rating_form_container'
 class RestaurantShow extends React.Component{
   constructor(props){
     super(props)
-
+    window.scrollTo(0, 0);
     this.scroll = this.scroll.bind(this)
     this.toggleFavorite = this.toggleFavorite.bind(this)
     this.deleteFavorite = this.deleteFavorite.bind(this)
@@ -113,6 +113,10 @@ class RestaurantShow extends React.Component{
     return restRatingArray
   }
 
+  handleCrumbClick(e){
+
+  }
+
 
   render (){
     // this is way too long 
@@ -126,6 +130,20 @@ class RestaurantShow extends React.Component{
     const moneyCheck = restaurant.price > 30 ? "$31 to $50 " : "$30 and under "
     return (
       <div className="single-restaurant-show">
+        <ol className="breadcrumb">
+          <li className="crumb">
+            <a href="/" className="crumb-link">Home</a>
+          </li>
+          <li className="crumb">
+            <a href="/#/restaurants" className="crumb-link">All Restaurants</a>
+          </li>
+          <li className="crumb">
+            <div onClick={() => this.props.history.push({ pathname: "/restaurants", state: { city: restaurant.city}})} className="crumb-link">{restaurant.city}</div>
+          </li>
+          <li className="crumb">
+            <div onClick={() => this.props.history.push({ pathname: "/restaurants", state: { cuisine: restaurant.cuisine }})} className="crumb-link">{restaurant.cuisine}</div>
+          </li>
+        </ol >
         <div className="rest-show-header">
           <div className="bimg" id="rest-bimg" style={bImg}></div>
           <div className="fav-button">
