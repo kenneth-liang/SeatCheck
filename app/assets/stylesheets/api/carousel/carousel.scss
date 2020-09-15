@@ -50,20 +50,27 @@
     opacity: .85;
     color: whitesmoke;
 }
+
 .slide-item{
-  height: 250px;
-  padding-right: .5rem;
-}
-
-.slide-item img {
-  border-radius: 5px;
+  height: 240px;
+  width: 100%;
+  outline: none;
+  color: #fff;
+  text-align: center;
+  font-size: 19px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #000;
+  background-color: rgba(255, 255, 255, 0.6);
   cursor: pointer;
-  // box-shadow: ;
+  border-radius: 5px;
 }
 
-.slide-item img:hover{
+
+.slide-item:hover{
   transform: scale(1.05);
   cursor: pointer;
+  filter: brightness(160%) saturate(160%);;
+  
 }
 
 .slides .slick-prev,
@@ -74,17 +81,97 @@
 }
 
 
-.slider-item-cuisine{
-  position: absolute; 
-  top: 180px;
-  color: white;
-  font-size: 16px;
-  outline:none;
+.slide-item-cuisine{
+  margin-top: 60%;
+  font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.5rem;
-  text-shadow: 1px 1px 1px #000;
-  margin-left: 1rem;
-  cursor: pointer;
-  width: 50%;;
-  height: 50%;;
+  text-align: left;
+  padding: .7rem;
+}
+
+.slide-item-cuisine p:last-child{
+  font-size: 14px;
+}
+
+
+
+
+// i don't like repeating this 
+#Steak{
+  background-image:  linear-gradient(rgba(0, 0, 0, 0.5),
+                       rgba(0, 0, 0, 0.5)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/prime-provis.jpg");
+  background-size: 98% 240px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#Seafood{
+  background-image:  linear-gradient(rgba(0, 0, 0, 0.5),
+                       rgba(0, 0, 0, 0.5)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/ivar.jpg");
+  background-size: 98% 240px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#French{
+  background-image:  linear-gradient(rgba(0, 0, 0, 0.5),
+                       rgba(0, 0, 0, 0.5)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/nomi.jpg");
+  background-size: 98% 240px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#Asian{
+  background-image:  linear-gradient(rgba(0, 0, 0, 0.5),
+                       rgba(0, 0, 0, 0.5)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/wgk.jpg");
+  background-size: 98% 240px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#Indian{
+  background-image:  linear-gradient(rgba(0, 0, 0, 0.5),
+                       rgba(0, 0, 0, 0.5)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/amberindia.jpg");
+  background-size: 98% 240px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#Italian{
+  background-image:  linear-gradient(rgba(0, 0, 0, 0.5),
+                       rgba(0, 0, 0, 0.5)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/arte-cafe.jpg");
+  background-size: 98% 240px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#American{
+  background-image:  linear-gradient(rgba(0, 0, 0, 0.5),
+                       rgba(0, 0, 0, 0.5)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/lexingtonbrass.jpg");
+  background-size: 98% 240px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#Mexican{
+  background-image:  linear-gradient(rgba(0, 0, 0, 0.5),
+                       rgba(0, 0, 0, 0.5)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/nachodaddy.jpg");
+  background-size: 98% 240px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#Korean{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+                       rgba(0, 0, 0, 0.5)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/ombu.jpg");
+  background-size: 98% 240px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#Californian{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+                       rgba(0, 0, 0, 0.5)),url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/wayfaret.jpg");
+  background-size: 98% 240px;
+  background-position: center;
+  background-repeat: no-repeat;
 }

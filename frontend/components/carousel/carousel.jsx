@@ -3,48 +3,17 @@ import { withRouter } from "react-router-dom";
 
 import Slider from "react-slick";
 
-const cuisines = [
-  {
-    name: "Steak",
-    url: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/prime-provis.jpg",
-  },
-  {
-    name: "Seafood",
-    url: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/ivar.jpg",
-  },
-  {
-    name: "French",
-    url: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/nomi.jpg",
-  },
-  {
-    name: "Asian",
-    url: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/wgk.jpg",
-  },
-  {
-    name: "Indian",
-    url: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/amberindia.jpg",
-  },
-  {
-    name: "Italian",
-    url: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/arte-cafe.jpg",
-  },
-  {
-    name: "American",
-    url:
-      "https://seat-check-seeds.s3-us-west-1.amazonaws.com/lexingtonbrass.jpg",
-  },
-  {
-    name: "Mexican",
-    url: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/nachodaddy.jpg",
-  },
-  {
-    name: "Korean",
-    url: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/ombu.jpg",
-  },
-  {
-    name: "Californian",
-    url: "https://seat-check-seeds.s3-us-west-1.amazonaws.com/wayfaret.jpg",
-  },
+const CUISINES = [
+  "Steak", 
+  "Seafood", 
+  "French", 
+  "Asian", 
+  "Indian", 
+  "Italian", 
+  "American", 
+  "Mexican", 
+  "Korean", 
+  "Californian",  
 ];
 
 class Carousel extends Component {
@@ -60,18 +29,6 @@ class Carousel extends Component {
     e.preventDefault();
 
     let cuisineValue = e.target.id
-    // this.setState(
-    //   {
-    //     search: [cuisine],
-    //   },
-    //   () =>
-    //     this.props.searchRestaurants(this.state.search).then(() =>
-    //       this.props.history.push({
-    //         pathname: "/restaurants",
-    //         state: { search: this.state.search },
-    //       })
-    //     )
-    // );
     this.props.history.push({
       pathname: "/restaurants",
       state: { cuisine: cuisineValue },
@@ -85,7 +42,7 @@ class Carousel extends Component {
       infinite: true,
       speed: 500,
       slidesToShow: 4.2,
-      slidesToScroll: 1.3,
+      slidesToScroll: 1,
       arrows: true,
       className: "slides",
       autoplay: true,
@@ -97,20 +54,14 @@ class Carousel extends Component {
           <h3>Top Cuisines </h3>
         </div>
         <Slider {...settings}>
-          {cuisines.map((cuisine, i) => {
+          {CUISINES.map((cuisine, i) => {
             return (
-              <div key={i} className="slide-item">
-                <img
-                  width="100%"
-                  height="100%"
-                  src={cuisine.url}
-                  id={cuisine.name}
-                  onClick={this.handleClick}
-                />
-                <div className="slider-item-cuisine">
-                  <p>Best {cuisine.name}</p>
-                  <p>Restaurants Around You</p>
-                </div>
+              <div key={i} className="slide-item slide-item-back" id={cuisine}
+                onClick={this.handleClick}>
+                  <div className="slide-item-cuisine">
+                    <p>Best {cuisine}</p>
+                    <p>Restaurants Around You</p>
+                  </div>
               </div>
             );
           })}
