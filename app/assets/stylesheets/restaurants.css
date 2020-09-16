@@ -138,3 +138,24 @@
 .location-idx{
     color: red
 }
+
+.rest-links {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1rem;
+}
+
+.rest-item-btn{
+    background: #DA3743;
+    color: #fff;
+    padding: .75rem 1.5rem .8125rem;
+    font-size: .8125rem;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.rest-item-btn:hover {
+    opacity: 0.80;
+    transform: scale(1.05);
+    cursor: pointer;
+}

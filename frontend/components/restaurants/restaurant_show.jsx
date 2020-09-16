@@ -113,10 +113,6 @@ class RestaurantShow extends React.Component{
     return restRatingArray
   }
 
-  handleCrumbClick(e){
-
-  }
-
 
   render (){
     // this is way too long 
