@@ -31,12 +31,16 @@ class RestaurantIndex extends React.Component {
       </div>
     );
 
-    let searchResults = items.length === 0 ? (errors) : (items);
+    let searchResults = items.length === 0 ? (items) : (items);
     
 
     let restaurantNumber =
-      items.length !== 0 ? (
-        <div className="filters-summary">
+      items.length === 0 ? (
+        <div>
+         {errors}
+       </div>
+      ) : (
+       <div className="filters-summary">
           {items.length} Restaurants Available
           <div>
             <button
@@ -49,8 +53,6 @@ class RestaurantIndex extends React.Component {
             </button>
           </div>
         </div>
-      ) : (
-        ""
       );
 
     // let appliedFilters =
@@ -66,7 +68,8 @@ class RestaurantIndex extends React.Component {
       <div className="restaurant-container" id="top">
         <div className="search-control">
           <div className="page-header-content">
-            <SearchForm restaurants={this.props.restaurants} />
+            {/* <SearchForm restaurants={this.props.restaurants} /> */}
+            Map Search
           </div>
         </div>
 
