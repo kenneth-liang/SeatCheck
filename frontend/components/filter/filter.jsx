@@ -41,7 +41,8 @@ class Filter extends React.Component {
       locations:
         props.location.state && props.location.state.city
           ? [props.location.state.city]
-          : ["All"],
+          : [],
+      // name: props.location.state ? [props.location.state.name] : [],
     };
 
     this.handleChangeCity = this.handleChangeCity.bind(this);
@@ -63,6 +64,7 @@ class Filter extends React.Component {
       price: this.state.price,
       city: this.state.locations,
       cuisines: this.state.cuisines,
+      // name: this.state.name,
     });
   }
 
@@ -186,11 +188,9 @@ class Filter extends React.Component {
   }
 
   render() {
-  
     return (
       <div className="filter-container">
         <section className="filter-section">
-          
           <div className="filter-option">
             <h5>
               <i className="far fa-money-bill-alt"></i> Price
