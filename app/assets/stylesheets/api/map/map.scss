@@ -1,0 +1,31 @@
+#sidebar-map{
+  width: 100%;
+  height: 200px;
+  margin: auto;
+  border: 1px solid transparent;
+  box-shadow: 0 5px 10px grey;
+  border-radius: 2%;
+
+}
+
+ #map-container{
+   width: 100%;
+   max-width: 100%;
+   height: 200px;
+ }
+
+ .google-api{
+    border: 1px solid transparent;
+    box-shadow: 0 5px 10px grey;
+    border-radius: 2%;
+}
+
+.rest-location{
+    border: 1px solid lightgray;
+    display: flex;
+    justify-content: center;
+    line-height: 10;
+    margin: 15px;
+    background-size: cover;
+    background-position: center;
+}
