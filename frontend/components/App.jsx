@@ -9,6 +9,7 @@ import SearchContainer from './search/search_container'
 import RestaurantShowContainer from './restaurants/restaurant_show_container'
 import HomeContainer from './home/home_container'
 import RestaurantIndexContainer from "./restaurants/restaurant_index_container"
+import MapSearchContainer from './map/map_search_container'
 
 import Modal from "./modal/modal";
 import NavBar from './nav_bar/nav_bar_container'
@@ -22,6 +23,7 @@ const App = () => (
     <Switch>
       <Route exact path="/restaurants" component={RestaurantIndexContainer} />
       <Route exact path="/restaurants/:restaurantId" component={RestaurantShowContainer} />
+      <Route exact path="/maps" component={MapSearchContainer}/>
       <ProtectedRoute exact path="/users/:id" component={UserContainer} />
       <Route exact path="/" component={HomeContainer} />
     </Switch>
