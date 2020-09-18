@@ -1,7 +1,9 @@
 class Api::RestaurantsController < ApplicationController
     def index 
-        if params[:search]             
-            if params[:search][:city]
+        if params[:search]     
+            if params[:search][:bounds]        
+                @restaurants = Restaurant.in_bounds(params[:search][:bounds])
+            elsif params[:search][:city]
                 @restaurants = params[:search][:city] == [] ? 
                     Restaurant.all : 
                     Restaurant.where(city: params[:search][:city])
