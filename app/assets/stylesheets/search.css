@@ -21,7 +21,7 @@
     margin: 0 16px 0 0;
     border-radius: 6px;
     flex: 1 1 auto;
-    width: 30rem;
+    width: 25rem;
     height: 3rem;
     background: url("https://seat-check-seeds.s3-us-west-1.amazonaws.com/searchicon.png") no-repeat; 
     background-size: 23px 23px ;
@@ -37,7 +37,6 @@
     border-radius: 6px;
     background-color: #da3743;
     color: #fff;
-    /* height: 3rem; */
     height: 100%;
     font-size: 16px;
     font-weight: 700;
@@ -53,4 +52,86 @@
 
 .search-input::-webkit-input-placeholder { 
     font-size: 14px;
+}
+
+.search-field {
+    display: flex;
+}
+
+
+body {
+  font-family: Helvetica, sans-serif;
+}
+
+.react-autosuggest__container {
+  position: relative;
+}
+
+.react-autosuggest__input {
+  width: 240px;
+  height: 30px;
+  padding: 10px 20px;
+  font-family: Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.react-autosuggest__input--focused {
+  outline: none;
+}
+
+.react-autosuggest__input--open {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.react-autosuggest__suggestions-container {
+  display: none;
+}
+
+.react-autosuggest__suggestions-container--open {
+    display: block;
+    position: absolute;
+    top: 51px;
+    left: 30px;
+    width: 25rem;
+    border: 1px solid #aaa;
+    background-color: #fff;
+    font-family: Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    z-index: 3;
+}
+
+.react-autosuggest__suggestions-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.react-autosuggest__suggestion {
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.react-autosuggest__suggestion--highlighted {
+  background-color: #ddd;
+}
+
+.react-autosuggest__section-container {
+  border-top: 1px dashed #ccc;
+}
+
+.react-autosuggest__section-container--first {
+  border-top: 0;
+}
+
+.react-autosuggest__section-title {
+  padding: 10px 0 0 10px;
+  font-size: 12px;
+  color: #777;
 }

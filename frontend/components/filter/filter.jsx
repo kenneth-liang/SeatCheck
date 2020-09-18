@@ -41,7 +41,8 @@ class Filter extends React.Component {
       locations:
         props.location.state && props.location.state.city
           ? [props.location.state.city]
-          : ["All"],
+          : [],
+      // name: props.location.state ? [props.location.state.name] : [],
     };
 
     this.handleChangeCity = this.handleChangeCity.bind(this);
@@ -59,11 +60,11 @@ class Filter extends React.Component {
   }
 
   sendSearch() {
-    // this.props.searchRestaurants({this.state.searchFilter});
     this.props.searchRestaurants({
       price: this.state.price,
       city: this.state.locations,
       cuisines: this.state.cuisines,
+      // name: this.state.name,
     });
   }
 
@@ -132,20 +133,6 @@ class Filter extends React.Component {
   handleClickPrice(e) {
     e.preventDefault();
     let price = e.target.getAttribute("value");
-    // let newSearch = this.state.searchFilter;
-    // if (newSearch.includes(price)) {
-    //   e.target.classList.remove("price-selected");
-    //   let i = newSearch.indexOf(price);
-    //   newSearch = newSearch.slice(0, i).concat(newSearch.slice(i + 1))
-    // } else {
-    //     e.target.classList.add("price-selected");
-    //     newSearch.push(price);
-    // }
-    // this.props.searchRestaurants(newSearch).then(() =>
-    //   this.setState({
-    //     searchFilter: newSearch,
-    //   })
-    // );
     if (this.state.price.indexOf(price) === -1) {
       e.target.classList.add("price-selected");
       this.setState(
@@ -165,19 +152,7 @@ class Filter extends React.Component {
   handleChangeCuisine(e) {
     e.preventDefault();
     let cuisine = e.target.value;
-    // let newSearch = this.state.searchFilter;
-    // if (newSearch.includes(cuisine)) {
-    //   let i = newSearch.indexOf(cuisine);
-    //   newSearch = newSearch.slice(0, i).concat(newSearch.slice(i + 1));
-    // } else {
-    //   newSearch.push(cuisine);
-    // }
 
-    // this.props.searchRestaurants(newSearch).then(() =>
-    //   this.setState({
-    //     searchFilter: newSearch,
-    //   })
-    // );
     if (this.state.cuisines.indexOf(cuisine) === -1) {
       this.setState(
         {
@@ -196,20 +171,7 @@ class Filter extends React.Component {
   handleChangeCity(e) {
     e.preventDefault;
     let city = e.target.value;
-    // let newSearch = this.state.searchFilter;
 
-    // for ( let i = 0; i < newSearch.length; i++) {
-    //   if (CITY.includes(newSearch[i])) {
-    //     newSearch = newSearch.slice(0, i).concat(newSearch.slice(i + 1));
-    //   }
-    // }
-    // newSearch.push(city)
-
-    // this.props.searchRestaurants(newSearch).then(() =>
-    //   this.setState({
-    //     searchFilter: newSearch,
-    //   })
-    // );
     if (this.state.locations.indexOf(city) === -1) {
       this.setState(
         {
@@ -226,15 +188,9 @@ class Filter extends React.Component {
   }
 
   render() {
-    // window.scrollTo({
-    //   top: 100,
-    //   left: 100,
-    //   behavior: "smooth",
-    // });    
     return (
       <div className="filter-container">
         <section className="filter-section">
-          
           <div className="filter-option">
             <h5>
               <i className="far fa-money-bill-alt"></i> Price

@@ -64,14 +64,15 @@ class UserProfile extends React.Component {
                     <Link to={`/restaurants/${favorite.restaurant.id}`} className="restaurant-name">
                       {favorite.restaurant.name} 
                     </Link>
-                    <div className="remove-fav" onClick={this.deleteFavorite(favorite.restaurant.id)}>
-                      <i className="fas fa-bookmark"></i> Remove from saved restaurants
-                    </div>
                     <div className="favorite-cuisines">
                       {favorite.restaurant.cuisine} | {favorite.restaurant.city}
                     </div>
+                    <br/>
+                    <div className="remove-fav" onClick={this.deleteFavorite(favorite.restaurant.id)}>
+                      <i className="fas fa-bookmark"></i> Remove from saved restaurants
+                    </div>
                   </div>
-                  <Link to={`/restaurants/${favorite.restaurant.id}`} className="red-btn">
+                  <Link to={`/restaurants/${favorite.restaurant.id}`} className="green-btn">
                     Reserve Now
                     </Link>
                 </div>

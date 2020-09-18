@@ -24,18 +24,17 @@
 }
 
 .page-header-content{
-    padding: 0.5rem 0;
-    /* width: 100%; */
+    padding: 1rem 0;
     margin: 0 auto;
-    /* max-width: 80rem; */
-    padding-left: 200px;
+    display: flex;
+    justify-content: center;
 }
 
 .content-group {
     display:block;
     margin: auto;
     /* width: 900px; */
-    padding-left: 200px
+    padding-left: 15%
 }
 
 .page-nav{
@@ -48,6 +47,7 @@
     border: 1px solid transparent;
     border-radius: 5px;
     box-shadow: 0 1px 3px grey;
+    
 }
 
 .active {
@@ -57,14 +57,14 @@
 
 .page-main-content{
     float: left;
-    width: 920px;
+    width: 55%;    
     padding: 20px;
     border: 1px solid transparent;
     border-radius: 5px;
     box-shadow: 0 1px 3px grey;
     margin:20px;
     background-color: white;
-    margin-left: 410px;
+    margin-left: 32%;
 }
 
 .page-nav-links {
@@ -132,17 +132,16 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     clear: both;
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: #333;
     line-height: 1.5rem;
-    font-size: 17px;
     font-weight: 700;
 }
 
 .res-rest-name:hover {
-    color:red;
+    color: #247f9e;
     text-decoration: underline;
-    
+    cursor: pointer;
 }
 
 .cancel-button{
@@ -169,7 +168,30 @@
 .res-location{
     font-size: 14px;
     display: flex;
-    margin-top: 15px;
     justify-content: space-evenly;
+    margin-left: 15px;
+    color: #707070;
 }
 
+.res-btns{
+    margin-left: 25%;
+}
+
+.res-btn{
+    margin-right: 20px;
+    background: #DA3743;
+    color: #fff;
+    display: inline-block;
+    line-height: normal;
+    right: 0;
+    bottom: 50%;
+    padding: .75rem 1.5rem .8125rem;
+    font-size: .8125rem;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+i.fas.fa-map-marker-alt {
+    color: black;
+    padding-right: 5px;
+}

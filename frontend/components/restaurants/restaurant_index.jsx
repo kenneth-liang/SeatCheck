@@ -8,14 +8,21 @@ import { wrapGrid } from "animate-css-grid";
 
 class RestaurantIndex extends React.Component {
   constructor(props) {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
     super(props);
+    this.handleMapViewClick = this.handleMapViewClick.bind(this);
   }
 
   scrollTop(){
-      document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
   }
+
+  handleMapViewClick(e) {
+    e.preventDefault();
+    this.props.history.push("/maps");
+  }
+
   render() {
     const items = this.props.restaurants.map((restaurant) => (
       <RestaurantIndexItem key={restaurant.id} restaurant={restaurant} />
@@ -31,13 +38,17 @@ class RestaurantIndex extends React.Component {
       </div>
     );
 
-    let searchResults = items.length === 0 ? (errors) : (items);
+    let searchResults = items.length === 0 ? (items) : (items);
     
 
     let restaurantNumber =
-      items.length !== 0 ? (
-        <div className="filters-summary">
-          {items.length} Restaurants available
+      items.length === 0 ? (
+        <div>
+         {errors}
+       </div>
+      ) : (
+       <div className="filters-summary">
+          {items.length} Restaurants Available
           <div>
             <button
               className="top-btn"
@@ -49,8 +60,6 @@ class RestaurantIndex extends React.Component {
             </button>
           </div>
         </div>
-      ) : (
-        ""
       );
 
     // let appliedFilters =
@@ -66,11 +75,16 @@ class RestaurantIndex extends React.Component {
       <div className="restaurant-container" id="top">
         <div className="search-control">
           <div className="page-header-content">
-            <SearchForm restaurants={this.props.restaurants} />
+            <section className="map-view-container">
+              <div className="map-view-btn" onClick={this.handleMapViewClick}>
+                <button className="map-btn"><i class="far fa-map"></i> Map View</button>
+              </div>
+            </section>          
           </div>
         </div>
 
         <div className="restaurant-page-content">
+          
           <Filter searchRestaurants={this.props.searchRestaurants} />
           <div className="restaurant-items">
             <div className="filters-summary-container">

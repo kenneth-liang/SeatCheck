@@ -3,6 +3,7 @@
   position: sticky;
   top:0;
   border-radius: 4px;
+  z-index: 5;
 }
 
 .reservation-box {
@@ -20,6 +21,8 @@
     text-align: center;
     padding: 11px 0;
     cursor: auto;
+    margin-bottom: .5rem;
+
 }
 
 .party-select {

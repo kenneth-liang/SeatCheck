@@ -1,8 +1,10 @@
 class Api::RestaurantsController < ApplicationController
     def index 
-        if params[:search] 
-            if params[:search][:city]
-                @restaurants = params[:search][:city] == ["All"] ? 
+        if params[:search]     
+            if params[:search][:bounds]        
+                @restaurants = Restaurant.in_bounds(params[:search][:bounds])
+            elsif params[:search][:city]
+                @restaurants = params[:search][:city] == [] ? 
                     Restaurant.all : 
                     Restaurant.where(city: params[:search][:city])
             else 
@@ -16,6 +18,10 @@ class Api::RestaurantsController < ApplicationController
             if params[:search][:cuisines]
                 @restaurants = @restaurants.where(:cuisine => params[:search][:cuisines])
             end
+            
+            # if params[:search][:name]
+            #     @restaurants = @restaurants.where(:name => params[:search][:name])
+            # end
         else 
             @restaurants = Restaurant.all
         end

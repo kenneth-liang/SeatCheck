@@ -180,27 +180,6 @@ img.chair-sml {
     padding: 0 0 4rem;
 }
 
-.google-api{
-    border: 1px solid transparent;
-    box-shadow: 0 5px 10px grey;
-    border-radius: 2%;
-}
-
-.rest-location{
-    border: 1px solid lightgray;
-    height: 250px;
-    width: 285px;
-    display: flex;
-    justify-content: center;
-    line-height: 10;
-    margin: 15px;
-    background: url(https://seat-check-seeds.s3-us-west-1.amazonaws.com/gpsmaps.png) no-repeat;
-    background-size: cover;
-    background-position: center;
-    padding: 15px;
-}
-
-
 .restaurant-nav {
     display: flex;
     position: sticky;

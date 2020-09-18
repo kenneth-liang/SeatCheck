@@ -50,6 +50,15 @@ class Restaurant < ApplicationRecord
             .or(Restaurant.where("price = ?", "#{keyword}"))
     end
 
+    def self.in_bounds(bounds)
+        ne_lat = bounds[:northEast][:lat].to_f
+        ne_lng = bounds[:northEast][:lng].to_f
+        sw_lat = bounds[:southWest][:lat].to_f
+        sw_lng = bounds[:southWest][:lng].to_f
+
+        Restaurant.where("lat between ? AND ? AND lng between ? AND ?", sw_lat, ne_lat,sw_lng, ne_lng)
+    end
+
     def score_arr
         self.ratings.pluck(:overall_score)
     end

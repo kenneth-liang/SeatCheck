@@ -14,7 +14,7 @@ const Greeting = ({currentUser, logout, openModal}) => {
     const loggedInMenuDrop = () => (
       <div className="greeting">
         <div className="userProfileDrop">
-          <h3 className="user-header">Hi, {currentUser.first_name}! <i className="fas fa-chevron-down"></i></h3>
+          <h3 className="user-header"><i className="far fa-user-circle"></i> Hi, {currentUser.first_name}! <i className="fas fa-chevron-down"></i></h3>
           <ul className="header-dropdown-menu"> 
           <div className="dropdown-item">
             <Link to={`/users/${currentUser.id}`} className="profile-link">

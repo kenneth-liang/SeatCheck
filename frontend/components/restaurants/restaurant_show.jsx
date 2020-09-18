@@ -4,11 +4,13 @@ import {Route, withRouter} from 'react-router-dom'
 import ReservationForm from '../reservation/reservation_form_container'
 import RatingIndexContainer from '../rating/rating_index_container'
 import RatingForm from '../rating/rating_form_container'
+import RestaurantMap from '../map/restaurant_map'
+
 
 class RestaurantShow extends React.Component{
   constructor(props){
     super(props)
-
+    window.scrollTo(0, 0);
     this.scroll = this.scroll.bind(this)
     this.toggleFavorite = this.toggleFavorite.bind(this)
     this.deleteFavorite = this.deleteFavorite.bind(this)
@@ -126,6 +128,20 @@ class RestaurantShow extends React.Component{
     const moneyCheck = restaurant.price > 30 ? "$31 to $50 " : "$30 and under "
     return (
       <div className="single-restaurant-show">
+        <ol className="breadcrumb">
+          <li className="crumb">
+            <a href="/" className="crumb-link">Home</a>
+          </li>
+          <li className="crumb">
+            <a href="/#/restaurants" className="crumb-link">All Restaurants</a>
+          </li>
+          <li className="crumb">
+            <div onClick={() => this.props.history.push({ pathname: "/restaurants", state: { city: restaurant.city}})} className="crumb-link">{restaurant.city}</div>
+          </li>
+          <li className="crumb">
+            <div onClick={() => this.props.history.push({ pathname: "/restaurants", state: { cuisine: restaurant.cuisine }})} className="crumb-link">{restaurant.cuisine}</div>
+          </li>
+        </ol >
         <div className="rest-show-header">
           <div className="bimg" id="rest-bimg" style={bImg}></div>
           <div className="fav-button">
@@ -140,6 +156,7 @@ class RestaurantShow extends React.Component{
               </div>
               <div className="google-api">
                 <div className="rest-location">
+                  <RestaurantMap restaurant={restaurant}/>
                 </div>
                 <div className="rest-full-address">
                   <i className="fas fa-map-marker-alt"></i>

@@ -7,7 +7,7 @@ class ReservationForm extends React.Component {
     this.state = {
       restaurant_id: this.props.match.params.restaurantId,
       user_id: "",
-      party: 1,
+      party: "1",
       date: "",
       time: "",
     };
@@ -29,10 +29,17 @@ class ReservationForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>{error}</li>
-        ))}
+      <ul className="error-ul">
+        {this.props.errors.map((error, i) => {
+          if (error === "Time can't be blank") {
+            return (
+              <li key={`error-${i}`}>Please Select Time</li>
+            )
+          } else if (error === "Date can't be blank") {
+            return <li key={`error-${i}`}>Please Select Date</li>;
+          }
+        }
+        )}
       </ul>
     );
   }
@@ -77,16 +84,34 @@ class ReservationForm extends React.Component {
     openTime = (parseInt(openTime.split("T")[1].split(":")[0])) ;
     let closeTime = this.props.restaurants[this.state.restaurant_id].close_time;
     closeTime = (parseInt(closeTime.split("T")[1].split(":")[0]));
+    
+    
     for (let i = openTime; i < closeTime; i++) {
-      timeArr.push(i);
+      if (i === openTime) {
+        timeArr.push(0);
+        timeArr.push(i);
+      } else {
+        timeArr.push(i);
+      }
     }
-    let selectTime = timeArr.map(time => (
-      <option key={time} value={time}>
-        {" "}
-        {time < 10 ? "0" + time + ":00 pm" : (time - 12 ) + ":00 pm" }
-      </option>
-    ));
-
+    let selectTime = timeArr.map(time => {
+      if (time === 0) {
+        return (
+          <option value="" disabled selected>
+            Select Time 
+          </option>
+        );
+      } else {
+        return (
+          <option key={time} value={time}>
+            {" "}
+            {time < 10 ? "0" + time + ":00 pm" : (time - 12 ) + ":00 pm" }
+          </option>
+        )
+        
+      }
+      }
+    );
     return selectTime;
   }
 
@@ -133,7 +158,7 @@ class ReservationForm extends React.Component {
         </div>
         <h3 id="res-h3">Make a reservation</h3>
         
-        {/* {this.renderErrors()} */}
+        {this.renderErrors()}
         <form>
           <select className="res-input seat" onChange={this.update("party")}>
             {this.seatsBuilder()}
