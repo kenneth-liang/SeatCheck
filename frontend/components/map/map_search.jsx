@@ -39,7 +39,7 @@ class MapSearch extends React.Component {
 
     const mapOptions = {
       center: this.state.center, // this is SF
-      zoom: 13
+      zoom: 12
     };
     
     this.map = new google.maps.Map(this.SearchMapNode, mapOptions);
@@ -82,6 +82,17 @@ class MapSearch extends React.Component {
     this.setState(
       { city: newCity, center: newCenter }, () => this.searchCity()
     )
+
+    //re-render map
+    const newMapOptions = {
+      center: newCenter,
+      zoom: 12,
+    };
+
+
+    this.map = new google.maps.Map(this.SearchMapNode, newMapOptions);
+    this.MarkerManager = new MarkerManager(this.map);
+    this.MarkerManager.updateMarkers(this.props.restaurants);
   }
 
   searchOptionCity(){
