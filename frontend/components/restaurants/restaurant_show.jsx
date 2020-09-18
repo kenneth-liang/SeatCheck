@@ -4,6 +4,8 @@ import {Route, withRouter} from 'react-router-dom'
 import ReservationForm from '../reservation/reservation_form_container'
 import RatingIndexContainer from '../rating/rating_index_container'
 import RatingForm from '../rating/rating_form_container'
+import RestaurantMap from '../map/restaurant_map'
+
 
 class RestaurantShow extends React.Component{
   constructor(props){
@@ -154,6 +156,7 @@ class RestaurantShow extends React.Component{
               </div>
               <div className="google-api">
                 <div className="rest-location">
+                  <RestaurantMap restaurant={restaurant}/>
                 </div>
                 <div className="rest-full-address">
                   <i className="fas fa-map-marker-alt"></i>

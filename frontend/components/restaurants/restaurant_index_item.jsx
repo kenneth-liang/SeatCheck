@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom'
 class IndexItem extends React.Component{
     constructor(props){
         super(props)
@@ -47,11 +47,8 @@ class IndexItem extends React.Component{
         backgroundImage: `url(${restaurant.photo})`
     }
     
-    // const moneyCheck = restaurant.price > 30 ? "$$$ " : "$$ "
-
-    const phoneIcon = <img className="phone-icon" src="https://seat-check-seeds.s3-us-west-1.amazonaws.com/phone.png" />
       return (
-        <div>
+        <div className="rest-item">
           <Link to={`/restaurants/${restaurant.id}`}>
             <li className="restaurant-lists">
               <div className="restaurant-content">
@@ -75,8 +72,10 @@ class IndexItem extends React.Component{
                       {restaurant.city}
                     </span>
                   </div>
-                  <div className="rest-contact">
-                    {phoneIcon} {restaurant.phone_number}
+                  <div className="rest-contact-container">
+                    <div className="rest-contact">
+                      <i className="fas fa-phone-alt"></i> {restaurant.phone_number}
+                    </div>
                   </div>
                   <br />
                   <div className="rest-links">
@@ -97,10 +96,7 @@ class IndexItem extends React.Component{
               </div>
             </li>
           </Link>
-
         </div>
-
-      
       );
     }
 }
