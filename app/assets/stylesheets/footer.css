@@ -5,14 +5,13 @@
     height: 90px;
     width: 100%;
     border-radius: 2px;
+    justify-content: space-between;
 }
 
 .footer-description{
     color: white;
-    display: flex;
     align-items: center;
-    margin: 50px;
-    /* font-family: sans-serif; */
+    margin: 2rem;
     font-size: 14px;
     display:flex;
     justify-content: space-evenly;
@@ -22,4 +21,21 @@
 
 .footer-icon-ot {
     height: 35px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #ccc;
+}
+
+.footer-links p {
+  display: inline;
+  line-height: 24px;
+}
+.footer-links a i.user-icon {
+  font-size: 15px;
+}
+
+.footer-links {
+    margin: 1rem 2rem 1rem 1rem;
 }
