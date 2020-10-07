@@ -65,21 +65,16 @@ Reservation form is present inside each restuarant's show page. Once a user sele
 
 
 ### Ratings 
-Users can not only save their favorite restuants (which can be viewed on their profile) but also post ratings and reviews for the restaurants they've been to. Once a review is posted, their rating will imediately impact the resturant's current score. Unauthorized users will have access to this feature and will be prompted to login or sign up. 
+Users can not only save their favorite restuants (which can be viewed on their profile) but also post ratings and reviews for the restaurants they've been to. Once a review is posted, their rating will imediately impact the resturant's current score. When When unauthorised users try to access, they will be encouraged to sign up or will be redirected to homepage by protected routes.
 
-Dynamic nav bar that changes depending on whether a user is authenticated
+<img width="613" alt="Screen Shot 2020-10-06 at 11 07 46 PM" src="https://user-images.githubusercontent.com/59374267/95293685-c57dc480-0828-11eb-935a-af9e0644044f.png">
 
 
 ### Technologies 
 Seat Check was developed with a PostgreSQL database, Ruby on Rails backend, and hosted by Heroku. WHne communicatin with the backend, the application uses RESTful API's and respondes with JSON data. The frontend was designed with React, Redux and styled using CSS.
 
-Other tools used in Seat Check are JBuilder, NodeJS, JQuery to make AJAX requests, Node Package Manager (npm), Webpack, React DOM, React Router, and React History for browser manipulation. 
-* JavaScript
-* Ruby on Rails 
-* React 
-* Redux
-* PostgreSQL
-* BCrypt 
+Other tools used in Seat Check are JBuilder, NodeJS, JQuery to make AJAX requests, BCrypt for hashing passwords, Node Package Manager (npm), Webpack, React DOM, React Router, and React History for browser manipulation. 
+
 
 ### Code Snippets 
 
@@ -114,5 +109,6 @@ export const searchRestaurants = search => {
 ### Future Features 
 * User profile images (AWS S3) 
 * Allow users to upload photos along with their rating
+* Reservation Editing Page
 
 
