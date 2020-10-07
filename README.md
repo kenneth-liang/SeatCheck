@@ -2,12 +2,23 @@
 
 [Seat Check Live](https://seat-check.herokuapp.com/#/)
 
-Seat Check is a full-stack web application inspired by OpenTable. The backend is built on Ruby on Rails with a PostgreSQL database and the frontend consists of a React/Redux architecture. It features restaurants that users can view, book and review. Users can search for restaurants by location, restaurant name, or cuisines through the search bar or by clicking on a specific image on index page. The city image are responsive design.
+Seat Check is a full-stack web application inspired by OpenTable. The backend is built on Ruby on Rails with a PostgreSQL database and the frontend consists of a React/Redux architecture. It features restaurants that users can view, book and review. Users can search for restaurants by location, restaurant name, or cuisines through the search bar or by clicking on a specific image on index page. 
 
 ![seatcheck](https://user-images.githubusercontent.com/59374267/95291097-a29ce180-0823-11eb-99dd-8f3643963275.png)
 
 
 ## Description
+
+### Features 
+Users can navigate Seat Check's selection of restaurants by using the search and filter tool. Based on their desire, the user can search either by location or category. This allows them to condense the list of restaurants available to make a selection.
+
+<img width="981" alt="Screen Shot 2020-10-06 at 10 41 07 PM" src="https://user-images.githubusercontent.com/59374267/95291860-3a4eff80-0825-11eb-9954-b9421b204fe4.png">
+
+The Restaurant show pages includes information to prompt the user towards reserving a table, ratings, reviews, type of cuisine, esitmate cost of dining, and contact information. This page also includes a reservation form that stays with the user while scrolling through the restaurant page which keeps the incentive to make a booking once the user has enough information. 
+
+<img width="1392" alt="Screen Shot 2020-10-06 at 10 46 07 PM" src="https://user-images.githubusercontent.com/59374267/95292130-bfd2af80-0825-11eb-8dce-3c105edfda44.png">
+
+
 
 ### Search
 Seat Check makes it easy for users to look up restuarants to find open reservations. Users can search by cuisines, retaurant names, a specific location, or see all restaurants partnered with Seat Check. 
@@ -39,22 +50,30 @@ Seat Check makes it easy for users to look up restuarants to find open reservati
 ### Reservations 
 Reservation form is present inside each restuarant's show page. Once a user selects the time and submit the form, the information will be stored in the database and form an association between the user and the restaurant. 
 
+```javascript
+    let resInfo = {
+      restaurant_id: this.state.restaurant_id,
+      user_id: this.state.userId,
+      party: this.state.party,
+      date: this.state.date,
+      time: this.state.time,
+    };
+
+    this.props.createReservation(resInfo)
+    this.props.clearErrors();
+```
+
+
 ### Ratings 
-Users can not only save their favorite restuants (which can be viewed on their profile) but also post ratings and reviews for the restaurants they've been to. Once a review is posted, their rating will imediately impact the resturant's current score. Unauthorised users will have access to this feature and will be prompted to login or sign up. 
+Users can not only save their favorite restuants (which can be viewed on their profile) but also post ratings and reviews for the restaurants they've been to. Once a review is posted, their rating will imediately impact the resturant's current score. Unauthorized users will have access to this feature and will be prompted to login or sign up. 
 
 Dynamic nav bar that changes depending on whether a user is authenticated
 
-### Features 
-* User Authentication
-* Login/signup forms displayed in modal windows
-* Homes index and show pages
-* Search pages using search bar
-* Make reservations for restaurants
-* View all future reservation and past reservation on user profile page
-* Write reviews on restaurant
-* Favorite restaurant
 
 ### Technologies 
+Seat Check was developed with a PostgreSQL database, Ruby on Rails backend, and hosted by Heroku. WHne communicatin with the backend, the application uses RESTful API's and respondes with JSON data. The frontend was designed with React, Redux and styled using CSS.
+
+Other tools used in Seat Check are JBuilder, NodeJS, JQuery to make AJAX requests, Node Package Manager (npm), Webpack, React DOM, React Router, and React History for browser manipulation. 
 * JavaScript
 * Ruby on Rails 
 * React 
@@ -62,8 +81,37 @@ Dynamic nav bar that changes depending on whether a user is authenticated
 * PostgreSQL
 * BCrypt 
 
+### Code Snippets 
+
+When retrieving all the restaurants for search, Seat Check uses ```fetchRestaurants``` RESTful call to populate the initial restauranants. Upon clicking "Let's Go" (on the home page) or changing location (in the map view), the application then uses ```searchRestaurants``` Restful call to retrieve the restaurants matching the search criteria. Once the user clicks on the restaurant, another call is made using ```fetchRestaurant``` to retreive the information that populates the show page.
+
+
+```javascript 
+export const fetchRestaurants = () => {
+    return  $.ajax({
+        method: "GET",
+        url: "/api/restaurants",
+    })
+}
+   
+
+export const fetchRestaurant = (id) => {
+    return $.ajax({
+        method: "GET",
+        url: `/api/restaurants/${id}`, 
+    })
+}
+
+export const searchRestaurants = search => {
+    return $.ajax({
+      method: "GET",
+      url: "/api/restaurants",
+      data: {search}
+    });
+}
+```
+
 ### Future Features 
-* Filter drop down as user types out their search
 * User profile images (AWS S3) 
 * Allow users to upload photos along with their rating
 
