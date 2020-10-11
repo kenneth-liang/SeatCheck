@@ -1,6 +1,6 @@
 h3 {
     margin-right: 30px;
-    cursor: pointer;
+    
 }
 /* .header-dropdown-menu > li{
     position: relative;
@@ -23,6 +23,7 @@ h3 {
 
 .user-header{
     font-size: 20px;
+    cursor: pointer;
 }
 .greeting {
     position: relative;

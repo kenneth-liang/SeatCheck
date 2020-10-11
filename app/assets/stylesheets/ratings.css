@@ -171,3 +171,7 @@ form.rating-form {
 span.rating-date {
     margin-left: 1rem;
 }
+
+.score-icon {
+    width: 100px;
+}
