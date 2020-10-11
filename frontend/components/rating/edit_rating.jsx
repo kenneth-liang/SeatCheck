@@ -12,7 +12,7 @@ class EditRatingForm extends React.Component{
 
   render(){
     return(
-      <div>sup bitch</div>
+      <div>hello</div>
     )
   }
 }
