@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 class RatingIndexItem extends React.Component{
     constructor(props){
@@ -37,7 +38,6 @@ class RatingIndexItem extends React.Component{
 
     render (){
         // if (!(this.props.currentUser.id === this.props.rating.user.id)) return null 
-
         const deleleButton = 
             (this.props.currentUser && this.props.currentUser.id === this.props.rating.user.id) ?  (
                 <button className="rating-btn"
@@ -46,6 +46,23 @@ class RatingIndexItem extends React.Component{
             ) : (
                 ""
             );  
+            
+        
+        
+        // const editButton = (this.props.currentUser && this.props.currentUser.id === this.props.rating.user.id) ? (
+        //     <Link className="rating-btn"
+        //             type="button"
+        //             onClick={() => this.props.openModal('edit')}>Edit</Link>
+        //     ) : (
+        //         ""
+        //     );  
+        const editButton = (this.props.currentUser && this.props.currentUser.id === this.props.rating.user.id) ? (
+            <Link className="rating-btn"
+                to={`/restaurants/${this.props.restaurant.id}/ratings/${this.props.rating.id}/edit`}>Edit</Link>
+            ) : (
+                ""
+            );  
+    
         
         // set random color 
         let colors = ['#d86441', '#df4e96', '#bb6acd', '#6c8ae4'];
@@ -70,8 +87,9 @@ class RatingIndexItem extends React.Component{
                 <div className="rating-info-container">
                     <div className="rating-info-header">
                         <span className="score-icon">{this.getScore()}</span>
-                        <span className="rating-date">Sat on {this.props.rating.created_at.slice(0,10)}</span>
+                        <span className="rating-date"><i className="fas fa-share"></i> Sat on {this.props.rating.created_at.slice(0,10)}</span>
                         <div className="dlt-btn-div">
+                            {editButton}
                             {deleleButton}
                         </div>
                     </div>

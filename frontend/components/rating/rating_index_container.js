@@ -1,4 +1,5 @@
 import {connect} from 'react-redux';
+import { openModal } from "../../actions/modal_actions";
 
 import {
     fetchRestaurantRatings, deleteRating
@@ -7,6 +8,7 @@ import {
 import RatingIndex from './rating_index'
 
 const mSTP = (state, ownProps) => {
+  
     return {
       ratings: Object.values(state.entities.ratings),
       restaurant: state.entities.restaurants[ownProps.match.params.restaurantId],
@@ -16,6 +18,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => {
     return {
+      openModal: modal => dispatch(openModal(modal)),
       fetchRestaurantRatings: (ratings) => dispatch(fetchRestaurantRatings(ratings)),
       deleteRating: ratingId => dispatch(deleteRating(ratingId))
     };

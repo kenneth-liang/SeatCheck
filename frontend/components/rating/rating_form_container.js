@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {
   createRating,
   receiveRatingErrors,
+  fetchRestaurantRatings
 } from "../../actions/rating_actions";
 
 import RatingForm from './rating_form';
@@ -18,6 +19,7 @@ const mDTP = dispatch => {
     return {
       createRating: (rating) => dispatch(createRating(rating)),
       clearErrors: () => dispatch(receiveRatingErrors([])),
+      fetchRestaurantRatings: (ratings) => dispatch(fetchRestaurantRatings(ratings))
     };
 }
 

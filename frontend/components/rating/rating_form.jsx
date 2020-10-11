@@ -43,7 +43,7 @@ class RatingForm extends React.Component{
             overall_score: this.state.overall_score,
             review: this.state.review
         }
-
+        
        this.props.createRating(ratingInfo).then(() => (
            this.setState({
                user_id: "",
@@ -52,6 +52,7 @@ class RatingForm extends React.Component{
                review: ''
            })
        ))
+       window.location.reload();
     }
 
     handleHover(i){
@@ -97,22 +98,24 @@ class RatingForm extends React.Component{
     }
 
     renderErrors() {
-        return (
-        <ul>
+        if (this.props.errors) {
+            return (
+            <ul className="error-list">
                 {this.props.errors.map((error, i) => (
-                    <li key={`error-${i}`}>{error}</li>
+                    <li className="error-message" key={`error-${i}`}>{error}</li>
                 ))}
             </ul>
-        );
+            );
+        }
     }
 
     render(){
         return(
             <div className="rating-form-container">
-                {/* {this.renderErrors()} */}
                 <form className="rating-form">
                     <div className="rating-top">
                         <h3>Give A Rating</h3>
+                        {this.renderErrors()}
                         <br/>
                         <div className="rate-score">
                             {/* <select onChange={this.update("overall_score")}>
