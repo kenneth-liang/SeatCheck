@@ -228,7 +228,7 @@ img.chair-sml {
 }
 
 .dlt-btn-div {
-    margin-left: 35%;
+    margin-left: 30%;
 }
 
 .menu-title{
@@ -255,4 +255,8 @@ img.chair-sml {
     text-decoration: underline;
     cursor: pointer;
     transform: scale(1.05);
+}
+
+.fa-share{
+    color: #939393
 }

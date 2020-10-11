@@ -77,7 +77,7 @@ class RestaurantIndex extends React.Component {
           <div className="page-header-content">
             <section className="map-view-container">
               <div className="map-view-btn" onClick={this.handleMapViewClick}>
-                <button className="map-btn"><i class="far fa-map"></i> Map View</button>
+                <button className="map-btn"><i className="far fa-map"></i> Map View</button>
               </div>
             </section>          
           </div>

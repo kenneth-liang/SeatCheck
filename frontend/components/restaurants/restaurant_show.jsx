@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, withRouter} from 'react-router-dom'
+import {Link, Route, withRouter} from 'react-router-dom'
 
 import ReservationForm from '../reservation/reservation_form_container'
 import RatingIndexContainer from '../rating/rating_index_container'
@@ -16,6 +16,7 @@ class RestaurantShow extends React.Component{
     this.deleteFavorite = this.deleteFavorite.bind(this)
     this.createFavorite = this.createFavorite.bind(this)
     this.getAverageRating = this.getAverageRating.bind(this)
+    this.getCommentsSize = this.getCommentsSize.bind(this)
   }
 
   componentDidMount(){
@@ -93,6 +94,12 @@ class RestaurantShow extends React.Component{
     return avgRating
   }
 
+  getCommentsSize(){
+    const ratings = this.props.restaurant.score_arr.length;
+    
+    return ratings
+  }
+
   getChairsScoreRestaurant() {
     const restaurant = this.props.restaurant;
     let sum = 0; 
@@ -126,6 +133,8 @@ class RestaurantShow extends React.Component{
       backgroundImage: `url(${restaurant.bphoto})`,
     };
     const moneyCheck = restaurant.price > 30 ? "$31 to $50 " : "$30 and under "
+
+    
     return (
       <div className="single-restaurant-show">
         <ol className="breadcrumb">
@@ -227,14 +236,18 @@ class RestaurantShow extends React.Component{
 
             <div id="menu">
               <h3 className="menu-title">Menu</h3>
-              <div className="menu-link"><i className="fas fa-external-link-alt"></i> <a href={restaurant.menu_link}>View menu on restaurant's website</a></div>
+              <div className="menu-link"><i className="fas fa-external-link-alt"></i> <a href={restaurant.menu_link} target="_blank">View menu on restaurant's website</a></div>
             </div>
 
             <div id="ratings" ref={el => { this.ratingSection = el; }}>
-              <h3 className="ratings-title">What {this.props.restaurant.score_arr.length} people are saying:</h3>
+              {/* <h3 className="ratings-title">What {this.props.restaurant.score_arr.length} people are saying:</h3> */}
+              <h3 className="ratings-title">What {this.getCommentsSize()} people are saying:</h3>
               <Route path={'/restaurants/:restaurantId'} component={RatingIndexContainer} />
               <div className="restuarant-reviews">
-                <Route path={'/restaurants/:restaurantId'} component={RatingForm} />
+              {/* <Route path={'/restaurants/:restaurantId'} component={RatingForm}  /> */}
+              <Link to={`/restaurants/${restaurant.id}/ratings/new`}>
+                Leave a Review
+              </Link>
               </div>
             </div>
           </main>

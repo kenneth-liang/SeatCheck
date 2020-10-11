@@ -17,6 +17,8 @@ class RatingIndex extends React.Component{
                             rating={rating}
                             deleteRating={this.props.deleteRating}
                             currentUser={this.props.currentUser}
+                            openModal={this.props.openModal}
+                            restaurant={this.props.restaurant}
                         />
                     )
                 })}

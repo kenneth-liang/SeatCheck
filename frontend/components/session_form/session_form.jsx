@@ -95,6 +95,10 @@ class SessionForm extends React.Component{
             return (
                 <li className="error-message">Please enter your password.</li>
             )
+        }else if (this.props.errors.includes("Invalid email or password")) {
+            return (
+                <li className="error-message">Password was incorrect</li>
+            )
         } else {
             return null
         }
@@ -155,7 +159,7 @@ class SessionForm extends React.Component{
         const password = errors.includes("Password is too short (minimum is 6 characters)") ? "form-error-input" : "form-input"
         const signInEmail = errors.includes("email") ? "form-error-input" : "form-input"
         const signInPassword = errors.includes("password") || errors.includes("Invalid email or password") ? "form-error-input" : "form-input"
-
+        
         const displayForm = (this.props.formType === 'Create Account') ? (
             <div className="form-container">
                 <form onSubmit={this.handleSubmit} className="form-box">

@@ -79,18 +79,18 @@ class IndexItem extends React.Component{
                   </div>
                   <br />
                   <div className="rest-links">
-                    <Link
+                    <div
                       to={`/restaurants/${restaurant.id}`}
                       className="rest-item-btn"
                     >
                       Reserve Now
-                    </Link>
-                    <Link
+                    </div>
+                    <div
                       to={`/restaurants/${restaurant.id}`}
                       className="rest-item-btn"
                     >
                       View Details
-                    </Link>
+                    </div>
                   </div>
                 </div>
               </div>
