@@ -47,7 +47,7 @@ class RatingForm extends React.Component{
             review: this.state.review
         }
 
-        if (this.props.formType === "edit"  ) {
+        if (this.props.formType === "Edit Rating"  ) {
             ratingInfo["id"] = this.props.rating.id
         }
         
