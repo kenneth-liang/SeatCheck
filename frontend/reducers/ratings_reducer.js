@@ -19,7 +19,7 @@ const ratingsReducer = (state = {}, action) =>  {
             delete nextState[action.ratingId];
             return nextState;
         case UPDATE_RATING:
-            nextstate[action.payload.updatedRating.id] = updatedRating;
+            nextState[action.rating.id] = action.rating;
             return nextState;
         default:
             return state;

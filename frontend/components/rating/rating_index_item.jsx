@@ -32,7 +32,7 @@ class RatingIndexItem extends React.Component{
     deleteRating(id){
         return e=> {
             e.preventDefault();
-            this.props.deleteRating(id);
+            this.props.deleteRating(id).then(()=> location.reload() );
         }
     }
 
@@ -40,9 +40,9 @@ class RatingIndexItem extends React.Component{
         // if (!(this.props.currentUser.id === this.props.rating.user.id)) return null 
         const deleleButton = 
             (this.props.currentUser && this.props.currentUser.id === this.props.rating.user.id) ?  (
-                <button className="rating-btn"
+                <button className="dlt-btn"
                     type="button"
-                    onClick={this.deleteRating(this.props.rating.id)}>Delete</button>
+                    onClick={this.deleteRating(this.props.rating.id)}>X</button>
             ) : (
                 ""
             );  
@@ -57,8 +57,8 @@ class RatingIndexItem extends React.Component{
         //         ""
         //     );  
         const editButton = (this.props.currentUser && this.props.currentUser.id === this.props.rating.user.id) ? (
-            <Link className="rating-btn"
-                to={`/restaurants/${this.props.restaurant.id}/ratings/${this.props.rating.id}/edit`}>Edit</Link>
+            <Link className="edit-btn"
+                to={`/restaurants/${this.props.restaurant.id}/ratings/${this.props.rating.id}/edit`}><i className="fas fa-edit"></i> Edit</Link>
             ) : (
                 ""
             );  
@@ -89,8 +89,7 @@ class RatingIndexItem extends React.Component{
                         <span className="score-icon">{this.getScore()}</span>
                         <span className="rating-date"><i className="fas fa-share"></i> Sat on {this.props.rating.created_at.slice(0,10)}</span>
                         <div className="dlt-btn-div">
-                            {editButton}
-                            {deleleButton}
+                            {editButton}{deleleButton}
                         </div>
                     </div>
                     <div className="rating-review">

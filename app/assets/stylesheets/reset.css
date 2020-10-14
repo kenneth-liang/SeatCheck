@@ -80,3 +80,8 @@ input, label, select, button, textarea {
 i {
   color: black;
 }
+
+.img-sml {
+    height: 150px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.12), 0 5px 10px rgba(0,0,0,0.24);
+}

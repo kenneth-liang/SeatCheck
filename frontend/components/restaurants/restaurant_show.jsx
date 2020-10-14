@@ -241,13 +241,27 @@ class RestaurantShow extends React.Component{
 
             <div id="ratings" ref={el => { this.ratingSection = el; }}>
               {/* <h3 className="ratings-title">What {this.props.restaurant.score_arr.length} people are saying:</h3> */}
-              <h3 className="ratings-title">What {this.getCommentsSize()} people are saying:</h3>
+              <div className="ratings-header">
+                <h3 className="ratings-title">What {this.getCommentsSize()} people are saying:</h3>
+                <div>
+                  {this.props.currentUser ? (
+                    <Link to={`/restaurants/${restaurant.id}/ratings/new`}>
+                      <div className="review-button">
+                        Leave a Review
+                      </div>
+                    </Link>
+                  ) : (
+                    <div className="review-button" id="disabled-btn">
+                        Login To Review
+                      </div>
+                  )
+                  }
+                </div>
+                
+              </div>
               <Route path={'/restaurants/:restaurantId'} component={RatingIndexContainer} />
               <div className="restuarant-reviews">
               {/* <Route path={'/restaurants/:restaurantId'} component={RatingForm}  /> */}
-              <Link to={`/restaurants/${restaurant.id}/ratings/new`}>
-                Leave a Review
-              </Link>
               </div>
             </div>
           </main>

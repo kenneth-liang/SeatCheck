@@ -796,8 +796,11 @@ reviewDataGood = [
     "What ever you do, don't try the steak. It is so good you will come back everyday. This place ruined my social life.",
     "I upgrade this score because the wait staff was spectacular.",
     "Sat down for lunch for 3 hours, stayed for dinner too.",
-    "My Lover Karen and I adore this place so much we're considering holding our ceremony here. Hope they do weddings!"
-
+    "My Lover Karen and I adore this place so much we're considering holding our ceremony here. Hope they do weddings!",
+    "I liked it! ",
+    "Free Wifi Too!",
+    "Came here with my partner, we will come back again soon!",
+    "The free bread was better than some of the dishes!"
 ]
 reviewDataBad = [
     "I was petrified by the food here, would not recommend",
@@ -808,7 +811,13 @@ reviewDataBad = [
     "I wish I knew about this eariler! so I would know how good of place this was and thats bad.",
     "Same-Same but Different but still Same to the place across the street",
     "Food was great, but the music they played was too loud",
-    "The entire kitchen and wait staff saw an ice cream truck and ran outside. I sat in the restaurant alone for 10 minutes. I can't believe this happened."
+    "The entire kitchen and wait staff saw an ice cream truck and ran outside. I sat in the restaurant alone for 10 minutes. I can't believe this happened.",
+    "Wasn't that into it",
+    "Plates were dirty",
+    "Water was not free, I repeat NOT",
+    "Bit overpriced for what it is",
+    "Overrated!",
+    "Order was wrong",
 ]
 
 Rating.create(
@@ -818,7 +827,7 @@ Rating.create(
     review: "Make no mistake. This is the best steakhouse in the town. Be sure the get the cream spinach. It's bomb diggity"
 )
 
-40.times do 
+150.times do 
     Rating.create(
         user_id: (2..10).to_a.sample,
         restaurant_id: (1..36).to_a.sample,
@@ -827,7 +836,7 @@ Rating.create(
     )
 end
 
-30.times do 
+50.times do 
     Rating.create(
         user_id: (2..10).to_a.sample,
         restaurant_id: (1..36).to_a.sample,
