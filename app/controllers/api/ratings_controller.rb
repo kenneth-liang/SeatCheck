@@ -25,7 +25,7 @@ class Api::RatingsController < ApplicationController
 
     def update 
         @rating = Rating.find(params[:id])
-        if @rating.update_atrributes(rating_params)
+        if @rating.update_attributes(rating_params)
             render :show
         else 
             render json: @rating.errors.full_messages, status: 422 
