@@ -216,7 +216,10 @@ img.chair-sml {
 }
 
 .dlt-btn-div {
-    margin-left: 30%;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 15%;
+    width: 125px;
 }
 
 .menu-title{
