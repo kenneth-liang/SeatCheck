@@ -65,6 +65,7 @@
     margin:20px;
     background-color: white;
     margin-left: 32%;
+    min-height: 69vh;
 }
 
 .page-nav-links {

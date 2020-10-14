@@ -192,18 +192,6 @@ img.chair-sml {
     border-bottom: 1px solid #ccc;
 }
 
-.ratings-title{
-    font-size: 1.5rem;
-    font-weight: bold;
-    line-height: 1.33;
-    color: #2d333f;
-    border-bottom: 1px solid #d8d9db;
-    padding-bottom: 1rem;
-    margin: 0 1rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
-}
 
 .overview-rr, .overview-price{
     border-right: 1px solid lightgray

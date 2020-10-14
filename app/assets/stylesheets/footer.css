@@ -6,6 +6,8 @@
     width: 100%;
     border-radius: 2px;
     justify-content: space-between;
+    /* position: absolute; */
+    /* bottom: 0; */
 }
 
 .footer-description{
