@@ -11,7 +11,7 @@ const mSTP = (state, ownProps) => {
       rating: state.entities.ratings[ownProps.match.params.ratingId], 
       currentUser: state.entities.users[state.session.id],
       restaurant: state.entities.restaurants[ownProps.match.params.restaurantId],
-      formType: "edit",
+      formType: "Edit Rating",
       restaurant: state.entities.restaurants[ownProps.match.params.id],
     };
 }

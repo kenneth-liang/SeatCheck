@@ -9,7 +9,7 @@ class RatingForm extends React.Component{
             user_id: "",
             restaurant_id: this.props.match.params.id,
             overall_score: '',
-            review: this.props.formType === "create" ? "" : this.props.rating.review
+            review: this.props.formType === "Submit Rating" ? "" : this.props.rating.review
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -137,9 +137,11 @@ class RatingForm extends React.Component{
                     </div>
                     <form className="rating-form">
                         <div className="rating-top">
-                            <h3>Give A Rating: </h3>
-                            {this.renderErrors()}
-                            <br/>
+                            {this.props.formType=== "Edit Rating" ? (
+                                <h3>Give A New Rating: </h3>
+                            ):(
+                                <h3>Give A Rating: </h3>
+                            )}
                             <div className="rate-score">
                                 {this.ratingChairs()}
                             </div>
@@ -151,28 +153,12 @@ class RatingForm extends React.Component{
                                 onChange={this.update('review')}
                                 />
                         </div>
-                        <div>
-                            {this.props.currentUser ? (
-                            <input type="submit"
-                                onClick={this.handleSubmit}
-                                value="Submit"
-                                className="rating-submit-btn"
-                            />
-                            ) : ( 
-                            <input type="submit"
-                                onClick={this.handleSubmit}
-                                value="Submit"
-                                className="rating-submit-btn"
-                                disabled = "disabled"
-                                id="disabled-btn"
-                            />
-                            )}
-                        </div>
-
-                        {this.props.currentUser ? "" : (
-                            <p>Log in to make a review!</p>
-                        )}
-                        
+                        {this.renderErrors()}
+                        <input type="submit"
+                            onClick={this.handleSubmit}
+                            value={this.props.formType}
+                            className="rating-submit-btn"
+                        />
                     </form>
                 </div>
             </div>
