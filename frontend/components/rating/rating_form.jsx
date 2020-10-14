@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom"
 
 class RatingForm extends React.Component{
     constructor(props){
@@ -20,6 +21,7 @@ class RatingForm extends React.Component{
     }
 
     componentDidMount(){
+        this.props.fetchRestaurant(this.state.restaurant_id)
         this.props.clearErrors()
     }
 
@@ -114,54 +116,65 @@ class RatingForm extends React.Component{
     }
 
     render(){
+        if (!this.props.restaurant) return null  
         return(
-            <div className="rating-form-container">
-                <form className="rating-form">
-                    <div className="rating-top">
-                        <h3>Give A Rating</h3>
-                        {this.renderErrors()}
-                        <br/>
-                        <div className="rate-score">
-                            {/* <select onChange={this.update("overall_score")}>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select> */}
-                            {this.ratingChairs()}
+            <div className="rating-div">
+                <div className="rating-header">
+                    <Link to={`/restaurants/${this.props.restaurant.id}`} >
+                        <i className="fas fa-angle-double-left"></i> Back To {this.props.restaurant.name}
+                    </Link>
+                </div>
+                <div className="rating-form-container">
+                    <div className="rating-rest-info">
+                        <img className="img-sml" src={this.props.restaurant.photo}/>
+                        <div className="rating-rest-text">
+                            <div className="res-rest-name">
+                                {this.props.restaurant.name}
+                            </div>
+                            <br/>
+                            <i className="fas fa-utensils"></i> {this.props.restaurant.cuisine} | <i className="fas fa-map-marker-alt location-idx"></i> {this.props.restaurant.city}
                         </div>
                     </div>
-                    <div className="rating-form-review">
-                        <textarea className="review-input-field"
-                            // placeholder=" Tell us what you thought"
-                            value={this.state.review}
-                            onChange={this.update('review')}
+                    <form className="rating-form">
+                        <div className="rating-top">
+                            <h3>Give A Rating: </h3>
+                            {this.renderErrors()}
+                            <br/>
+                            <div className="rate-score">
+                                {this.ratingChairs()}
+                            </div>
+                        </div>
+                        <div className="rating-form-review">
+                            <textarea className="review-input-field"
+                                placeholder= {this.state.review === "" ? "Tell us what you thought" : ""} 
+                                value={this.state.review}
+                                onChange={this.update('review')}
+                                />
+                        </div>
+                        <div>
+                            {this.props.currentUser ? (
+                            <input type="submit"
+                                onClick={this.handleSubmit}
+                                value="Submit"
+                                className="rating-submit-btn"
                             />
-                    </div>
-                    <div>
-                        {this.props.currentUser ? (
-                        <input type="submit"
-                            onClick={this.handleSubmit}
-                            value="Submit"
-                            className="rating-submit-btn"
-                        />
-                        ) : ( 
-                        <input type="submit"
-                            onClick={this.handleSubmit}
-                            value="Submit"
-                            className="rating-submit-btn"
-                            disabled = "disabled"
-                            id="disabled-btn"
-                        />
-                        )}
-                    </div>
+                            ) : ( 
+                            <input type="submit"
+                                onClick={this.handleSubmit}
+                                value="Submit"
+                                className="rating-submit-btn"
+                                disabled = "disabled"
+                                id="disabled-btn"
+                            />
+                            )}
+                        </div>
 
-                    {this.props.currentUser ? "" : (
-                        <p>Log in to make a review!</p>
-                    )}
-                    
-                </form>
+                        {this.props.currentUser ? "" : (
+                            <p>Log in to make a review!</p>
+                        )}
+                        
+                    </form>
+                </div>
             </div>
         )
     }

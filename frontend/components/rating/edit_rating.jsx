@@ -26,6 +26,7 @@ class EditRatingForm extends React.Component{
         clearErrors ={this.props.clearErrors}
         editRating = {this.props.editRating}
         formType={this.props.formType}
+        fetchRestaurant={this.props.fetchRestaurant}
      />
     )
   }

@@ -7,12 +7,12 @@ import {fetchRating, receiveRatingErrors} from '../../actions/rating_actions'
 import EditRatingForm from "./edit_rating"
 
 const mSTP = (state, ownProps) => {
-  
     return {
       rating: state.entities.ratings[ownProps.match.params.ratingId], 
       currentUser: state.entities.users[state.session.id],
       restaurant: state.entities.restaurants[ownProps.match.params.restaurantId],
-      formType: "edit"
+      formType: "edit",
+      restaurant: state.entities.restaurants[ownProps.match.params.id],
     };
 }
 

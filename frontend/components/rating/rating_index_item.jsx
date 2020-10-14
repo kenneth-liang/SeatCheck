@@ -32,7 +32,7 @@ class RatingIndexItem extends React.Component{
     deleteRating(id){
         return e=> {
             e.preventDefault();
-            this.props.deleteRating(id);
+            this.props.deleteRating(id).then(()=> location.reload() );
         }
     }
 
