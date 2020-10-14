@@ -246,7 +246,9 @@ class RestaurantShow extends React.Component{
               <div className="restuarant-reviews">
               {/* <Route path={'/restaurants/:restaurantId'} component={RatingForm}  /> */}
               <Link to={`/restaurants/${restaurant.id}/ratings/new`}>
-                Leave a Review
+                <div className="review-button">
+                  Leave a Review
+                </div>
               </Link>
               </div>
             </div>

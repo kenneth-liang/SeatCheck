@@ -3,11 +3,12 @@ import React from 'react';
 class RatingForm extends React.Component{
     constructor(props){
         super(props);
+        
         this.state = {
             user_id: "",
-            restaurant_id: this.props.match.params.restaurantId,
+            restaurant_id: this.props.match.params.id,
             overall_score: '',
-            review: ''
+            review: this.props.formType === "create" ? "" : this.props.rating.review
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,7 +20,7 @@ class RatingForm extends React.Component{
     }
 
     componentDidMount(){
-        this.props.clearErrors();
+        this.props.clearErrors()
     }
 
     update(filed){
@@ -43,16 +44,19 @@ class RatingForm extends React.Component{
             overall_score: this.state.overall_score,
             review: this.state.review
         }
+
+        if (this.props.formType === "edit"  ) {
+            ratingInfo["id"] = this.props.rating.id
+        }
         
-       this.props.createRating(ratingInfo).then(() => (
+       this.props.action(ratingInfo).then(() => (
            this.setState({
                user_id: "",
                restaurant_id: this.props.match.params.restaurantId,
                overall_score: '',
                review: ''
            })
-       ))
-       window.location.reload();
+       )).then( () => this.props.history.push(`/restaurants/${this.props.match.params.id}`))
     }
 
     handleHover(i){
@@ -130,7 +134,7 @@ class RatingForm extends React.Component{
                     </div>
                     <div className="rating-form-review">
                         <textarea className="review-input-field"
-                            placeholder=" Tell us what you thought"
+                            // placeholder=" Tell us what you thought"
                             value={this.state.review}
                             onChange={this.update('review')}
                             />
