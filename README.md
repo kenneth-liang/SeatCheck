@@ -78,7 +78,7 @@ Other tools used in Seat Check are JBuilder, NodeJS, JQuery to make AJAX request
 
 ### Code Snippets 
 
-When retrieving all the restaurants for search, Seat Check uses ```fetchRestaurants``` RESTful call to populate the initial restauranants. Upon clicking "Let's Go" (on the home page) or changing location (in the map view), the application then uses ```searchRestaurants``` Restful call to retrieve the restaurants matching the search criteria. Once the user clicks on the restaurant, another call is made using ```fetchRestaurant``` to retreive the information that populates the show page.
+When retrieving all the restaurants for search, Seat Check uses ```fetchRestaurants``` RESTful call to populate the initial restauranants. Upon clicking "Let's Go" (on the home page) or changing location (in the map view), the application then uses ```searchRestaurants``` RESTful call to retrieve the restaurants matching the search criteria. Once the user clicks on the restaurant, another call is made using ```fetchRestaurant``` to retreive the information that populates the show page.
 
 
 ```javascript 
