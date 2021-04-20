@@ -35,7 +35,7 @@ const App = () => (
       </div>
       <div className="footer-links">
         <a href="https://github.com/kenneth-liang" target="_blank"><i className="fab fa-github"></i><p> Github</p></a><br />
-        <a href="https://www.linkedin.com/in/insightfulkennethliang/" target="_blank"><i className="fab fa-linkedin"></i><p> LinkedIn</p></a><br />
+        <a href="https://www.linkedin.com/in/devkennethliang/" target="_blank"><i className="fab fa-linkedin"></i><p> LinkedIn</p></a><br />
         <a href="https://kennethliang.com/" target="_blank"><i className="fas fa-user user-icon" target="_blank"></i><p> About Me</p></a>
       </div>
     </footer>

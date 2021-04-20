@@ -1,6 +1,5 @@
 import React from 'react';
 import AllRestaurant from './all_restaurants'
-// import SearchMap from "./search_map";
 import MarkerManager from "../../util/marker_manager";
 
 const CITY = [
@@ -123,7 +122,6 @@ class MapSearch extends React.Component {
       <div id="search-map-page">
         <div className="search-map-container">
           <div className="search-map">
-            {/* <SearchMap restaurants={restaurants} searchRestaurants={searchRestaurants} center={this.state.center}/> */}
             <div id="search-map-container" ref={map => this.SearchMapNode = map}>
               <h1>the map</h1>
             </div>
