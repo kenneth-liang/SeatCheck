@@ -1,4 +1,5 @@
 class MarkerManager {
+  // MarkerManager accepts a map
   constructor(map) {
     this.map = map;
     this.markers = {};
@@ -6,7 +7,13 @@ class MarkerManager {
 
   updateMarkers(restaurants) {
     const restaurantMarkers = {}
+
+    // any restaurant that leave our application will have their markers removed from the map 
     Object.values(this.markers).forEach(res => this.removeMarker(res));
+
+
+    // for each restaurant, if the id is not a key in this.markers, 
+    //create a new marker from it and add it to the map and this.markers 
     Object.values(restaurants).forEach(restaurant => {
       restaurantMarkers[restaurant.id] = this.createMarkerFromRestaurant(restaurant)
     })
@@ -22,11 +29,14 @@ class MarkerManager {
   }
 
   removeMarker(marker) {
+    // remove marker from map and from markers object
     marker.setMap(null);
     delete this.markers[marker.id]
   }
 
   createMarkerFromRestaurant(restaurant) {
+    // accepts a restaurant object as an argument
+    // adds a marker to the map and to markers object 
     const latLng = { lat: restaurant.lat, lng: restaurant.lng };
     var infowindow = new google.maps.InfoWindow({
       content: (`<div id=marker-title>${restaurant.name}</div>`)

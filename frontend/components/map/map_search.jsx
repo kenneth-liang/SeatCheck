@@ -40,15 +40,21 @@ class MapSearch extends React.Component {
       center: this.state.center, // this is SF
       zoom: 12
     };
-    
+
+    // we want to update markers when we first mount 
+    // AND whenever the restaurants in the application change
     this.map = new google.maps.Map(this.SearchMapNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map);
     this.MarkerManager.updateMarkers(this.props.restaurants);
 
     this.map.addListener('idle', () => {
-      const bounds = this.map.getBounds();
+      // called on the map instance to get a LatLngBounds instance
+      const bounds = this.map.getBounds(); 
+      // get the coordinate pairs 
       const southWest = bounds.getSouthWest();
       const northEast = bounds.getNorthEast();
+
+      
       this.sendBounds(southWest, northEast);
     });
   }
@@ -64,6 +70,7 @@ class MapSearch extends React.Component {
     this.props.history.push("/restaurants");
   }
 
+  //drop down city list 
   handleChange(e){
     e.preventDefault();
     
@@ -77,7 +84,7 @@ class MapSearch extends React.Component {
       }
     }
     
-    
+    // move center to the selected city in state
     this.setState(
       { city: newCity, center: newCenter }, () => this.searchCity()
     )
@@ -88,7 +95,7 @@ class MapSearch extends React.Component {
       zoom: 12,
     };
 
-
+    // place the markers 
     this.map = new google.maps.Map(this.SearchMapNode, newMapOptions);
     this.MarkerManager = new MarkerManager(this.map);
     this.MarkerManager.updateMarkers(this.props.restaurants);
@@ -103,10 +110,13 @@ class MapSearch extends React.Component {
 
 
   sendBounds(sw, ne) {
+    // packaging coordinates into a bounds object 
     const bounds = {
       "northEast": { "lat": ne.lat(), "lng": ne.lng() },
       "southWest": { "lat": sw.lat(), "lng": sw.lng() }
     }
+
+    //invoke, passing our new constructed bounds object 
     this.props.searchRestaurants({ bounds })
   }
 

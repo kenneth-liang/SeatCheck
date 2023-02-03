@@ -43,14 +43,17 @@ class Restaurant < ApplicationRecord
         class_name: :Favorite
     
 
-    def self.search_by_key(keyword)
-        Restaurant.where("lower(city) like ?", "%#{keyword.downcase}%")
-            .or(Restaurant.where("lower(cuisine) like ?", "%#{keyword.downcase}%"))
-            .or(Restaurant.where("lower(name) like ?", "%#{keyword.downcase}%"))
-            .or(Restaurant.where("price = ?", "#{keyword}"))
-    end
+    # def self.search_by_key(keyword)
+    #     Restaurant.where("lower(city) like ?", "%#{keyword.downcase}%")
+    #         .or(Restaurant.where("lower(cuisine) like ?", "%#{keyword.downcase}%"))
+    #         .or(Restaurant.where("lower(name) like ?", "%#{keyword.downcase}%"))
+    #         .or(Restaurant.where("price = ?", "#{keyword}"))
+    # end
+    
 
     def self.in_bounds(bounds)
+        # returns all restuarants that are with the boundaries 
+        # bounds will be passed as query string and therefore available in the params hash 
         ne_lat = bounds[:northEast][:lat].to_f
         ne_lng = bounds[:northEast][:lng].to_f
         sw_lat = bounds[:southWest][:lat].to_f

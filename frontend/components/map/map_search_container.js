@@ -11,7 +11,7 @@ const mSTP = state => {
 const nDTP = dispatch => {
   return {
     fetchRestaurants: () => dispatch(fetchRestaurants()),
-    searchRestaurants: (search) => dispatch(searchRestaurants(search)),
+    searchRestaurants: (search) => dispatch(searchRestaurants(search)), //filter 
   }
 };
 

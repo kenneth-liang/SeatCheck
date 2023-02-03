@@ -1,7 +1,9 @@
 class Api::RestaurantsController < ApplicationController
     def index 
+        # filter
         if params[:search]     
             if params[:search][:bounds]        
+                # invoke our in_bounds method with given bounds
                 @restaurants = Restaurant.in_bounds(params[:search][:bounds])
             elsif params[:search][:city]
                 @restaurants = params[:search][:city] == [] ? 

@@ -35,6 +35,8 @@ export const fetchRestaurant = id => dispatch => {
         (payload) => dispatch(receiveRestaurant(payload)))
 }
 
+
+// dispatching an action to trigger a change in our view component
 export const searchRestaurants = search => dispatch => {
   return ApiUtil.searchRestaurants(search).then(
     (searchedRestaurants) =>
