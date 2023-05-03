@@ -11,8 +11,9 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sassc', '~> 2.0', '>= 2.0.1'
-gem 'sprockets', '~> 3.7.2'
-gem 'sass-rails', '~> 5.1.0 ' 
+gem 'sprockets', '~> 4.2'
+gem 'sprockets-rails', '~> 3.4', '>= 3.4.2'
+gem 'sass-rails', '~> 6.0.0'
 gem 'concurrent-ruby',  '~>1.1.5'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
