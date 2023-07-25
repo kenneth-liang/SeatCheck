@@ -10,4 +10,4 @@ npm install && npm run build
 # migrate
 bundle exec rake db:migrate
 # postbuild
-cp -a client/build/. public/
+cp -a build/. public/
