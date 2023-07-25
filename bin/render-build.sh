@@ -10,4 +10,4 @@ npm install && npm run build
 # migrate
 bundle exec rake db:migrate
 # postbuild
-cp -a public/
+# cp -a frontend/build/. public/
