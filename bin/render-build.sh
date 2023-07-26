@@ -9,5 +9,6 @@ rm -rf public
 npm install && npm run build
 # migrate
 bundle exec rake db:migrate
+bundle exec rake db:seed:all
 # postbuild
 # cp -a frontend/build/. public/
