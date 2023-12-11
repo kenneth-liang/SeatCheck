@@ -1,6 +1,6 @@
 databases:
   - name: SeatCheck-master
-    databaseName: SeatCheck-master
+    databaseName: SeatCheck-master_development
     user: kenneth
 
 services:
