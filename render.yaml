@@ -1,7 +1,7 @@
 databases:
   - name: SeatCheck-master
     databaseName: SeatCheck-master
-    user: SeatCheck-master
+    user: kenneth
 
 services:
   - type: web
